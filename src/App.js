@@ -17,19 +17,19 @@ function App() {
     <Router>
       <Sidebar />
       <Routes>
-        <Route path="/overview" exact component={Overview} />
-        <Route path="/overview/users" exact component={Users} />
-        <Route path="/overview/revenue" exact component={Revenue} />
-        <Route path="/reports" exact component={Reports} />
-        <Route path="/reports/reports1" exact component={ReportsOne} />
-        <Route path="/reports/reports2" exact component={ReportsTwo} />
-        <Route path="/reports/reports3" exact component={ReportsThree} />
-        <Route path="/products" exact component={Products} />
-        <Route path="/team" exact component={Team} />
-        <Route path="/messages" exact component={Messages} />
-        <Route path="/messages/message1" exact component={Messages1} />
-        <Route path="/messages/message2" exact component={Messages2} />
-        <Route path="/support" component={Support} />
+        <Route path="/overview" exact element={<Overview/>} />
+        <Route path="/overview/users" exact element={<Users/>} />
+        <Route path="/overview/revenue" exact element={<Revenue/>} />
+        <Route path="/reports" exact element={<Reports/>} />
+        <Route path="/reports/reports1" exact element={<ReportsOne/>} />
+        <Route path="/reports/reports2" exact element={<ReportsTwo/>} />
+        <Route path="/reports/reports3" exact element={<ReportsThree/>} />
+        <Route path="/products" exact element={<Products/>} />
+        <Route path="/team" exact element={<Team/>} />
+        <Route path="/messages" exact element={<Messages/>} />
+        <Route path="/messages/message1" exact element={<Messages1/>} />
+        <Route path="/messages/message2" exact element={<Messages2/>} />
+        <Route path="/support" element={<Support/>} />
       </Routes>
     </Router>
   );
