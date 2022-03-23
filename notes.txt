@@ -1,0 +1,5 @@
+Ensure when page opens, it goes to a page and not a whitescreen!
+change pages so they fit the trusts reqs
+make pages for each (Maybe subout)
+add footer
+add header
