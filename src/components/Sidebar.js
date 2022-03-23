@@ -47,9 +47,11 @@ const Sidebar = () => {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <>
-      <IconContext.Provider value={{ color: '#fff' }}>
-        <Nav>
+    //<div onClick={showSidebar}>  makes the sidebar disappear as soon as you click it
+    //need to make it disappear on the click of the final link???
+<>
+    <IconContext.Provider value={{ color: '#fff' }}>
+         <Nav>
           <NavIcon to='#'>
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
@@ -65,7 +67,8 @@ const Sidebar = () => {
           </SidebarWrap>
         </SidebarNav>
       </IconContext.Provider>
-    </>
+      </>
+//</div>
   );
 };
 
