@@ -23,6 +23,7 @@ function App() {
     <Router>
       <Sidebar />
       <Routes>
+        <Route path="/" exact element={<Home />} /> 
         <Route path="/overview" exact element={<Overview />} />
         <Route path="/overview/users" exact element={<Users />} />
         <Route path="/overview/revenue" exact element={<Revenue />} />

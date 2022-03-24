@@ -1,5 +1,7 @@
-Ensure when page opens, it goes to a page and not a whitescreen!
-change pages so they fit the trusts reqs
+create a home/landing page so not greeted with a blank screen
+    DONE IT!!! :-) 
+
+change pages so they fit the trusts reqs.... This will be a long ass thing, rename each page and link
 make pages for each (Maybe subout)
 add footer
 add header
