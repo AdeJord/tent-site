@@ -1,8 +1,3 @@
-//************JOB**************Make it load on Overview instead of a blank page"**********
-
-
-
-
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -16,14 +11,14 @@ import Revenue from "./pages/overview/Revenue";
 import Products from "./pages/Products";
 import Messages1 from "./pages/messages/Messages1";
 import Messages2 from "./pages/messages/Messages2";
-import Home from "./pages/Home";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
     <Router>
       <Sidebar />
       <Routes>
-        <Route path="/" exact element={<Home />} /> 
+        <Route path="/" exact element={<LandingPage />} /> 
         <Route path="/overview" exact element={<Overview />} />
         <Route path="/overview/users" exact element={<Users />} />
         <Route path="/overview/revenue" exact element={<Revenue />} />

@@ -33,7 +33,7 @@ const SidebarNav = styled.nav`
   position: fixed;
   top: 0;
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
-  transition: 350ms;
+  transition: 650ms;
   z-index: 10;
 `;
 
@@ -45,10 +45,13 @@ const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+  console.log({sidebar})
 
   return (
     //<div onClick={showSidebar}>  makes the sidebar disappear as soon as you click it
     //need to make it disappear on the click of the final link???
+    //when in onClick={showSidebar} is in sidebarwrap, it closes when you click the parent and doesnt let you look for the child
+    //code to make sidebar hide is https://stackoverflow.com/questions/66626487/hiding-sidebar-component-on-outside-click
 <>
     <IconContext.Provider value={{ color: '#fff' }}>
          <Nav>
@@ -57,7 +60,7 @@ const Sidebar = () => {
           </NavIcon>
         </Nav>
         <SidebarNav sidebar={sidebar}>
-          <SidebarWrap>
+          <SidebarWrap onClick={showSidebar}>
             <NavIcon to='#'>
               <AiIcons.AiOutlineClose onClick={showSidebar} />
             </NavIcon>
