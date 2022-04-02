@@ -33,7 +33,7 @@ const SidebarNav = styled.nav`
   position: fixed;
   top: 0;
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
-  transition: 650ms;
+  transition: 250ms;
   z-index: 10;
 `;
 
@@ -55,17 +55,17 @@ const Sidebar = () => {
 <>
     <IconContext.Provider value={{ color: '#fff' }}>
          <Nav>
-          <NavIcon to='#'>
-            <FaIcons.FaBars onClick={showSidebar} />
+          <NavIcon to='#' onClick={showSidebar}>
+            <FaIcons.FaBars />
           </NavIcon>
         </Nav>
         <SidebarNav sidebar={sidebar}>
-          <SidebarWrap onClick={showSidebar}>
-            <NavIcon to='#'>
-              <AiIcons.AiOutlineClose onClick={showSidebar} />
+          <SidebarWrap>
+            <NavIcon to='#' onClick={showSidebar}>
+              <AiIcons.AiOutlineClose />
             </NavIcon>
             {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} />;
+              return <SubMenu item={item} key={index} closeParent={showSidebar} />;
             })}
           </SidebarWrap>
         </SidebarNav>
