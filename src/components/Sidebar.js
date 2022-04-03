@@ -9,10 +9,11 @@ import { IconContext } from 'react-icons/lib';
 
 const Nav = styled.div`
   background: #15171c;
-  height: 80px;
+  height: 150px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  color: white;
 `;
 
 const NavIcon = styled(Link)`
@@ -22,7 +23,13 @@ const NavIcon = styled(Link)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  @media (min-width: 768px) {
+    width: 100vh;
+    display: none;
+  }
 `;
+
+
 
 const SidebarNav = styled.nav`
   background: #15171c;
@@ -35,7 +42,31 @@ const SidebarNav = styled.nav`
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
   transition: 250ms;
   z-index: 10;
+  @media (min-width: 768px) {
+    width: 100vh;
+    display: none;
+  }
 `;
+
+const MainNav = styled.nav`
+background: #15171c;
+width: 100vw;
+height: 10vh;
+display: flex;
+flex-direction: row;
+justify-content: space-around;;
+position: fixed;
+z-index: 10;
+display: none;
+@media (min-width: 768px) {
+  display: flex;
+}
+`;
+
+const MainNavChildren = styled.nav`
+display: flex;
+flex-direction: column;
+`
 
 const SidebarWrap = styled.div`
   width: 100%;
@@ -43,14 +74,13 @@ const SidebarWrap = styled.div`
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
+  const [MainNavbar, setMainNavbar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
-  console.log({sidebar})
+  const showMainNavbar = () => setMainNavbar(!MainNavbar);
+  //console.log({sidebar})
 
   return (
-    //<div onClick={showSidebar}>  makes the sidebar disappear as soon as you click it
-    //need to make it disappear on the click of the final link???
-    //when in onClick={showSidebar} is in sidebarwrap, it closes when you click the parent and doesnt let you look for the child
     //code to make sidebar hide is https://stackoverflow.com/questions/66626487/hiding-sidebar-component-on-outside-click
 <>
     <IconContext.Provider value={{ color: '#fff' }}>
@@ -58,6 +88,7 @@ const Sidebar = () => {
           <NavIcon to='#' onClick={showSidebar}>
             <FaIcons.FaBars />
           </NavIcon>
+          <div style={{fontSize: '2.5em', paddingLeft: '40px'}}>Truman Enterprise Narrowboat Trust</div>
         </Nav>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
@@ -69,6 +100,14 @@ const Sidebar = () => {
             })}
           </SidebarWrap>
         </SidebarNav>
+        <MainNavChildren>
+        <MainNav MainNavbar={MainNavbar}>
+        {SidebarData.map((item, index) => {
+              return <SubMenu item={item} key={index} closeParent={showMainNavbar} />;
+            })}
+            </MainNav>
+            </MainNavChildren>
+        
       </IconContext.Provider>
       </>
 //</div>

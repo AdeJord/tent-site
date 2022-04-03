@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const SidebarLink = styled(Link)`
   display: flex;
+  flex-direction: row;
   color: #e1e9fc;
   justify-content: space-between;
   align-items: center;
@@ -15,21 +16,27 @@ const SidebarLink = styled(Link)`
 
   &:hover {
     background: #252831;
-    border-left: 4px solid #632ce4;
+    border-left: 10px solid ##0D380A;
     cursor: pointer;
+  }
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
   }
 `;
 
 const SidebarLabel = styled.span`
   margin-left: 16px;
+  
 `;
 
 const DropdownLink = styled(Link)`
   background: #414757;
   height: 60px;
-  padding-left: 3rem;
+  padding-left: 1rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: left;
   text-decoration: none;
   color: #f5f5f5;
   font-size: 18px;
@@ -40,11 +47,15 @@ const DropdownLink = styled(Link)`
   }
 `;
 
+const SubNav = styled.nav`
+dipslay: flex;
+flex-direction: column;`
+
 const SubMenu = ({ item, closeParent }) => {
   const [subnav, setSubnav] = useState(false);
 
   return (
-    <>
+    <SubNav>
       <SidebarLink to={item.path} onClick={() => {
         setSubnav(!subnav)
         if (item?.closeMenu) {
@@ -72,7 +83,7 @@ const SubMenu = ({ item, closeParent }) => {
             </DropdownLink>
           );
         })}
-    </>
+    </SubNav>
   );
 };
 
