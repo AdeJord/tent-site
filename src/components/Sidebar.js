@@ -48,48 +48,28 @@ const SidebarNav = styled.nav`
   }
 `;
 
-const MainNav = styled.nav`
-background: #15171c;
-width: 100vw;
-height: 10vh;
-display: flex;
-flex-direction: row;
-justify-content: space-around;;
-position: fixed;
-z-index: 10;
-display: none;
-@media (min-width: 768px) {
-  display: flex;
-}
-`;
-
-const MainNavChildren = styled.nav`
-display: flex;
-flex-direction: column;
-`
-
 const SidebarWrap = styled.div`
   width: 100%;
 `;
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
-  const [MainNavbar, setMainNavbar] = useState(false);
+  const [mainNavbar, setMainNavbar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
-  const showMainNavbar = () => setMainNavbar(!MainNavbar);
   //console.log({sidebar})
 
   return (
     //code to make sidebar hide is https://stackoverflow.com/questions/66626487/hiding-sidebar-component-on-outside-click
-<>
-    <IconContext.Provider value={{ color: '#fff' }}>
-         <Nav>
+    <>
+      <IconContext.Provider value={{ color: '#fff' }}>
+        <Nav>
           <NavIcon to='#' onClick={showSidebar}>
             <FaIcons.FaBars />
           </NavIcon>
-          <div style={{fontSize: '2.5em', paddingLeft: '40px'}}>Truman Enterprise Narrowboat Trust</div>
+          <div style={{ fontSize: '2.5em', paddingLeft: '40px' }}>Truman Enterprise Narrowboat Trust</div>
         </Nav>
+        
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
             <NavIcon to='#' onClick={showSidebar}>
@@ -100,17 +80,10 @@ const Sidebar = () => {
             })}
           </SidebarWrap>
         </SidebarNav>
-        <MainNavChildren>
-        <MainNav MainNavbar={MainNavbar}>
-        {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} closeParent={showMainNavbar} />;
-            })}
-            </MainNav>
-            </MainNavChildren>
-        
+
       </IconContext.Provider>
-      </>
-//</div>
+    </>
+    //</div>
   );
 };
 
