@@ -33,7 +33,7 @@ const SidebarLabel = styled.span`
 const DropdownLink = styled(Link)`
   background: #414757;
   height: 60px;
-  padding-left: 1rem;
+  padding-left: 3rem;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -49,7 +49,8 @@ const DropdownLink = styled(Link)`
 
 const SubNav = styled.nav`
 dipslay: flex;
-flex-direction: column;`
+flex-direction: column;
+`
 
 const SubMenu = ({ item, closeParent }) => {
   const [subnav, setSubnav] = useState(false);

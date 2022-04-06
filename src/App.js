@@ -1,5 +1,6 @@
 import "./App.css";
 import Sidebar from "./components/Sidebar";
+import Mainnav from "./components/Mainnav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Overview from "./pages/Overview";
 import { Reports, ReportsOne, ReportsTwo, ReportsThree } from "./pages/Reports";
@@ -17,6 +18,7 @@ function App() {
   return (
     <Router>
       <Sidebar />
+      <Mainnav />
       <Routes>
         <Route path="/" exact element={<LandingPage />} /> 
         <Route path="/overview" exact element={<Overview />} />
