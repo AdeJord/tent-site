@@ -6,97 +6,143 @@ import * as RiIcons from 'react-icons/ri';
 
 export const SidebarData = [
   {
-    title: 'Overview',
-    path: '/overview',
+    title: 'Home',
+    path: '/home',
     icon: <AiIcons.AiFillHome />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-    closeMenu: false,
-    subNav: [
-      {
-        title: 'Users',
-        path: '/overview/users',
-        icon: <IoIcons.IoIosPaper />,
-        closeMenu: true,
-      },
-      {
-        title: 'Revenue',
-        path: '/overview/revenue',
-        icon: <IoIcons.IoIosPaper />,
-        closeMenu: true,
-      }
-    ]
+    closeMenu: true,
+    subNav: []
   },
+
   {
-    title: 'Reports',
-    path: '/reports',
+    title:'About Us',
+    path: '/AboutUs/AboutUs',
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     closeMenu: false,
     subNav: [
       {
-        title: 'Reports',
-        path: '/reports/reports1',
-        icon: <IoIcons.IoIosPaper />,
+        title: 'About The Trust',
+        path: '/AboutUs/AboutTheTrust',
         cName: 'sub-nav',
         closeMenu: true
       },
       {
-        title: 'Reports 2',
-        path: '/reports/reports2',
-        icon: <IoIcons.IoIosPaper />,
+        title: 'Volunteers',
+        path: '/AboutUs/Volunteers',
         cName: 'sub-nav',
         closeMenu: true
       },
       {
-        title: 'Reports 3',
-        path: '/reports/reports3',
-        icon: <IoIcons.IoIosPaper />,
+        title: 'Boat Brochure',
+        path: '/AboutUs/BoatBrochure',
+        cName: 'sub-nav',
+        closeMenu: true
+      },
+      {
+        title: 'Details And Diagrams',
+        path: '/AboutUs/DetailsAndDiagrams',
+        cName: 'sub-nav',
+        closeMenu: true
+      },
+      {
+        title: 'Aims And Objectives',
+        path: '/AboutUs/AimsAndObjectives',
+        cName: 'sub-nav',
+        closeMenu: true
+      },
+      {
+        title: 'Our History',
+        path: '/AboutUs/OurHistory',
+        cName: 'sub-nav',
+        closeMenu: true
+      },
+      {
+        title: 'Meet The Crew',
+        path: '/AboutUs/MeetTheCrew',
+        cName: 'sub-nav',
+        closeMenu: true
+      }      ,
+      {
+        title: 'Risk Assesments',
+        path: '/AboutUs/RiskAssesments',
+        cName: 'sub-nav',
+        closeMenu: true
+      },
+      {
+        title: 'Useful Links',
+        path: '/AboutUs/UsefulLinks',
+        cName: 'sub-nav',
         closeMenu: true
       }
     ]
   },
+
   {
-    title: 'Products',
-    path: '/products',
-    icon: <FaIcons.FaCartPlus />,
-    closeMenu: true,
-    subNav: []
-  },
-  {
-    title: 'Team',
-    path: '/team',
-    icon: <IoIcons.IoMdPeople />,
-    closeMenu: true,
-    subNav: []
-  },
-  {
-    title: 'Messages',
-    path: '/messages',
-    icon: <FaIcons.FaEnvelopeOpenText />,
+
+    /*    title:'About Us',
+    path: '/AboutUs/AboutUs',
+    icon: <IoIcons.IoIosPaper />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    closeMenu: false,*/
+    title: 'Book Your Trip',
+    path: '/BookYourTrip/BookYourTrip',
+    icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     closeMenu: false,
     subNav: [
       {
-        title: 'Message 1',
-        path: '/messages/message1',
-        icon: <IoIcons.IoIosPaper />,
-        closeMenu: true,
+        title: 'Book Your Trip',
+        path: '/BookYourTrip/BookYourTrip',
+        cName: 'sub-nav',
+        closeMenu: true
+      },
+
+      {
+        title: 'How much does it cost?',
+        path: '/BookYourTrip/HowMuch',
+        cName: 'sub-nav',
+        closeMenu: true
       },
       {
-        title: 'Message 2',
-        path: '/messages/message2',
-        icon: <IoIcons.IoIosPaper />,
-        closeMenu: true,
+        title: 'How to pay for your trip',
+        path: '/BookYourTrip/HowToPay',
+        cName: 'sub-nav',
+        closeMenu: true
+      },
+      {
+        title: 'Have a go days',
+        path: '/book-your-trip/HavAGo',
+        cName: 'sub-nav',
+        closeMenu: true
+      },
+      {
+        title: 'Training',
+        path: '/book-your-trip/Training',
+        cName: 'sub-nav',
+        closeMenu: true
+      },
+      {
+        title: 'Terms and conditions',
+        path: '/book-your-trip/TermsAndCond',
+        cName: 'sub-nav',
+        closeMenu: true
       }
     ]
   },
   {
-    title: 'Support',
-    path: '/support',
-    icon: <IoIcons.IoMdHelpCircle />,
+    title: 'Gallery',
+    path: '/Gallery',
+    icon: <FaIcons.FaCartPlus />,
+    closeMenu: true,
+    subNav: []
+  },
+  {
+    title: 'Contact Us',
+    path: '/ContactUs',
+    icon: <IoIcons.IoMdPeople />,
     closeMenu: true,
     subNav: []
   }

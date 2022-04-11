@@ -2,39 +2,49 @@ import "./App.css";
 import Sidebar from "./components/Sidebar";
 import Mainnav from "./components/Mainnav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Overview from "./pages/Overview";
-import { Reports, ReportsOne, ReportsTwo, ReportsThree } from "./pages/Reports";
+import Home from "./pages/Home";
+import { HowMuch, HowToPay, HavAGo, BookYourTrip, Training, TermsAndCond } from "./pages/BookYourTrip";
 import Team from "./pages/Team";
-import Messages from "./pages/Messages";
-import Support from "./pages/Support";
-import Users from "./pages/overview/Users";
-import Revenue from "./pages/overview/Revenue";
-import Products from "./pages/Products";
-import Messages1 from "./pages/messages/Messages1";
-import Messages2 from "./pages/messages/Messages2";
+import ContactUs from './pages/ContactUs';
+import Gallery from './pages/Gallery';
 import LandingPage from "./pages/LandingPage";
+import { AboutUs, AboutTheTrust, Volunteers, BoatBrochure, DetailsAndDiagrams, AimsAndObjectives,
+OurHistory, MeetTheCrew, RiskAssesments, UsefulLinks } from "./pages/AboutUs";
+import Footer from "./components/Footer";
+
+/* why do are the below routes different although they come from same object(BookYourTrip)
+ if I put them all in BookYourTrip, only 1/2 of them work,
+ and when I put them in book-your-trip, the other 1/2 works?*/
 
 function App() {
   return (
-    <Router>
+    <Router style={{margin: '10px'}}>
       <Sidebar />
       <Mainnav />
       <Routes>
         <Route path="/" exact element={<LandingPage />} /> 
-        <Route path="/overview" exact element={<Overview />} />
-        <Route path="/overview/users" exact element={<Users />} />
-        <Route path="/overview/revenue" exact element={<Revenue />} />
-        <Route path="/reports" exact element={<Reports />} />
-        <Route path="/reports/reports1" exact element={<ReportsOne />} />
-        <Route path="/reports/reports2" exact element={<ReportsTwo />} />
-        <Route path="/reports/reports3" exact element={<ReportsThree />} />
-        <Route path="/products" exact element={<Products />} />
-        <Route path="/team" exact element={<Team />} />
-        <Route path="/messages" exact element={<Messages />} />
-        <Route path="/messages/message1" exact element={<Messages1 />} />
-        <Route path="/messages/message2" exact element={<Messages2 />} />
-        <Route path="/support" element={<Support />} />
+        <Route path="/home" exact element={<Home />} />
+        <Route path="/BookYourTrip/BookYourTrip" exact element={<BookYourTrip />} />
+        <Route path="/BookYourTrip/HowMuch" exact element={<HowMuch />} />
+        <Route path="/BookYourTrip/HowToPay" exact element={<HowToPay />} />
+        <Route path="/book-your-trip/HavAGo" exact element={<HavAGo />} />
+        <Route path="/book-your-trip/Training" exact element={<Training />} />
+        <Route path="/book-your-trip/TermsAndCond" exact element={<TermsAndCond />} />
+        <Route path="/AboutUs/AboutUs" exact element={<AboutUs />} />
+        <Route path="/AboutUs/AboutTheTrust" exact element={<AboutTheTrust />} />
+        <Route path="/AboutUs/Volunteers" exact element={<Volunteers />} />
+        <Route path="/AboutUs/BoatBrochure" exact element={<BoatBrochure />} />
+        <Route path="/AboutUs/DetailsAndDiagrams" exact element={<DetailsAndDiagrams />} />
+        <Route path="/AboutUs/AimsAndObjectives" exact element={<AimsAndObjectives />} />
+        <Route path="/AboutUs/OurHistory" exact element={<OurHistory />} />
+        <Route path="/AboutUs/MeetTheCrew" exact element={<MeetTheCrew />} />
+        <Route path="/AboutUs/RiskAssesments" exact element={<RiskAssesments />} />
+        <Route path="/AboutUs/UsefulLinks" exact element={<UsefulLinks />} />
+        <Route path="/Gallery" exact element={<Gallery />} />
+        <Route path="/ContactUs" exact element={<ContactUs />} />
       </Routes>
+      <Footer />
+
     </Router>
   );
 }
