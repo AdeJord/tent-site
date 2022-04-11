@@ -47,19 +47,11 @@
 }
 
 .home,
-.reports,
-.products,
-.team,
-.reports,
-.messages,
-.messages-1,
-.messages-2,
-.support,
-.users,
-.revenue {
+.reports {
   display: flex;
-  height: 90vh;
+  height: 60vh;
+  padding: 50px;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1rem;
 }

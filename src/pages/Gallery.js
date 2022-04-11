@@ -1,11 +1,11 @@
 import React from "react";
 
-const Messages = () => {
+const Gallery = () => {
   return (
     <div className="messages">
-      <h1>Messages</h1>
+      <h1>Gallery</h1>
     </div>
   );
 };
 
-export default Messages;
+export default Gallery;

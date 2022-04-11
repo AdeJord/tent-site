@@ -6,14 +6,16 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
+import Header from './Header';
 
 const Nav = styled.div`
   background: #15171c;
-  height: 150px;
+  height: 120px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   color: white;
+  font-size: .75rem;
 `;
 
 const NavIcon = styled(Link)`
@@ -28,8 +30,6 @@ const NavIcon = styled(Link)`
     display: none;
   }
 `;
-
-
 
 const SidebarNav = styled.nav`
   background: #15171c;
@@ -53,9 +53,8 @@ const SidebarWrap = styled.div`
 `;
 
 const Sidebar = () => {
-  const [sidebar, setSidebar] = useState(false);
-  const [mainNavbar, setMainNavbar] = useState(false);
 
+  const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   //console.log({sidebar})
 
@@ -67,7 +66,7 @@ const Sidebar = () => {
           <NavIcon to='#' onClick={showSidebar}>
             <FaIcons.FaBars />
           </NavIcon>
-          <div style={{ fontSize: '2.5em', paddingLeft: '40px' }}>Truman Enterprise Narrowboat Trust</div>
+            <Header />
         </Nav>
         
         <SidebarNav sidebar={sidebar}>
@@ -83,7 +82,6 @@ const Sidebar = () => {
 
       </IconContext.Provider>
     </>
-    //</div>
   );
 };
 
