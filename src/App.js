@@ -18,7 +18,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <Router style={{margin: '10px'}}>
+    <Router>
       <Sidebar />
       <Mainnav />
       <Routes>
