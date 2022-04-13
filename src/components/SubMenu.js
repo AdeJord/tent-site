@@ -52,15 +52,17 @@ display: flex;
 flex-direction: column;
 `
 
-const SubMenu = ({ item, closeParent }) => {
+const SubMenu = ({ item, showMainNavbar }) => {
   const [subnav, setSubnav] = useState(false);
+
+//DO I NEED TO MAKE A closeChild FUNCTION?
 
   return (
     <SubNav>
       <SidebarLink to={item.path} onClick={() => {
         setSubnav(!subnav)
         if (item?.closeMenu) {
-          closeParent();
+          showMainNavbar();
         }
       }}>
         <div>
@@ -78,7 +80,9 @@ const SubMenu = ({ item, closeParent }) => {
       {subnav &&
         item.subNav.map((item, index) => {
           return (
-            <DropdownLink to={item.path} key={index} onClick={closeParent}>
+            <DropdownLink to={item.path} key={index} onClick={() => {
+              setSubnav(false);
+            }}>
               {item.icon}
               <SidebarLabel>{item.title}</SidebarLabel>
             </DropdownLink>
