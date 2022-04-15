@@ -32,7 +32,7 @@ const Image = () => (
 const Home = () => {
   return (
     <Container>
-      <img src={NiceBoatPic} alt='Nice Boat Pic' style={{ width: '100%', height: '100%' }} />
+      <img src={NiceBoatPic} alt='Nice Boat Pic' style={{ width: '75vw', height: '60vh' }} />
       <h3 style={{ padding: '20px' }}>Providing day trips for elderly, disabled,
         youth & community groups, and families on the Staffs and Worcester Canal.</h3>
       <p>
