@@ -2,12 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.section`
+  background: #11632c;
+  width: 100vw;
   padding: 1em;
   font-size: 1.5rem;
-  height: 100%;
+  height: 10vw;
 `;
 
 const Container = styled.div`
+color: red;
 display: flex;
 flex-direction: column;
 position: relative;
@@ -25,9 +28,9 @@ justify-content: center;
 const Header = () => {
     return (
         <Wrapper>
-        <Container>
-            Truman Enterprise Narrowboat Trust
-        </Container>
+            <Container>
+                Truman Enterprise Narrowboat Trust
+            </Container>
         </Wrapper>
     )
 }

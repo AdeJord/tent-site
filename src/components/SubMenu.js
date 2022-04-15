@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import showSideBar from './Sidebar'
 
 const SidebarLink = styled(Link)`
   display: flex;
@@ -82,6 +83,7 @@ const SubMenu = ({ item, showMainNavbar }) => {
           return (
             <DropdownLink to={item.path} key={index} onClick={() => {
               setSubnav(false);
+              console.log('sidebar close?')
             }}>
               {item.icon}
               <SidebarLabel>{item.title}</SidebarLabel>

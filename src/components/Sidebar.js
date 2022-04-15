@@ -56,7 +56,6 @@ const Sidebar = () => {
 
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  //console.log({sidebar})
 
   return (
     //code to make sidebar hide is https://stackoverflow.com/questions/66626487/hiding-sidebar-component-on-outside-click
@@ -75,7 +74,7 @@ const Sidebar = () => {
               <AiIcons.AiOutlineClose />
             </NavIcon>
             {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} closeParent={showSidebar} />;
+              return <SubMenu item={item} key={index} closeParent={showSidebar} subNavIndex={-1} openSubNav={()=> {}}/>;
             })}
           </SidebarWrap>
         </SidebarNav>
