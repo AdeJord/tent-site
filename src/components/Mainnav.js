@@ -20,7 +20,7 @@ const NavIcon = styled(Link)`
   }
 `;
 const MainNavBar = styled.nav`
-background: #15171c;
+background: #11632c;
 color: red;
 width: 100vw;
 height: 8vh;

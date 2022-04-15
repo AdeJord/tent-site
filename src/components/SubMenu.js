@@ -63,7 +63,6 @@ const SubMenu = ({ item, showMainNavbar }) => {
       <SidebarLink to={item.path} onClick={() => {
         setSubnav(!subnav)
         if (item?.closeMenu) {
-          showMainNavbar();
         }
       }}>
         <div>

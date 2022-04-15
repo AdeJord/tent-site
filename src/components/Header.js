@@ -4,23 +4,24 @@ import styled from 'styled-components'
 const Wrapper = styled.section`
   background: #11632c;
   width: 100vw;
-  padding: 1em;
-  font-size: 1.5rem;
-  height: 10vw;
+  height: 100%;
+  padding: 25px
 `;
 
 const Container = styled.div`
-color: red;
+font-family: 'Roboto', sans-serif;
+color: #6e0e0e;
 display: flex;
 flex-direction: column;
+font-size: 1.5rem;
 position: relative;
 text-align: center;
 height: 50px;
-padding: 20px;
+padding-bottom: 50px;
+padding-top: 25px;
 justify-content: center;
 @media (min-width: 768px) {
     font-size: 2.75rem;
-    padding-left: 14rem
 }
 }
 `
@@ -31,6 +32,7 @@ const Header = () => {
             <Container>
                 Truman Enterprise Narrowboat Trust
             </Container>
+            <hr />
         </Wrapper>
     )
 }
