@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import showSideBar from './Sidebar'
 
 const SidebarLink = styled(Link)`
   display: flex;
@@ -16,7 +15,7 @@ const SidebarLink = styled(Link)`
   font-size: 18px;
 
   &:hover {
-    background: #252831;
+    background: #0a2b05;
     border-left: 10px solid ##0D380A;
     cursor: pointer;
   }
@@ -32,7 +31,7 @@ const SidebarLabel = styled.span`
 `;
 
 const DropdownLink = styled(Link)`
-  background: #414757;
+  background: #114709;
   height: 50px;
   padding: 1rem;
   display: flex;
@@ -43,7 +42,7 @@ const DropdownLink = styled(Link)`
   font-size: 18px;
 
   &:hover {
-    background: #0D380A;
+    background: #0a2b05;
     cursor: pointer;
   }
 `;
@@ -53,15 +52,22 @@ display: flex;
 flex-direction: column;
 `
 
-const SubMenu = ({ item, showMainNavbar }) => {
+const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {
   const [subnav, setSubnav] = useState(false);
+  //console.log(JSON.stringify(item, null, 2));
 
-//DO I NEED TO MAKE A closeChild FUNCTION?
+  useEffect(() => {
+    if (item.index !== subNavIndex) {
+      setSubnav(false);
+    }
+  }, [subNavIndex]);
 
   return (
     <SubNav>
       <SidebarLink to={item.path} onClick={() => {
-        setSubnav(!subnav)
+        openSubNav(item.index);
+        console.log('69');
+        setSubnav(!subnav);
         if (item?.closeMenu) {
         }
       }}>
@@ -77,12 +83,12 @@ const SubMenu = ({ item, showMainNavbar }) => {
               : null}
         </div>
       </SidebarLink>
-      {subnav &&
+      {subnav && subNavIndex === item.index &&
         item.subNav.map((item, index) => {
           return (
             <DropdownLink to={item.path} key={index} onClick={() => {
+              console.log('subnaaav')
               setSubnav(false);
-              console.log('sidebar close?')
             }}>
               {item.icon}
               <SidebarLabel>{item.title}</SidebarLabel>
