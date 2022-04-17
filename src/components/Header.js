@@ -2,26 +2,24 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.section`
-  background: #11632c;
-  width: 100vw;
+  padding: 1em;
+  font-size: 1.5rem;
   height: 100%;
-  padding: 25px
+  width: 100vw;
+  background: #114709
 `;
 
 const Container = styled.div`
-font-family: 'Roboto', sans-serif;
-color: #6e0e0e;
 display: flex;
 flex-direction: column;
-font-size: 1.5rem;
 position: relative;
 text-align: center;
 height: 50px;
-padding-bottom: 50px;
-padding-top: 25px;
+padding: 20px;
 justify-content: center;
 @media (min-width: 768px) {
     font-size: 2.75rem;
+    padding-left: 14rem
 }
 }
 `
@@ -29,10 +27,9 @@ justify-content: center;
 const Header = () => {
     return (
         <Wrapper>
-            <Container>
-                Truman Enterprise Narrowboat Trust
-            </Container>
-            <hr />
+        <Container>
+            Truman Enterprise Narrowboat Trust
+        </Container>
         </Wrapper>
     )
 }

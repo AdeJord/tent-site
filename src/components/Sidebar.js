@@ -9,7 +9,7 @@ import { IconContext } from 'react-icons/lib';
 import Header from './Header';
 
 const Nav = styled.div`
-  background: #11632c;
+  background: #114709;
   height: 120px;
   display: flex;
   justify-content: flex-start;
@@ -32,7 +32,7 @@ const NavIcon = styled(Link)`
 `;
 
 const SidebarNav = styled.nav`
-  background: #11632c;
+  background: #114709;
   width: 250px;
   height: 100vh;
   display: flex;
@@ -57,6 +57,9 @@ const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
+  const [subNavIndex, setSubNavIndex] = useState(1);
+  const openSubNav = (index) => setSubNavIndex(index);
+
   return (
     //code to make sidebar hide is https://stackoverflow.com/questions/66626487/hiding-sidebar-component-on-outside-click
     <>
@@ -74,7 +77,7 @@ const Sidebar = () => {
               <AiIcons.AiOutlineClose />
             </NavIcon>
             {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} closeParent={showSidebar} subNavIndex={-1} openSubNav={()=> {}}/>;
+              return <SubMenu item={item} key={index} closeParent={showSidebar} subNavIndex={subNavIndex} openSubNav={openSubNav} />;
             })}
           </SidebarWrap>
         </SidebarNav>
