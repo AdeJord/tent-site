@@ -6,14 +6,16 @@ import * as RiIcons from 'react-icons/ri';
 
 export const SidebarData = [
   {
+    index: 0,
     title: 'Home',
     path: '/home',
     icon: <AiIcons.AiFillHome />,
     closeMenu: true,
-    subNav: []
+    subNav: [],
   },
 
   {
+    index: 1,
     title:'About Us',
     path: '/AboutUs/AboutUs',
     icon: <IoIcons.IoIosPaper />,
@@ -79,13 +81,7 @@ export const SidebarData = [
   },
 
   {
-
-    /*    title:'About Us',
-    path: '/AboutUs/AboutUs',
-    icon: <IoIcons.IoIosPaper />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-    closeMenu: false,*/
+    index: 2,
     title: 'Book Your Trip',
     path: '/BookYourTrip/BookYourTrip',
     icon: <IoIcons.IoIosPaper />,
@@ -133,6 +129,7 @@ export const SidebarData = [
     ]
   },
   {
+    index: 3,
     title: 'Gallery',
     path: '/Gallery',
     icon: <FaIcons.FaCartPlus />,
@@ -140,6 +137,7 @@ export const SidebarData = [
     subNav: []
   },
   {
+    index: 4,
     title: 'Contact Us',
     path: '/ContactUs',
     icon: <IoIcons.IoMdPeople />,

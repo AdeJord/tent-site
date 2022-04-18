@@ -9,7 +9,7 @@ import { IconContext } from 'react-icons/lib';
 import Header from './Header';
 
 const Nav = styled.div`
-  background: #15171c;
+  background: #114709;
   height: 120px;
   display: flex;
   justify-content: flex-start;
@@ -32,7 +32,7 @@ const NavIcon = styled(Link)`
 `;
 
 const SidebarNav = styled.nav`
-  background: #15171c;
+  background: #114709;
   width: 250px;
   height: 100vh;
   display: flex;
@@ -56,14 +56,22 @@ const Sidebar = () => {
 
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  //console.log({sidebar})
+
+  const [subNavIndex, setSubNavIndex] = useState(1);
+  const openSubNav = (index) => setSubNavIndex(index);
+
+  const test = () => {
+    showSidebar();
+    console.log('showsidebaaaar');
+    setSidebar(!sidebar)
+  }
 
   return (
     //code to make sidebar hide is https://stackoverflow.com/questions/66626487/hiding-sidebar-component-on-outside-click
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <Nav>
-          <NavIcon to='#' onClick={showSidebar}>
+          <NavIcon to='#' onClick={test}>
             <FaIcons.FaBars />
           </NavIcon>
             <Header />
@@ -71,11 +79,11 @@ const Sidebar = () => {
         
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
-            <NavIcon to='#' onClick={showSidebar}>
+            <NavIcon to='#' onClick={test}>
               <AiIcons.AiOutlineClose />
             </NavIcon>
             {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} closeParent={showSidebar} />;
+              return <SubMenu item={item} key={index} closeParent={showSidebar} subNavIndex={subNavIndex} openSubNav={openSubNav} />;
             })}
           </SidebarWrap>
         </SidebarNav>

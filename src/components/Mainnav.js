@@ -20,7 +20,7 @@ const NavIcon = styled(Link)`
   }
 `;
 const MainNavBar = styled.nav`
-background: #15171c;
+background: #114709;
 color: red;
 width: 100vw;
 height: 8vh;
@@ -44,14 +44,16 @@ const Mainnav = () => {
 
     const [mainNavbar, setMainNavbar] = useState(false);
     const showMainNavbar = () => setMainNavbar(!mainNavbar);
-    //console.log({sidebar})
+
+    const [subNavIndex, setSubNavIndex] = useState(1);
+    const openSubNav = (index) => setSubNavIndex(index);
 
     return (
         <>
                 <MainNavWrap>
                     <MainNavBar mainNavbar={mainNavbar}>
                         {SidebarData.map((item, index) => {
-                            return <SubMenu item={item} key={index} closeParent={showMainNavbar} />;
+                            return <SubMenu item={item} key={index} closeParent={showMainNavbar} subNavIndex={subNavIndex} openSubNav={openSubNav} />;
                         })}
                     </MainNavBar>
                 </MainNavWrap>

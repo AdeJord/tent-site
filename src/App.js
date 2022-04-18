@@ -1,7 +1,7 @@
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import Mainnav from "./components/Mainnav";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import { HowMuch, HowToPay, HavAGo, BookYourTrip, Training, TermsAndCond } from "./pages/BookYourTrip";
 import Team from "./pages/Team";
@@ -18,12 +18,12 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Sidebar />
       <Mainnav />
       <Routes>
         <Route path="/" exact element={<LandingPage />} /> 
-        <Route path="/home" exact element={<Home />} />
+        <Route path="/home/" exact element={<Home />} />
         <Route path="/BookYourTrip/BookYourTrip" exact element={<BookYourTrip />} />
         <Route path="/BookYourTrip/HowMuch" exact element={<HowMuch />} />
         <Route path="/BookYourTrip/HowToPay" exact element={<HowToPay />} />
@@ -45,7 +45,7 @@ function App() {
       </Routes>
       <Footer />
 
-    </Router>
+    </BrowserRouter>
   );
 }
 
