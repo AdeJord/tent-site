@@ -60,12 +60,19 @@ const Sidebar = () => {
   const [subNavIndex, setSubNavIndex] = useState(1);
   const openSubNav = (index) => setSubNavIndex(index);
 
+  const test = () => {
+    showSidebar();
+    console.log('showsidebaaaar');
+    setSidebar(!sidebar)
+  }
+
+
   return (
     //code to make sidebar hide is https://stackoverflow.com/questions/66626487/hiding-sidebar-component-on-outside-click
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <Nav>
-          <NavIcon to='#' onClick={showSidebar}>
+          <NavIcon to='#' onClick={test}>
             <FaIcons.FaBars />
           </NavIcon>
             <Header />
@@ -73,7 +80,7 @@ const Sidebar = () => {
         
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
-            <NavIcon to='#' onClick={showSidebar}>
+            <NavIcon to='#' onClick={test}>
               <AiIcons.AiOutlineClose />
             </NavIcon>
             {SidebarData.map((item, index) => {

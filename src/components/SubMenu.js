@@ -15,7 +15,7 @@ const SidebarLink = styled(Link)`
   font-size: 18px;
 
   &:hover {
-    background: #0a2b05;
+    background: #0D380A;
     border-left: 10px solid ##0D380A;
     cursor: pointer;
   }
@@ -56,6 +56,7 @@ const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {
   const [subnav, setSubnav] = useState(false);
   //console.log(JSON.stringify(item, null, 2));
 
+
   useEffect(() => {
     if (item.index !== subNavIndex) {
       setSubnav(false);
@@ -66,7 +67,6 @@ const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {
     <SubNav>
       <SidebarLink to={item.path} onClick={() => {
         openSubNav(item.index);
-        console.log('69');
         setSubnav(!subnav);
         if (item?.closeMenu) {
         }
