@@ -37,8 +37,26 @@ border-top: 1px solid black;
 border-bottom: 1px solid black;
 padding: 1em;
 font-size: .65em;
+padding: .5em;
+
+
+@media (min-width: 1024) {
+  font-size: .7em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
 @media (min-width: 768px) {
-  font-size: 1.1em;
+  font-size: .8em;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+@media (max-width: 310px) {
+  font-size: .8em;
+  padding-left: 3em;
+  padding-right: 3em;
+  overflow: scroll;
 }
 
 `

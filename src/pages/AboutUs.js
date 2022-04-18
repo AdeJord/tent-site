@@ -1,81 +1,93 @@
 import React from  'react';
+import styled from "styled-components";
+
+const Container = styled.section`
+display: flex;
+flex-direction: column;
+height: 75vh;
+align-items: center;
+padding: 20px;
+overflow-y: scroll;
+@media (min-width: 768px) {
+  height:65vh;
+} `
 
 export const AboutUs = () => {
     return (
-        <div className='reports'>
+        <Container>
             <h1>About Us</h1>
-        </div>
+        </Container>
     );
 };
 
 export const AboutTheTrust = () => {
     return (
-    <div className='reports'>
+    <Container>
         <h1>About The Trust</h1>
-    </div>
+    </Container>
     );
 };
 
 export const Volunteers = () => {
     return(
-        <div className='reports'>
+        <Container>
         <h1>Volunteers</h1>
-        </div>
+        </Container>
     );
 };
 
 export const BoatBrochure = () => {
     return (
-        <div className='reports'>
+        <Container>
             <h1>Boat Brochure</h1>
-        </div>
+        </Container>
     );
 };
 
 export const DetailsAndDiagrams = () => {
     return (
-    <div className='reports'>
+    <Container>
         <h1>Details and diagrams</h1>
-    </div>
+    </Container>
     );
 };
 
 export const AimsAndObjectives = () => {
     return (
-        <div className='reports'>
+        <Container>
             <h1>Aims and Objectives</h1>
-        </div>
+        </Container>
     );
 };
 
 export const OurHistory = () => {
     return (
-        <div className='reports'>
+        <Container>
             <h1>Our History</h1>
-        </div>
+        </Container>
     );
 };
 
 export const MeetTheCrew = () => {
     return (
-        <div className='reports'>
+        <Container>
             <h1> Meet the crew</h1>
-        </div>
+        </Container>
     );
 };
 
 export const RiskAssesments = () => {
     return (
-        <div className='reports'>
+        <Container>
             <h1>Risk Assesments</h1>
-        </div>
+        </Container>
     );
 };
 
 export const UsefulLinks = () => {
     return (
-        <div className='reports'>
+        <Container>
             <h1>Useful Links</h1>
-        </div>
+        </Container>
     )
 }
