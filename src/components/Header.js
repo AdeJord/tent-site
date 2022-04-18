@@ -5,6 +5,8 @@ const Wrapper = styled.section`
   padding: 1em;
   font-size: 1.5rem;
   height: 100%;
+  width: 100vw;
+  background: #114709
 `;
 
 const Container = styled.div`

@@ -66,6 +66,7 @@ const Sidebar = () => {
     setSidebar(!sidebar)
   }
 
+
   return (
     //code to make sidebar hide is https://stackoverflow.com/questions/66626487/hiding-sidebar-component-on-outside-click
     <>

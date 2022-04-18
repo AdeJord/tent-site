@@ -42,7 +42,7 @@ const DropdownLink = styled(Link)`
   font-size: 18px;
 
   &:hover {
-    background: #0D380A;
+    background: #0a2b05;
     cursor: pointer;
   }
 `;
@@ -54,7 +54,8 @@ flex-direction: column;
 
 const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {
   const [subnav, setSubnav] = useState(false);
-  console.log(JSON.stringify(item, null, 2));
+  //console.log(JSON.stringify(item, null, 2));
+
 
   useEffect(() => {
     if (item.index !== subNavIndex) {
@@ -86,6 +87,7 @@ const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {
         item.subNav.map((item, index) => {
           return (
             <DropdownLink to={item.path} key={index} onClick={() => {
+              console.log('subnaaav')
               setSubnav(false);
             }}>
               {item.icon}
