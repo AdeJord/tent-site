@@ -16,6 +16,16 @@ overflow-y: scroll;
 } 
 `
 
+const ImgContainer = styled.div`
+padding-left: 10%;
+padding-right: 10%;
+img src={NiceBoatPic} alt='Nice Boat Pic';
+
+@media (max-width: 768px) {
+  img src={Gerry} alt='Gerry'
+}
+`
+
 const Image = () => (
   <div>
     <h1>Device Test!</h1>
@@ -32,7 +42,9 @@ const Image = () => (
 const Home = () => {
   return (
     <Container>
-      <img src={NiceBoatPic} alt='Nice Boat Pic' style={{ width: '75vw', height: '60vh' }} />
+      <ImgContainer>
+      <img src={NiceBoatPic} alt='Nice Boat Pic' style={{ width: '100%', height: '100%' }} />
+      </ImgContainer>
       <h3 style={{ padding: '20px' }}>Providing day trips for elderly, disabled,
         youth & community groups, and families on the Staffs and Worcester Canal.</h3>
       <p>
@@ -45,7 +57,8 @@ const Home = () => {
         are provided). You can either bring your own sandwiches, order fish and chips, or have
         a drink and a meal at the pub. Our trips usually last between 4 and 8 hours.
         What time we leave and what time we return is up to you. Run entirley by volunteers,
-        our only aim to give you an enjoyable and memorable day out on the canal.                                                                              
+        our only aim to give you an enjoyable and memorable day out on the canal.
+
         Starting from Hatherton Marina (Near Cannock), we offer fully accessible day trips
         on the 'Enterprise' to either Autherley Junction (Near Oxley) or The Anchor Inn,
         (Coven) where you can enjoy some of the beautiful scenery of the Staffordshire and

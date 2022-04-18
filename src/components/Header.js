@@ -5,8 +5,7 @@ const Wrapper = styled.section`
   padding: 1em;
   font-size: 1.5rem;
   height: 100%;
-  width: 100vw;
-  background: #114709
+  width: 100%;
 `;
 
 const Container = styled.div`
@@ -16,10 +15,9 @@ position: relative;
 text-align: center;
 height: 50px;
 padding: 20px;
-justify-content: center;
+justify-text: center;
 @media (min-width: 768px) {
-    font-size: 2.75rem;
-    padding-left: 14rem
+    font-size: 2.75rem
 }
 }
 `

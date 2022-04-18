@@ -39,10 +39,10 @@ const DropdownLink = styled(Link)`
   align-items: left;
   text-decoration: none;
   color: #f5f5f5;
-  font-size: 18px;
+  font-size: 14px;
 
   &:hover {
-    background: #0a2b05;
+    background: #0D380A;
     cursor: pointer;
   }
 `;
@@ -87,7 +87,6 @@ const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {
         item.subNav.map((item, index) => {
           return (
             <DropdownLink to={item.path} key={index} onClick={() => {
-              console.log('subnaaav')
               setSubnav(false);
             }}>
               {item.icon}
