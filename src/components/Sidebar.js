@@ -7,43 +7,54 @@ import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
 import Header from './Header';
+import Header2 from './Header2'
+import "@fontsource/roboto"; // Defaults to weight 400.
 
 const Nav = styled.div`
+font-family: "Roboto";
   background: #114709;
-  height: 120px;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   color: white;
-  font-size: .75rem;
 `;
+
+const NavContainer = styled.div`
+font-family: "Roboto";
+display: flex;
+flex-direction: column;
+align-items: center;
+`
 
 const NavIcon = styled(Link)`
   margin-left: 2rem;
-  font-size: 2rem;
+  font-size: 5vw;
   height: 80px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  @media (min-width: 768px) {
-    width: 100vh;
+  @media (min-width: 802px) {
     display: none;
   }
 `;
 
 const SidebarNav = styled.nav`
+font-family: "Roboto";
   background: #114709;
   width: 250px;
-  height: 100vh;
+  padding-bottom: 20px;
   display: flex;
+  autofocus;
+  border: 1mm ridge black;
   justify-content: center;
   position: fixed;
   top: 0;
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
   transition: 250ms;
   z-index: 10;
-  @media (min-width: 768px) {
-    width: 100vh;
+  @media (min-width: 802) {
     display: none;
   }
 `;
@@ -70,13 +81,19 @@ const Sidebar = () => {
     //code to make sidebar hide is https://stackoverflow.com/questions/66626487/hiding-sidebar-component-on-outside-click
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
+        
         <Nav>
+        <NavContainer>
+        
           <NavIcon to='#' onClick={test}>
             <FaIcons.FaBars />
+            
           </NavIcon>
-            <Header />
+          </NavContainer>
+          {/* <Header /> */}
+          <Header2 />
         </Nav>
-        
+  
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
             <NavIcon to='#' onClick={test}>
