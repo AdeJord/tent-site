@@ -1,0 +1,5 @@
+check the css media query on 'Our History'.  the footer does something weird between 768px and 802 px
+css on the dropdown menu on mainNav
+when screen size is small, the header is too small, and when screen size big header still needs work.
+need to make boat image on /Home resizable
+sidebar needs autofocus to scroll

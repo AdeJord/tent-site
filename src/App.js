@@ -1,15 +1,16 @@
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import Mainnav from "./components/Mainnav";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import { HowMuch, HowToPay, HavAGo, BookYourTrip, Training, TermsAndCond } from "./pages/BookYourTrip";
-import Team from "./pages/Team";
+import { HowMuch, HowToPay, HavAGo, BookYourTrip, Training } from "./pages/BookYourTrip";
 import ContactUs from './pages/ContactUs';
 import Gallery from './pages/Gallery';
 import LandingPage from "./pages/LandingPage";
-import { AboutUs, AboutTheTrust, Volunteers, BoatBrochure, DetailsAndDiagrams, AimsAndObjectives,
-OurHistory, MeetTheCrew, RiskAssesments, UsefulLinks } from "./pages/AboutUs";
+import TermsAndCond from "./pages/TermsAndCond";
+import Volunteers from './pages/Volunteers';
+import OurHistory from './pages/OurHistory';
+import { AboutUs, AboutTheTrust, BoatBrochure, DetailsAndDiagrams, AimsAndObjectives, MeetTheCrew, RiskAssesments, UsefulLinks } from "./pages/AboutUs";
 import Footer from "./components/Footer";
 
 /* why do are the below routes different although they come from same object(BookYourTrip)
@@ -18,7 +19,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Sidebar />
       <Mainnav />
       <Routes>
@@ -29,10 +30,10 @@ function App() {
         <Route path="/BookYourTrip/HowToPay" exact element={<HowToPay />} />
         <Route path="/book-your-trip/HavAGo" exact element={<HavAGo />} />
         <Route path="/book-your-trip/Training" exact element={<Training />} />
-        <Route path="/book-your-trip/TermsAndCond" exact element={<TermsAndCond />} />
+        <Route path="/TermsAndCond" exact element={<TermsAndCond />} />
         <Route path="/AboutUs/AboutUs" exact element={<AboutUs />} />
         <Route path="/AboutUs/AboutTheTrust" exact element={<AboutTheTrust />} />
-        <Route path="/AboutUs/Volunteers" exact element={<Volunteers />} />
+        <Route path="/Volunteers" exact element={<Volunteers />} />
         <Route path="/AboutUs/BoatBrochure" exact element={<BoatBrochure />} />
         <Route path="/AboutUs/DetailsAndDiagrams" exact element={<DetailsAndDiagrams />} />
         <Route path="/AboutUs/AimsAndObjectives" exact element={<AimsAndObjectives />} />
@@ -45,7 +46,7 @@ function App() {
       </Routes>
       <Footer />
 
-    </BrowserRouter>
+    </Router>
   );
 }
 

@@ -5,6 +5,8 @@ import * as FaIcons from 'react-icons/fa';
 import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
+import Header from './Header';
+import "@fontsource/roboto"; // Defaults to weight 400.
 
 
 const NavIcon = styled(Link)`
@@ -14,28 +16,30 @@ const NavIcon = styled(Link)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  @media (min-width: 768px) {
+  @media (max-width: 802px) {
     width: 100vh;
     display: none;
   }
 `;
 const MainNavBar = styled.nav`
-background: #114709;
-color: red;
+padding: 7px;
+font-family: Roboto;
+font-weight: 100;
+background: black;
 width: 100vw;
-height: 8vh;
+height: 5vh;
 display: flex;
 flex-direction: row;
-justify-content: space-around;;
+justify-content: space-around;
 position: relative;
-z-index: 10;
 display: none;
-@media (min-width: 768px) {
+@media (min-width: 802px) {
   display: flex;
 }
 `;
 
 const MainNavWrap = styled.div`
+font-family: Roboto;
   width: 100%;
 `;
 

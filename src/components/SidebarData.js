@@ -31,7 +31,7 @@ export const SidebarData = [
       },
       {
         title: 'Volunteers',
-        path: '/AboutUs/Volunteers',
+        path: '/Volunteers',
         cName: 'sub-nav',
         closeMenu: true
       },
@@ -122,7 +122,7 @@ export const SidebarData = [
       },
       {
         title: 'Terms and conditions',
-        path: '/book-your-trip/TermsAndCond',
+        path: '/TermsAndCond',
         cName: 'sub-nav',
         closeMenu: true
       }

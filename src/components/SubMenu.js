@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import "@fontsource/roboto"; // Defaults to weight 400.
 
 const SidebarLink = styled(Link)`
+font-family: "Roboto";
   display: flex;
   flex-direction: row;
   color: #e1e9fc;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 3px;
   list-style: none;
   height: 60px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 14px;
+  
 
   &:hover {
     background: #0D380A;
@@ -20,6 +23,10 @@ const SidebarLink = styled(Link)`
     cursor: pointer;
   }
   @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+    @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
   }
@@ -31,15 +38,16 @@ const SidebarLabel = styled.span`
 `;
 
 const DropdownLink = styled(Link)`
+font-family: "Roboto";
   background: #114709;
-  height: 50px;
+  height: 2vh;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: left;
-  text-decoration: none;
+  max-width: 150px;
   color: #f5f5f5;
-  font-size: 14px;
+  font-size: 13px;
 
   &:hover {
     background: #0D380A;
@@ -48,6 +56,7 @@ const DropdownLink = styled(Link)`
 `;
 
 const SubNav = styled.nav`
+font-family: "Roboto";
 display: flex;
 flex-direction: column;
 `

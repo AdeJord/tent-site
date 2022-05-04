@@ -1,24 +1,30 @@
 import React from "react";
 import styled from "styled-components";
+import contact_river from '../images/contact_river.jpg';
 
 const Container = styled.section`
 display: flex;
 flex-direction: column;
 height: 75vh;
 align-items: center;
-padding: 20px;
+padding: 0px;
 overflow-y: scroll;
 @media (min-width: 768px) {
   height:65vh;
 } `
 
+const ImgContainer = styled.div`
+width: 100vw;
+height: 70vh;
+`
+
 
 const LandingPage = () => {
   return (
     <Container>
-    <div className="reports">
-      <h1>LandingPage</h1>
-    </div>
+      <ImgContainer>
+        <img src={contact_river} alt='Nice river Pic' />
+      </ImgContainer>
     </Container>
   );
 };

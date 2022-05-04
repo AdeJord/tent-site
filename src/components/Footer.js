@@ -2,17 +2,20 @@ import React from 'react'
 import styled from 'styled-components';
 import ncbaLogo from '../images/ncbaLogo.jpg'
 import iwaLogo from '../images/iwaLogo.gif'
+import "@fontsource/roboto"; // Defaults to weight 400.
 
 
 const Container = styled.div`
+font-family: "Roboto";
 height: 100px;
 display: flex;
+padding: 10px;
+align-content: center;
 flex-direction: row;
+width: 100%;
+height: 100%;
 position: relative;
-max-width: 100%;
-max-height: 100%;
-position:relative;
-bottom:0;
+
 `
 
 const Footer1 = styled.div`
@@ -29,8 +32,9 @@ border: 1px solid black;
 
 `
 const Footer2 = styled.div`
+font-family: "Roboto";
 display: flex;
-flex-direction: row;
+flex-direction: column;
 justify-content: center;
 width 33%;
 border-top: 1px solid black;
