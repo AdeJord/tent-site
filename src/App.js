@@ -23,8 +23,8 @@ function App() {
       <Sidebar />
       <Mainnav />
       <Routes>
-        <Route path="/" exact element={<LandingPage />} />
-        <Route path="/home" exact element={<Home />} />
+        <Route path="/" exact element={<LandingPage />} /> 
+        <Route path="/home/" exact element={<Home />} />
         <Route path="/BookYourTrip/BookYourTrip" exact element={<BookYourTrip />} />
         <Route path="/BookYourTrip/HowMuch" exact element={<HowMuch />} />
         <Route path="/BookYourTrip/HowToPay" exact element={<HowToPay />} />
