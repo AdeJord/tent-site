@@ -5,34 +5,19 @@ import "@fontsource/roboto"; // Defaults to weight 400.
 
 const Container = styled.section`
 display: flex;
-
 flex-direction: column;
-width: 100%:
-height: auto;
+width: 100vw;
 align-items: center;
 padding: 0px;
 overflow-y: scroll;
-  height:70vh;
+height: calc(75vh - 50px);
 
 `
 
 const ImgContainer = styled.div`
 width: 100vw;
-height: 100vh;
-
+height: auto;
 `
-
-// const Image = () => (
-//   <div>
-//     <h1>Device Test!</h1>
-//     <useMediaQuery minDeviceWidth={1224} device={{ deviceWidth: 1600 }}>
-//       <img src={NiceBoatPic} alt='Nice Boat Pic'/>
-//     </useMediaQuery>
-//     <useMediaQuery minResolution='2dppx'>
-//       <img src={Gerry} alt='Gerry'/>
-//     </useMediaQuery>
-//   </div>
-// )
 
 
 const Home = () => {

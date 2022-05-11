@@ -21,7 +21,7 @@ overflow: wrap;
 display: flex;
 flex-direction: column;
 justify-items: center;
-font-size: 6vw;
+font-size: 4vw;
 position: relative;
 text-align: center;
 height: auto;

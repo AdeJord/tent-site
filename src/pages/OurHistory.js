@@ -47,7 +47,7 @@ margin: 20px;
 text-align: center;
 color: #114709;
 font-size: 1.1em;
-font-weight: 500;
+font-weight: 400;
 padding: 20px;
 `
 
