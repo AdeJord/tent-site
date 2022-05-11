@@ -6,7 +6,6 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
-import Header from './Header';
 import Header2 from './Header2'
 import "@fontsource/roboto"; // Defaults to weight 400.
 
@@ -41,12 +40,13 @@ const NavIcon = styled(Link)`
 `;
 
 const SidebarNav = styled.nav`
-font-family: "Roboto";
+  font-family: "Roboto";
+  font-size: 2vw;
   background: #114709;
-  width: 250px;
+  width: 40vw;
   padding-bottom: 20px;
   display: flex;
-  autofocus;
+  autofocus: true;
   border: 1mm ridge black;
   justify-content: center;
   position: fixed;

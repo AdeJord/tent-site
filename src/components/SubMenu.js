@@ -4,29 +4,32 @@ import styled from 'styled-components';
 import "@fontsource/roboto"; // Defaults to weight 400.
 
 const SidebarLink = styled(Link)`
-font-family: "Roboto";
+  font-family: "Roboto";
+  background: black;
+  font-weight: 100;
+  padding: 1vw
+  padding-bottom: 25px;
   display: flex;
   flex-direction: row;
-  color: #e1e9fc;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3px;
+  color: white;
+  justify-content: flex-start;
+  align-items: left;
   list-style: none;
-  height: 60px;
+  height: 5vh;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
+  @media (max-width: 802px) {
+    font-size: 15px;
+    background: #114709;
+  }
   
 
   &:hover {
-    background: #0D380A;
+    background: #114709;
     border-left: 10px solid ##0D380A;
     cursor: pointer;
   }
   @media (min-width: 768px) {
-    display: flex;
-    flex-direction: column;
-  }
-    @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
   }
@@ -37,17 +40,21 @@ const SidebarLabel = styled.span`
   
 `;
 
+// this is that whole dropdown
 const DropdownLink = styled(Link)`
 font-family: "Roboto";
-  background: #114709;
-  height: 2vh;
-  padding: 1rem;
+font-weight: 100;
+  background: black;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: left;
-  max-width: 150px;
   color: #f5f5f5;
-  font-size: 13px;
+  font-size: 15px;
+  text-decoration: none;
+  @media (max-width: 802px) {
+    background: #114709;
+  }
 
   &:hover {
     background: #0D380A;
@@ -59,6 +66,7 @@ const SubNav = styled.nav`
 font-family: "Roboto";
 display: flex;
 flex-direction: column;
+padding-bottom: 5px;
 `
 
 const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {

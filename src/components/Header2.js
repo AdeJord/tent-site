@@ -10,7 +10,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-items: center;
-  padding: 3vh;
+  padding: 2vh;
   position: relative;
   align-content: space-around;
 `
@@ -21,7 +21,7 @@ overflow: wrap;
 display: flex;
 flex-direction: column;
 justify-items: center;
-font-size: 4vw;
+font-size: 2em;
 position: relative;
 text-align: center;
 `
@@ -29,13 +29,14 @@ text-align: center;
 const LowerContainer = styled.div`
 font-family: "Roboto";
 margin-top: 1vh;
+font-weight: 100;
 display: flex;
 flex-direction: column;
 position: relative;
 text-align: center;
 height: auto;
 justify-text: bottom;
-font-size: 2.3vw;
+font-size: .7em;
 `
 
 const Header = () => {

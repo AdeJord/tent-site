@@ -7,14 +7,16 @@ import "@fontsource/roboto"; // Defaults to weight 400.
 
 const Container = styled.div`
 font-family: "Roboto";
+background: white;
+justify-content: flex-end;
+width: 100vw;
 height: 100px;
 display: flex;
-padding: 10px;
 align-content: center;
 flex-direction: row;
-width: 100%;
-height: 100%;
-position: relative;
+position: sticky;
+bottom: 0;
+left: 0;
 
 `
 
@@ -36,7 +38,7 @@ font-family: "Roboto";
 display: flex;
 flex-direction: column;
 justify-content: center;
-width 33%;
+width: 33%;
 border-top: 1px solid black;
 border-bottom: 1px solid black;
 padding: 1em;
