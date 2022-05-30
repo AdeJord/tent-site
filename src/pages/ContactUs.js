@@ -14,7 +14,8 @@ flex-direction: row;
 height: auto;
 width: auto;
 padding: 20px;
-overflow: scroll;
+padding-bottom: 100px;
+overflow: hidden;
 align-items: center;
 @media (max-width: 802px) {
   flex-direction: column;
@@ -24,17 +25,21 @@ align-items: center;
 const PageTitle = styled.div`
 
 font-family: "Roboto";
-width: 100%;
+width: calc (100% - 25px);
 text-align: center;
 display: flex;
 flex-direction: column;
-justify-text: end;
 height: 2vh;
-padding: 15px 25px 35px;
+padding-bottom: 25px;
 font-size: 1.3em;
 @media (min-width: 386) {
   font-size: .11em;
 }
+`
+const TestDiv = styled.div`
+width: 100%;
+margin: 10px
+
 `
 
 const TextDiv = styled.div`
@@ -58,8 +63,8 @@ display: flex;
 flex-direction: column;
 align-content: center;
 text-align: center;
-height: 100%;
-width: 50%;
+height: 75%;
+width: 100%;
 display: flex;
 padding: 0 , 5, 0, 5;
 flex-direction: column;
@@ -71,14 +76,16 @@ flex-direction: column;
 const ContactUs = () => {
   return (
     <Container>
-      
-      <MapDiv>
+      <TestDiv>
         <PageTitle>Our Location</PageTitle>
-
+        <MapDiv>
         <Map />
-      </MapDiv>
-      <TextDiv>
+        </MapDiv>
+        <p style={{padding: '15px', color: 'darkred'}}>What Three Words:- ///armrests.chew.commutes </p>
+      </TestDiv>
+      <TestDiv>
         <PageTitle>Contact Details</PageTitle>
+        <div>
         <table>
           <thead>
             <tr>
@@ -95,54 +102,54 @@ const ContactUs = () => {
               <td>Chair of Management
                 Committee</td>
               <td>01922 479926<br />07763 214 524<br />
-                <a href="chairman@truman-enterprise.org.uk?body=My custom mail body">email: chairman@truman-enterprise.org.uk</a></td>
+                <a href="mailto:chairman@truman-enterprise.org.uk?body=My custom mail body">chairman@truman-enterprise.org.uk</a></td>
             </tr>
             <tr>
               <td>Financial Matters</td>
               <td>Christopher Rogers</td>
               <td>Treasurer</td>
               <td>01922 479926<br />07763 214 524<br />
-                <a href="chairman@truman-enterprise.org.uk?body=My custom mail body">email: chairman@truman-enterprise.org.uk</a></td>
+                <a href="mailto:chairman@truman-enterprise.org.uk?body=My custom mail body">chairman@truman-enterprise.org.uk</a></td>
             </tr>
             <tr>
               <td>General Enquiries</td>
               <td>Mariel Bishop</td>
               <td>Secretary</td>
               <td>0121 357 2570<br />
-                <a href="info@truman-enterprise.org.uk?body=My custom mail body">email: info@truman-enterprise.org.uk</a></td>
+                <a href="mailto:info@truman-enterprise.org.uk?body=My custom mail body">info@truman-enterprise.org.uk</a></td>
             </tr>
             <tr>
               <td>Day trip bookings</td>
               <td>Mariel Bishop</td>
               <td>Booking Secretary</td>
               <td>0121 357 2570<br />
-                <a href="info@truman-enterprise.org.uk?body=My custom mail body">email: info@truman-enterprise.org.uk</a></td>
+                <a href="mailto:info@truman-enterprise.org.uk?body=My custom mail body">info@truman-enterprise.org.uk</a></td>
             </tr>
             <tr>
               <td>NCBA Training Courses</td>
               <td>David Leaper</td>
               <td>Trust Trainer</td>
               <td>07971 191 786<br />
-                <a href="trainer@truman-enterprise.org.uk?body=My custom mail body">email: trainer@truman-enterprise.org.uk</a></td>
+                <a href="mailto:trainer@truman-enterprise.org.uk?body=My custom mail body">trainer@truman-enterprise.org.uk</a></td>
             </tr>
             <tr>
               <td>Volunteering Opportunities</td>
               <td>Jennifer Christian</td>
               <td>Volunteering</td>
               <td>07908 084 744<br />
-                <a href="volunteer@truman-enterprise.org.uk?body=My custom mail body">email: volunteer@truman-enterprise.org.uk</a></td>
+                <a href="mailto:volunteer@truman-enterprise.org.uk?body=My custom mail body">volunteer@truman-enterprise.org.uk</a></td>
             </tr>
             <tr>
               <td>Website, Tripadvisor, Facebook, etc</td>
               <td>Adrian Jordan</td>
               <td>Social Media Co-ordinator</td>
               <td>07512 896 176<br />
-                <a href="mailto:adejord@gmail.com?body=My custom mail body">email: adejord@gmail.com</a></td>
+                <a href="mailto:feedback@truman-enterprise.org.uk?body=My custom mail body">feedback@truman-enterprise.org.uk</a></td>
             </tr>
           </tbody>
         </table>
-
-      </TextDiv>
+        </div>
+      </TestDiv>
 
     </Container>
   );

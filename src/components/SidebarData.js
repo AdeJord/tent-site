@@ -16,19 +16,14 @@ export const SidebarData = [
 
   {
     index: 1,
-    title:'About Us',
+    title:'About Us   ',
     path: '/AboutUs/AboutUs',
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     closeMenu: false,
     subNav: [
-      {
-        title: 'About The Trust',
-        path: '/AboutUs/AboutTheTrust',
-        cName: 'sub-nav',
-        closeMenu: true
-      },
+
       {
         title: 'Volunteers',
         path: '/Volunteers',
@@ -36,7 +31,7 @@ export const SidebarData = [
         closeMenu: true
       },
       {
-        title: 'Boat Brochure',
+        title: 'The "Enterprise"',
         path: '/AboutUs/BoatBrochure',
         cName: 'sub-nav',
         closeMenu: true
@@ -49,7 +44,7 @@ export const SidebarData = [
       },
       {
         title: 'Aims And Objectives',
-        path: '/AboutUs/AimsAndObjectives',
+        path: 'AimsAndObjectives',
         cName: 'sub-nav',
         closeMenu: true
       },
@@ -90,6 +85,20 @@ export const SidebarData = [
     closeMenu: false,
     subNav: [
       {
+        title: 'Covid Safe Cruising',
+        path: '/CovidSafeCruising',
+        cName: 'sub-nav)',
+        closeMenu: true
+      },
+
+      {
+        title: 'Training Courses',
+        path: '/TrainingCourses',
+        cName: 'sub-nav)',
+        closeMenu: true
+      },
+
+      {
         title: 'Book Your Trip',
         path: '/BookYourTrip/BookYourTrip',
         cName: 'sub-nav',
@@ -98,19 +107,19 @@ export const SidebarData = [
 
       {
         title: 'How much does it cost?',
-        path: '/BookYourTrip/HowMuch',
+        path: '/HowMuch',
         cName: 'sub-nav',
         closeMenu: true
       },
       {
         title: 'How to pay for your trip',
-        path: '/BookYourTrip/HowToPay',
+        path: '/HowToPay',
         cName: 'sub-nav',
         closeMenu: true
       },
       {
         title: 'Have a go days',
-        path: '/book-your-trip/HavAGo',
+        path: '/HaveAGoDays',
         cName: 'sub-nav',
         closeMenu: true
       },

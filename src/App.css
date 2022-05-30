@@ -13,6 +13,10 @@
   }
 }
 
+html,body{
+  height: 100%
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -73,6 +77,11 @@ h1 {
   padding-bottom: 50px;
 }
 
+li {
+padding-bottom: 10px;
+}
+
+
 .standardText {
   padding: 20px;
   display: flex;
@@ -82,14 +91,17 @@ h1 {
 
 table, th, td {
   word-break: break-word;
-  height: 10px;
+  height: 20px;
   table-layout: fixed;
   width: 100%;
+  height: auto;
   padding: 5px;
   font-family: "roboto", sans-serif;
-  font-size: 10px;
+  font-size: .9em;
   overflow: wrap;
+  text-align: center;
   border: 1px solid black;
   border-collapse: collapse;
   
 }
+

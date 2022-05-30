@@ -1,0 +1,10 @@
+ul{
+    list-style-type: none;
+    padding-left: 5vw;
+    font-size: 15px;
+    text-align: left;
+   }
+
+   .adjust-line-height {
+    line-height: .8em;
+  }

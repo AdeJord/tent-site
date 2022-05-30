@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../App.css'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
@@ -11,13 +12,14 @@ import "@fontsource/roboto"; // Defaults to weight 400.
 
 const Nav = styled.div`
 font-family: "Roboto";
-  background: #114709;
+  background: #1a1111;
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   color: white;
+
 `;
 
 const NavContainer = styled.div`
@@ -28,11 +30,12 @@ align-items: center;
 `
 
 const NavIcon = styled(Link)`
-  margin-left: 2rem;
   font-size: 5vw;
+  width: 15vw;
   height: 80px;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   @media (min-width: 802px) {
     display: none;
@@ -42,8 +45,9 @@ const NavIcon = styled(Link)`
 const SidebarNav = styled.nav`
   font-family: "Roboto";
   font-size: 2vw;
-  background: #114709;
-  width: 40vw;
+  background: #1a1111;
+  width: 60vw;
+  opacity: 90%;
   padding-bottom: 20px;
   display: flex;
   autofocus: true;
@@ -85,12 +89,11 @@ const Sidebar = () => {
         <Nav>
         <NavContainer>
         
-          <NavIcon to='#' onClick={test}>
+          <NavIcon to='#' onClick={test} style={{ color: 'white', fontSize: '4vw', textDecoration: 'none'}}>
             <FaIcons.FaBars />
-            
+            <div style = {{ fontSize: '2vw' }}>Menu</div>
           </NavIcon>
           </NavContainer>
-          {/* <Header /> */}
           <Header2 />
         </Nav>
   

@@ -4,26 +4,23 @@ import '../App.css'
 import Gerry from '../images/Gerry.jpg'
 import "@fontsource/roboto"; // Defaults to weight 400.
 
+
+//this container seems gooooooood! ;-)
 const Container = styled.section`
 display: flex;
-font-family: "Roboto";
 flex-direction: column;
-width: 100%;
-height: 75vh;
-padding: 10px;
+align-items: center;
 overflow-y: scroll;
-@media (min-width: 768px) {
-  height:65vh;
-}
+height: auto;
 `
+
 const PageTitle = styled.div`
-width: 100%;
 text-align: center;
 display: flex;
 flex-direction: column;
-padding-bottom: 25px;
 height: 4vh;
 font-size: 2em;
+padding-top: 25px;
 @media (min-width: 386) {
   font-size: .11em;
 }
@@ -31,13 +28,12 @@ font-size: 2em;
 
 const Header = styled.h5`
 display: flex;
-width: 80vw;
-margin: 20px;
+width: 50vw;
+margin: 4vw;
 text-align: center;
 color: #114709;
-font-size: 1.1em;
+font-size: 1.25em;
 font-weight: 500;
-padding: 20px;
 `
 
 const TopDiv = styled.div`
@@ -46,7 +42,6 @@ width: 80vw;
 display: flex;
 flex-direction: row
 align-content: center;
-padding: 20px;
 @media (max-width: 768px) {
     flex-direction: column;
 }
@@ -67,7 +62,7 @@ padding-top: 35px;
 display: flex;
 flex-direction: column;
 align-text: centre;
-width: 50vw;
+width: 40vw;
 @media (max-width: 768px) {
     width: 80%;
 }
@@ -75,9 +70,10 @@ width: 50vw;
 
 const TopDivRight = styled.div`
 display: flex;
+justify-content: space-around;
 width: 100%
 align-content: center;
-padding: 20px;
+padding-left: 9vw;
 @media (max-width: 768px) {
     width: 80%;
 }
@@ -85,8 +81,8 @@ padding: 20px;
 
 const Section = styled.div`
 width: 100%;
-align-content: centre;
-padding-left: 10vw;
+overflow: wrap;
+align-content: center;
 `
 
 // const Image = styled.div`
@@ -99,17 +95,12 @@ const Volunteers = () => {
         <>
             <Container>
                 <PageTitle>Volunteers</PageTitle>
-                <Header>The Trust owns and operates the narrowboat "Enterprise" which runs day trips for community groups and families with elderly,
-                    disabled or unwell members.</Header>
+                <Header  style={{ paddingTop: '3vh' }}>The Trust is run completely by volunteers</Header>
                 <hr />
                 <TopDiv >
                     <TopDivLeft>
                         <div>
-                            <p>
-                                The trust is run completely by volunteers.
-                            </p>
-
-                            <p style={{ paddingBottom: '25px', paddingTop: '15px' }}>
+                            <p style={{ paddingBottom: '3vh' }}>
                                 "We do this because we have a passion for giving absolutely everyone the opportunity to
                                 enjoy the ambience of the british canal system"
                             </p>
@@ -127,9 +118,9 @@ const Volunteers = () => {
                         </Section>
                         <LowerLeftTopDiv>
                             <Section>
-                                <h3 style={{ paddingBottom: '20px', paddingLeft: '20px' }}>Benefits of joining our crew</h3>
+                                <h3 style={{ paddingBottom: '20px', padding: '20px' }}>The benefits of joining our crew...</h3>
                                 <ul>
-                                    <li>Friendship, enjoyment and fulfilment in your time as a volunteer</li>
+                                    <li>Friendship, Enjoyment, Personal fulfilment, Experience, Helping others</li>
                                     <li>To use and develop your skills, knowledge and interests at a time that suits you</li>
                                     <li>Receive training to further your abilities and experience in your desired field</li>
                                 </ul>
@@ -137,12 +128,12 @@ const Volunteers = () => {
                         </LowerLeftTopDiv>
                     </TopDivLeft>
                     <TopDivRight>
-                        <img style={{ shadowColor: 'red', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, height: 'auto', width: 'auto' }} src={Gerry} alt="Gerry" />
+                        <img style={{ shadowColor: 'red', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, height: '40vh', width: 'auto' }} src={Gerry} alt="Gerry" />
                     </TopDivRight>
                 </TopDiv>
                     <Section>
-                            <h3 style={{ paddingBottom: '20px', paddingLeft: '20px' }}>Volunteers can do any of the following ...</h3>
-                            <ul>
+                            <h4 style={{ padding: '20px', paddingLeft: '10vw', textAlign: "left" }}>Volunteers can do any of the following ...</h4>
+                            <ul style={{ paddingBottom: '20px', paddingLeft: '20vw' }}>
                             <li>Fundraising</li>
                             <li>Working with groups</li>
                             <li>Crewing and Skippering</li>
@@ -158,9 +149,9 @@ const Volunteers = () => {
                             <li>Become a committee member</li>
                             </ul>
 
-                        {/* <p style={{paddingTop: '25px'}}>This is an ideal way to gain experience in many fields</p> */}
+                        <p style={{padding: '25px'}}>This is a great way to gain experience in many fields</p>
                         </Section>
-                <p style={{ paddingBottom: '25px', paddingTop: '15px' }}>
+                <p style={{ padding: '25px' }}>
                     We are always welcoming new volunteers,
                     If you are interested in getting on board, (Pun intended) please contact us for a chat
                 </p>
