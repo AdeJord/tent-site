@@ -20,20 +20,23 @@ const NavIcon = styled(Link)`
     display: none;
   }
 `;
+
+
+// i think the issue with the spacing of the links on main mav is in the below block.
 const MainNavBar = styled.nav`
 padding-top: 7px;
 font-family: "Roboto";
 font-weight: 100;
-background: black;
-width: 100vw;
+background: #1a1111;
+width: 100%;
 height: 5vh;
 display: flex;
 flex-direction: row;
-justify-content: space-around;
+justify-content: space-between;
 position: relative;
-display: none;
-@media (min-width: 802px) {
-  display: flex;
+display: flex;
+@media (max-width: 802px) {
+  display: none;
 }
 `;
 

@@ -15,7 +15,7 @@ overflow-y: scroll;
 export const BookYourTrip = () => {
   return (
     <Container>
-      <h1>Book your trip</h1>
+      <h1>Big call to action</h1>
       <p>A page with contact numbers for Booking, Enquiries etc, </p>
     </Container>
   );

@@ -12,31 +12,25 @@ import "@fontsource/roboto"; // Defaults to weight 400.
 
 
 const Container = styled.section`
-font-family: "Roboto";
+
 display: flex;
-position: relative;
 flex-direction: column;
+justify-content: space-around;
 width: 100%;
-height: 75vh;
-padding: 10px;
-overflow-y: scroll;
-@media (min-width: 768px) {
-  height:65vh;
-}
+align-items: center;
+text-align: left;
 `
+
 const PageTitle = styled.div`
 font-family: "Roboto";
 width: 100%;
 text-align: center;
 display: flex;
 flex-direction: column;
-justify-text: end;
 height: 2vh;
 padding-top: 20px;
 font-size: 1.3em;
-@media (min-width: 386) {
-  font-size: .11em;
-}
+
 `
 
 const Header = styled.h5`
@@ -58,21 +52,20 @@ width: 80vw;
 display: flex;
 flex-direction: row
 align-content: center;
-padding: 20px;
+padding: 10px;
 @media (max-width: 768px) {
     flex-direction: column;
 }
 `
 const TopDivLeft = styled.div`
+
 font-family: "Roboto";
 display: flex;
-flex-direction: column;
 width: 80vw;
-align-content: centre;
-padding: 3vw
-@media (max-width: 768px) {
-    width: 100vw;
-}
+flex-direction: column;
+align-content: left;
+text-align: center;
+
 `
 
 const LowerLeftTopDiv = styled.div`
@@ -105,26 +98,26 @@ flex-direction: row;
 `
 
 const Section = styled.div`
-font-family: "Roboto";
 width: 100%;
-align-content: center;
-padding: 20px;
+display: flex;
+flex-direction: column;
 `
 
 // why cant I get Gerrys image to do this? (resize on page resize?)
 const Image = styled.div`
 display: flex;
 flex-direction: column;
+width: 75vw;
 height: auto;
-@media (min-width '802px') {
-    width: 20%
+@media (min-width 802px) {
+    width: 30vw;
 }
 `
 
 const BottomBit = styled.div`
-width: 90vw;
-padding-top: 20px;
-
+padding-left: 3.5vw;
+padding-top: 4vh;
+width: 75vw;
 `
 
 const OurHistory = () => {
@@ -133,7 +126,7 @@ const OurHistory = () => {
             <Container>
                 <PageTitle>Our History</PageTitle>
                 <Header>Truman Enterprise Narrowboat Trust (TENT) have been operating canal boat trips for over 50 years!</Header>
-                <hr style={{ width: '90vw' }} />
+                <hr style={{ width: '85vw' }} />
                 <TopDiv >
                     <TopDivLeft>
 
@@ -142,11 +135,11 @@ const OurHistory = () => {
                                 <li style={{ paddingBottom: '8px' }}>1965 - Young people and Youth Leaders in Walsall start to raise funds to build a boat for the ‘Youth of the town’</li>
                                 <li style={{ paddingBottom: '8px' }}>1968 - HF Truman narrowboat purpose built at Keays boatyard in Walsall.</li>
                                 <Image>
-                                    <img src={keays} alt="keays" />
+                                    <img src={keays} alt="keays boatyard" />
                                 </Image>
                                 <p style={{ paddingBottom: '20px', fontSize: '13px', textAlign: 'left' }}>Keays boatyard, where the the HF Truman was built</p>
                                 <li style={{ paddingBottom: '8px' }}>1968 - Weekend trips for youth clubs and schools started</li>
-                                <li style={{ paddingBottom: '8px' }}>1980 - Second boat Usk joins the Trust</li>
+                                <li style={{ paddingBottom: '8px' }}>1980 - Second boat "Usk" joins the Trust</li>
                                 <li style={{ paddingBottom: '8px' }}>1992 - AJ Felgate launched to replace the Usk</li>
                                 <li style={{ paddingBottom: '8px' }}>1997 - HF Truman Narrowboat Trust became a registered charity.</li>
                                 <Image>
@@ -160,10 +153,10 @@ const OurHistory = () => {
                                 <li style={{ paddingBottom: '8px' }}>2011 - Walsall Council withdraws funding for the Senior Boat Warden salary, so severing the Trust’s link with WMBC.</li>
                                 <li style={{ paddingBottom: '8px' }}>2018 - The trust celebrated 50 years of Community boating</li>
                                 <li style={{ paddingBottom: '8px' }}>2018 - AJ Felgate sold to maintain trust efficiency</li>
-                                <li style={{ paddingBottom: '8px' }}>2020 - No boat trips due to Corona Virus</li>
+                                <li style={{ paddingBottom: '8px' }}>2020 - No boat trips due to Coronavirus</li>
                                 <li style={{ paddingBottom: '8px' }}>2020 - Walsall Enterprise re-named Enterprise.</li>
                                 <Image>
-                                    <img style={{paddingBottom: '35px'}}src={Enterprise} alt="Enterprise" />
+                                    <img style={{padding: '20px'}}src={Enterprise} alt="Enterprise" />
                                     <hr />
                                 </Image>
                             </ul>
@@ -194,26 +187,7 @@ const OurHistory = () => {
                         <p style={{ paddingBottom: '20px', textAlign: 'center' }}>Len Wilson, one of the earliest skippers, seen here at the tiller of the 'Usk' travelling the Wyrly and Essington Canal</p>
                     </TopDivRight> */}
                 </TopDiv>
-                {/* <ImagesDiv>
-                    <Image>
-                        <img style={{ shadowColor: 'red', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, height: '40vh', width: 'auto' }} src={trumanonlift} alt="Truman out of the water" />
-                        <p style={{ paddingBottom: '20px', textAlign: 'center' }}>Truman out of the water</p>
-                    </Image>
-                    <Image>
-                        <img style={{ shadowColor: 'red', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, height: '40vh', width: 'auto' }} src={insidetruman} alt="Inside the Truman" />
-                        <p style={{ paddingBottom: '20px', textAlign: 'center' }}>Inside the Truman</p>
-                    </Image>
-                </ImagesDiv>
-                <ImagesDiv>
-                    <Image>
-                        <img style={{ shadowColor: 'red', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, height: '40vh', width: '40vw' }} src={felgate} alt="AJ Felgate" />
-                        <p style={{ paddingBottom: '20px', textAlign: 'center' }}>AJ Felgate</p>
-                    </Image>
-                    <Image>
-                        <img style={{ shadowColor: 'red', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.8, shadowRadius: 2, height: '40vh', width: '40vw' }} src={mayors} alt="mayors" />
-                        <p style={{ paddingBottom: '20px', textAlign: 'center' }}>The Mayors</p>
-                    </Image>
-                </ImagesDiv> */}
+
 
 
             </Container>

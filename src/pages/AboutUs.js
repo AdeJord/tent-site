@@ -31,11 +31,11 @@ export const AboutTheTrust = () => {
     );
 };
 
-export const BoatBrochure = () => {
+export const TheEnterprise = () => {
     return (
         <Container>
-            <h1>Boat Brochure</h1>
-            <p>Need to scan the most recent copy of the boat brochure, and add info</p>
+            <h1>The Enterprise</h1>
+            <p>Lots of pics and description of Enterprise</p>
         </Container>
     );
 };
