@@ -10,14 +10,15 @@ font-family: "Roboto";
 background: white;
 justify-content: flex-end;
 width: 100%;
-height: 10vh;
+height: 10vw;
 display: flex;
 align-content: center;
 flex-direction: row;
-position: relative;
 bottom: 0;
 left: 0;
 
+@media (max-width: 802px) {
+  height: 15vw;
 `
 
 const Footer1 = styled.div`
@@ -42,18 +43,14 @@ width: 50%;
 border-top: 1px solid black;
 border-bottom: 1px solid black;
 padding: 1em;
-font-size: 1em;
+font-size: 1.5vw;
 padding: .5em;
 
 
-@media (min-width: 1024) {
-  font-size: 1em;
-  padding-left: 2em;
-  padding-right: 2em;
-}
 
-@media (max-width: 768px) {
-  font-size: .6em;
+
+@media (max-width: 802px) {
+  font-size: 2vw;
   padding-left: 3em;
   padding-right: 3em;
 }

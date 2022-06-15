@@ -8,6 +8,7 @@ display: flex;
 flex-direction: column;
 width: calc(100vw - 40px);
 height: calc(75vh - 40px);
+min-height: 72.5vh;
 padding: 10px;
 overflow-y: scroll;
 text-align: left;
@@ -15,38 +16,24 @@ text-align: left;
   height: calc(75vh - 100px);
   padding-left: 40px;
   padding-right: 40px;
-  width: calc(100vw - 80px);
+  width: auto;
 }
 `
-const PageTitle = styled.div`
-font-family: "Roboto";
-width: 100%;
-text-align: center;
-display: flex;
-flex-direction: column;
-padding-top: 25px;
-height: 4vh;
-font-size: 1.5em;
-@media (min-width: 768px) {
-  padding-bottom: 20px;
-};
-@media (min-width: 386) {
-  font-size: .11em;
-}
-`
+
 
 const TextContainer = styled.ul`
 font-family: "Roboto";
 padding-left: 30px;
+padding-bottom: 15px;
 `
 
 const TrainingCourses = () => {
     return (
 
         <Container>
-            <PageTitle>Training Courses</PageTitle>
+            <div className = "page-title">Training Courses</div>
 
-            <h5 style={{ paddingTop: '3vh', paddingBottom: '4vh', padding: '10px' }}>Truman Enterprise Narrowboat Trust is an approved training centre for courses accredited by the National Community
+            <h5 style={{ paddingTop: '3vh', paddingBottom: '5vh', padding: '10px' }}>Truman Enterprise Narrowboat Trust is an approved training centre for courses accredited by the National Community
                 Boats Association (NCBA). The Trust has a qualified trainer to deliver these courses.</h5>
 
             <h4 style={{ paddingBottom: '2vh' }}>The Courses Offered are :-</h4>

@@ -2,30 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import NiceBoatPic from '../images/NiceBoatPic.jpg';
 import "@fontsource/roboto"; // Defaults to weight 400.
+import '../App.css'
 
-const Container = styled.section`
-display: flex;
-flex-direction: column;
-width: calc (100% - 400px);
-
-align-items: center;
-text-align: left;
-@media (min-width: 1000px) {
-  padding-left: 150px;
-  padding-right: 150px;
-}
-`
 
 const ImgContainer = styled.div`
 padding: 10px;
-width: 90vw;
+padding-top: 5vh;
+width: 85vw;
 height: auto;
+
+@media (max-width: 802px){
+  padding-top: 2vw;
+}
 `
 
 
 const Home = () => {
   return (
-    <Container>
+    <div className = "container">
       <ImgContainer>
       <img src={NiceBoatPic} style={{width: "100%", height:"100%"}}  alt='Nice Boat Pic'  />
       </ImgContainer>
@@ -45,12 +39,12 @@ const Home = () => {
         are provided). You can either bring your own sandwiches, order fish and chips, or have
         a drink and a meal at the pub. 
         </p>
-        <p style={{ padding: '15px'}}>
+        <p style={{ padding: '15px', paddingBottom: '10vh'}}>
         Our trips usually last between 4 and 8 hours.
         What time we leave and what time we return is up to you. Run entirley by volunteers,
         our only aim to give you an enjoyable and memorable day out on the canal.        
         </p>
-    </Container>
+    </div>
   );
 };
 

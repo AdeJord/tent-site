@@ -32,10 +32,10 @@ height: auto;
 const Home = () => {
     return (
         <Container>
+            <div className = "page-title">Have A Go days</div>
             <ImgContainer>
                 <img src={boats} style={{ width: "100%", height: "100%" }} alt='boats in a lock' />
             </ImgContainer>
-            <h3 style={{ padding: '15px', textAlign: 'center' }}>"Have A Go" days </h3>
             <p style={{ padding: '15px', textAlign: 'center', fontStyle: 'italic' }}>A day out on the canal, "learning the ropes!" </p>
             <hr style={{ width: '90vw' }} />
             <TextContainer>

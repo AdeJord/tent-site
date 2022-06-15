@@ -3,36 +3,12 @@ import styled from "styled-components";
 import "@fontsource/roboto"; // Defaults to weight 400.
 
 const Container = styled.section`
-font-family: "Roboto";
 display: flex;
 flex-direction: column;
-width: calc(100vw - 40px);
-height: calc(75vh - 40px);
-padding: 10px;
-overflow-y: scroll;
-text-align: left;
-@media (min-width: 802px) {
-  height: calc(75vh - 150px);
-  padding-left: 40px;
-  padding-right: 40px;
-  width: calc(100vw - 80px);
-}
-`
-const PageTitle = styled.div`
-font-family: "Roboto";
-width: 100%;
-text-align: center;
-display: flex;
-flex-direction: column;
-padding-bottom: 15px;
-height: 4vh;
-font-size: 1.5em;
-@media (min-width: 768px) {
-  padding-bottom: 60px;
-};
-@media (min-width: 386) {
-  font-size: .11em;
-}
+align-items: center;
+min-height: 75.5vh;
+padding: 15px;
+height: auto;
 `
 
 const List = styled.ul`
@@ -44,7 +20,7 @@ const TermsAndCond = () => {
   return (
 
     <Container>
-        <PageTitle>Terms and Conditions</PageTitle>
+        <div className = "page-title">Terms and Conditions</div>
         
         <List>
           <li>In advance of a trip group leaders  are responsible for reading 'Covid Safe Cruising' which will we sent to them with their booking form. Group leaders must ensure that the procedures stated in this document are carried out.</li><br />

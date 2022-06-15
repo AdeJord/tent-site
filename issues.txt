@@ -13,3 +13,5 @@ still side to side shift on our History
 
 BUG, when you open in mobile and open menu, then change to screen, Menu remains :-/
 
+when header is viewed on s7 in landscape mode, header is fuggered
+

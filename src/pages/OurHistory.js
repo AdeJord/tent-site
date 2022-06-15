@@ -11,33 +11,10 @@ import Enterprise from '../images/Enterprise.jpg'
 import "@fontsource/roboto"; // Defaults to weight 400.
 
 
-const Container = styled.section`
-
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-width: 100%;
-align-items: center;
-text-align: left;
-`
-
-const PageTitle = styled.div`
-font-family: "Roboto";
-width: 100%;
-text-align: center;
-display: flex;
-flex-direction: column;
-height: 2vh;
-padding-top: 20px;
-font-size: 1.3em;
-
-`
-
 const Header = styled.h5`
 font-family: "Roboto";
 display: flex;
 width: 80vw;
-margin: 20px;
 text-align: center;
 color: #114709;
 font-size: 1.1em;
@@ -116,15 +93,16 @@ height: auto;
 
 const BottomBit = styled.div`
 padding-left: 3.5vw;
-padding-top: 4vh;
 width: 75vw;
+@media (max-width: 802px){
+    padding-top: 6vh;
+}
 `
 
 const OurHistory = () => {
     return (
-        <>
-            <Container>
-                <PageTitle>Our History</PageTitle>
+        <div className = "container">
+                <div className = "page-title">Our History</div>
                 <Header>Truman Enterprise Narrowboat Trust (TENT) have been operating canal boat trips for over 50 years!</Header>
                 <hr style={{ width: '85vw' }} />
                 <TopDiv >
@@ -161,9 +139,9 @@ const OurHistory = () => {
                                 </Image>
                             </ul>
 
-                            <PageTitle>
+                            <div className = "page-title">
                                 H F TRUMAN NARROWBOAT COMMITTEE
-                            </PageTitle>
+                            </div>
 
                         </Section>
                         <LowerLeftTopDiv>
@@ -187,11 +165,7 @@ const OurHistory = () => {
                         <p style={{ paddingBottom: '20px', textAlign: 'center' }}>Len Wilson, one of the earliest skippers, seen here at the tiller of the 'Usk' travelling the Wyrly and Essington Canal</p>
                     </TopDivRight> */}
                 </TopDiv>
-
-
-
-            </Container>
-        </>
+        </div>
     );
 };
 

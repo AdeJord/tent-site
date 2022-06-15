@@ -5,10 +5,9 @@ import '../App.css';
 const Container = styled.section`
 display: flex;
 flex-direction: column;
-height: 75vh;
+height: 69vh;
 align-items: center;
 padding: 20px;
-overflow-y: scroll;
 @media (min-width: 768px) {
   height:65vh;
 } `
