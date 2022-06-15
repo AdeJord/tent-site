@@ -1,3 +1,8 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+
 .App {
   text-align: center;
 }
@@ -40,12 +45,6 @@ html,body{
     transform: rotate(360deg);
   }
 }
-
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-
-
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 * {
   text-align: left;
@@ -90,18 +89,77 @@ padding-bottom: 10px;
 }
 
 table, th, td {
-  word-break: break-word;
-  height: 20px;
+  height: 47px;
   table-layout: fixed;
   width: 100%;
-  height: auto;
   padding: 5px;
   font-family: "roboto", sans-serif;
-  font-size: .9em;
+  font-size: 2.5vw;
   overflow: wrap;
   text-align: center;
   border: 1px solid black;
   border-collapse: collapse;
-  
 }
 
+
+.image-gallery {
+  padding-top: 5vh;
+    width: 30%;
+    height: 100%
+}
+
+.image-gallery-slide img {
+    width: 50%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: fill;
+    overflow: hidden;
+    object-position: center center;
+}
+
+.fullscreen .image-gallery-slide img {
+  max-height: 100vh;
+}
+
+.page-title {
+color: black;
+font-family: "Roboto";
+width: calc (100% - 25px);
+text-align: center;
+display: flex;
+flex-direction: column;
+height: 2vh;
+padding-top: 4vh;
+padding-bottom: 25px;
+font-size: 1.6em;
+/* @media (min-width: 386) {
+  font-size: .11em;
+} */
+}
+
+.Link {
+  text-decoration: none;
+}
+
+.container {
+display: flex;
+background: #edece4;
+flex-direction: column;
+width: auto;
+height: 100%;
+align-items: center;
+padding: 15px;
+padding-top: 5px;
+overflow-y: scroll;
+}
+
+@media (max-width: 802px){
+  .image-gallery {
+    width: 10%;
+  }}
+
+@media (min-width: 802px){
+  table, th, td {
+    font-size: .9em
+  }
+}

@@ -15,7 +15,7 @@ const SidebarLink = styled(Link)`
   justify-content: flex-start;
   align-items: left;
   list-style: none;
-  height: 9vh;
+  height: 4vh;
   text-decoration: none;
   font-size: 15px;
   @media (max-width: 802px) {
@@ -98,11 +98,16 @@ const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {
 
   return (
     <SubNav>
+      {/* if it has a subNav do NOT link to path */}
       <SidebarLink to={item.path} onClick={() => {
         openSubNav(item.index);
         setSubnav(!subnav);
-        if (item?.closeMenu) {
-        }
+        // if (item?.closeMenu) {
+        // } 
+        if (item?.followLink) {
+          setSubnav(false);
+        }  
+        console.log('follow link ' + item.path);    
       }}>
         <div>
           {item.icon}

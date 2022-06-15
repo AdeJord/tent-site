@@ -2,17 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import '../special.css'
 import "@fontsource/roboto"; // Defaults to weight 400.
-
-const Container = styled.section`
-display: flex;
-flex-direction: column;
-width: 100%;
-align-items: left;
-text-align: left;
-padding-bottom: 100px;
-
-
-`
+import '../App.css'
 
 const TextContainer = styled.div`
 text-align: left;
@@ -26,9 +16,9 @@ padding: 15px;
 
 const HowToPay = () => {
     return (
-        <Container>
+        <div className = "container">
 
-            <h3 style={{ padding: '15px', textAlign: 'center' }}>How to pay for you trips</h3>
+            <div className = "page-title">How to pay for you trips</div>
             {/* <p style={{ padding: '15px', textAlign: 'center', fontStyle: 'italic' }}>A day out on the canal, "learning the ropes!" </p> */}
             <hr style={{ width: '90vw' }} />
             <TextContainer>
@@ -56,7 +46,7 @@ const HowToPay = () => {
            </TextContainer>
 
 
-        </Container>
+        </div>
     );
 };
 

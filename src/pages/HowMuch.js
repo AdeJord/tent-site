@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Link from 'react-dom'
 import "@fontsource/roboto"; // Defaults to weight 400.
 import '../App.css'
 import '../map.css'
@@ -13,7 +14,7 @@ height: auto;
 width: auto;
 padding-top: 1vw;
 padding: 2vw;
-
+min-height: 75.5vh;
 overflow: hidden;
 align-items: center;
 @media (max-width: 802px) {
@@ -21,20 +22,6 @@ align-items: center;
 }
 `
 
-const PageTitle = styled.div`
-
-font-family: "Roboto";
-width: auto;
-text-align: center;
-display: flex;
-flex-direction: column;
-height: 2vh;
-padding-bottom: 25px;
-font-size: 1.3em;
-@media (min-width: 386) {
-  font-size: .11em;
-}
-`
 const TestDiv = styled.div`
 width: 100%;
 margin: 10px
@@ -47,8 +34,8 @@ const HowMuch = () => {
     <Container>
 
       <TestDiv>
-        <PageTitle>How much does it cost?</PageTitle>
-        <div style={{ padding: '2vw'}}>
+        <div className = "page-title">How much does it cost?</div>
+        <div style={{ padding: '2vw' }}>
           <table>
             <thead>
               <tr>
@@ -94,7 +81,7 @@ const HowMuch = () => {
             We will always try to accommodate what our groups would like.</h4>
         </div>
 
-        <PageTitle style={{paddingTop: '20px'}}>Safety</PageTitle>
+        <div className = "page-title" style={{ paddingTop: '20px' }}>Safety</div>
         <ul>
           <li>The boat has a CRT license and Boat Safety Certificate. </li>
           <li>The Trust has public liability insurance. Personal accident insurance is not provided and groups should arrange their own cover. </li>
@@ -104,8 +91,10 @@ const HowMuch = () => {
           <li>Risk assessments are available on request.</li>
           <li>The Trust cannot accept any responsibility for passengers when they are off the boat.</li>
         </ul>
+<br></br>
+<a href={('TermsAndCond')}>Terms and Conditions</a>
 
-        <p style={{ padding: '35px'}}>Click here for Terms and Conditions</p>
+
 
       </TestDiv>
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../App.css'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
@@ -24,17 +25,19 @@ const NavIcon = styled(Link)`
 
 // i think the issue with the spacing of the links on main mav is in the below block.
 const MainNavBar = styled.nav`
-padding-top: 7px;
+color: white;
+margin-top: 1vw;
+padding-top: 5px;
 font-family: "Roboto";
 font-weight: 100;
 background: #1a1111;
 width: 100%;
-height: 5vh;
+height: 4vh;
 display: flex;
 flex-direction: row;
-justify-content: space-between;
+justify-content: space-around;
+top: 45px;
 position: relative;
-display: flex;
 @media (max-width: 802px) {
   display: none;
 }
@@ -48,23 +51,41 @@ font-family: "Roboto";
 
 const Mainnav = () => {
 
-    const [mainNavbar, setMainNavbar] = useState(false);
-    const showMainNavbar = () => setMainNavbar(!mainNavbar);
+  const [mainNavbar, setMainNavbar] = useState(false);
+  const showMainNavbar = () => setMainNavbar(!mainNavbar);
 
-    const [subNavIndex, setSubNavIndex] = useState(1);
-    const openSubNav = (index) => setSubNavIndex(index);
+  const [subNavIndex, setSubNavIndex] = useState(1);
+  const openSubNav = (index) => setSubNavIndex(index);
 
-    return (
-        <>
-                <MainNavWrap>
-                    <MainNavBar mainNavbar={mainNavbar}>
+  return (
+
+    <MainNavWrap>
+      <MainNavBar mainNavbar={mainNavbar}>
                         {SidebarData.map((item, index) => {
                             return <SubMenu item={item} key={index} closeParent={showMainNavbar} subNavIndex={subNavIndex} openSubNav={openSubNav} />;
                         })}
                     </MainNavBar>
-                </MainNavWrap>
-        </>
-    )
+      {/* <MainNavBar>
+        <Link
+          to={{
+            pathname: "/Home",
+            search: "?sort=name",
+            hash: "#the-hash",
+            state: { fromDashboard: true }
+          }}>Home</Link>
+        <Link
+          to={{
+            pathname: "/About",
+            search: "?sort=name",
+            hash: "#the-hash",
+            state: { fromDashboard: true }
+          }}>About</Link>
+
+      </MainNavBar> */}
+
+    </MainNavWrap>
+
+  )
 }
 
 export default Mainnav

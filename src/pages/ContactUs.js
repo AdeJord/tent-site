@@ -13,8 +13,7 @@ display: flex;
 flex-direction: row;
 height: auto;
 width: auto;
-padding: 20px;
-padding-bottom: 100px;
+padding: 10px;
 overflow: hidden;
 align-items: center;
 @media (max-width: 802px) {
@@ -22,51 +21,24 @@ align-items: center;
 }
 `
 
-const PageTitle = styled.div`
-
-font-family: "Roboto";
-width: calc (100% - 25px);
-text-align: center;
-display: flex;
-flex-direction: column;
-height: 2vh;
-padding-bottom: 25px;
-font-size: 1.3em;
-@media (min-width: 386) {
-  font-size: .11em;
-}
-`
-const TestDiv = styled.div`
-width: 100%;
-margin: 10px
-
-`
-
 const TextDiv = styled.div`
-display: flex;
-flex-direction: column;
-overflow: scroll;
-align-content: center;
-text-align: center;
-font-size: 15px;
-height: 100%;
-width: 50%;
-display: flex;
-padding: 0 , 5, 0, 5;
-@media (max-width: 802px) {
-  width: 90vw;
+margin: 10px;
+width: 100%;
+height: 75vh;
+@media (max-width: 802px){
+  height: auto;
 }
 `
 
 const MapDiv = styled.div`
+margin-left: 5px;
+margin-right: 5px;
 display: flex;
 flex-direction: column;
 align-content: center;
 text-align: center;
-height: 75%;
 width: 100%;
 display: flex;
-padding: 0 , 5, 0, 5;
 flex-direction: column;
 @media (max-width: 802px) {
   width: 90vw;
@@ -76,15 +48,15 @@ flex-direction: column;
 const ContactUs = () => {
   return (
     <Container>
-      <TestDiv>
-        <PageTitle>Our Location</PageTitle>
+      <TextDiv>
+        <div className = "page-title">Our Location</div>
         <MapDiv>
         <Map />
         </MapDiv>
         <p style={{padding: '15px', color: 'darkred'}}>What Three Words:- ///armrests.chew.commutes </p>
-      </TestDiv>
-      <TestDiv>
-        <PageTitle>Contact Details</PageTitle>
+      </TextDiv>
+      <TextDiv>
+        <div className = "page-title">Contact Details</div>
         <div>
         <table>
           <thead>
@@ -142,14 +114,14 @@ const ContactUs = () => {
             <tr>
               <td>Website, Tripadvisor, Facebook, etc</td>
               <td>Adrian Jordan</td>
-              <td>Social Media Co-ordinator</td>
+              <td>Social Media <br />Co-ordinator</td>
               <td>07512 896 176<br />
                 <a href="mailto:feedback@truman-enterprise.org.uk?body=My custom mail body">feedback@truman-enterprise.org.uk</a></td>
             </tr>
           </tbody>
         </table>
         </div>
-      </TestDiv>
+      </TextDiv>
 
     </Container>
   );

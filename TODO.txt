@@ -4,6 +4,8 @@ sort out the sidebar on click colors?
 
 payment methods? = cheque, bacs, anything else?  Maybe PayPal?
 
+update all styling to className instead of styled components
+
 left to do as of 26/05/22
 pages
     About Us
@@ -18,3 +20,5 @@ pages
 
     Gallery
     
+
+    Remove all mui stuff from json

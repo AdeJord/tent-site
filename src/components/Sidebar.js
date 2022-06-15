@@ -25,40 +25,44 @@ font-family: "Roboto";
 const NavContainer = styled.div`
 font-family: "Roboto";
 display: flex;
+height: 100px;
+width: auto;
 flex-direction: column;
 align-items: center;
-`
-
-const NavIcon = styled(Link)`
-  font-size: 5vw;
-  width: 15vw;
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  @media (min-width: 802px) {
-    display: none;
-  }
+position: relative;
 `;
 
 const SidebarNav = styled.nav`
   font-family: "Roboto";
   font-size: 2vw;
   background: #1a1111;
-  width: 60vw;
+  width: 55vw;
+  height: auto;
   opacity: 90%;
   padding-bottom: 20px;
-  display: flex;
   autofocus: true;
   border: 1mm ridge black;
   justify-content: center;
   position: fixed;
   top: 0;
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
-  transition: 250ms;
+  transition: 300ms;
   z-index: 10;
   @media (min-width: 802) {
+    display: none;
+  }
+`;
+
+const NavIcon = styled(Link)`
+  font-size: 5vw;
+  width: 15vw;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 8;
+  @media (min-width: 802px) {
     display: none;
   }
 `;

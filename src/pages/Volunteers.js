@@ -10,21 +10,11 @@ const Container = styled.section`
 display: flex;
 flex-direction: column;
 align-items: center;
+min-height: 75.5vh;
 overflow-y: scroll;
 height: auto;
 `
 
-const PageTitle = styled.div`
-text-align: center;
-display: flex;
-flex-direction: column;
-height: 4vh;
-font-size: 2em;
-padding-top: 25px;
-@media (min-width: 386) {
-  font-size: .11em;
-}
-`
 
 const Header = styled.h5`
 display: flex;
@@ -94,8 +84,8 @@ const Volunteers = () => {
     return (
         <>
             <Container>
-                <PageTitle>Volunteers</PageTitle>
-                <Header  style={{ paddingTop: '3vh' }}>The Trust is run completely by volunteers</Header>
+                <div className = "page-title">Volunteers</div>
+                <Header>The Trust is run completely by volunteers</Header>
                 <hr />
                 <TopDiv >
                     <TopDivLeft>

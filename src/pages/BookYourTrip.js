@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Container = styled.section`
 display: flex;
 flex-direction: column;
-height: 75vh;
+height: 69vh;
 align-items: center;
 padding: 20px;
 overflow-y: scroll;
@@ -14,21 +14,13 @@ overflow-y: scroll;
 
 export const BookYourTrip = () => {
   return (
-    <Container>
-      <h1>Big call to action</h1>
+    <div className = "container">
+      <div className = "page-title">Big call to action</div>
       <p>A page with contact numbers for Booking, Enquiries etc, </p>
-    </Container>
+    </div>
   );
 };
 
-export const HowMuch = () => {
-  return (
-    <Container>
-      <h1>How much does it cost</h1>
-      <p>Price list to go here </p>
-    </Container>
-  );
-};
 
 export const HowToPay = () => {
   return (

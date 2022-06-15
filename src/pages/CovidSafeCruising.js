@@ -1,54 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 import "@fontsource/roboto"; // Defaults to weight 400.
+import '../App.css'
 
 const Container = styled.section`
-font-family: "Roboto";
 display: flex;
 flex-direction: column;
-width: calc(100vw - 40px);
-height: calc(75vh - 40px);
-padding: 10px;
-overflow-y: scroll;
-text-align: left;
-@media (min-width: 802px) {
-  height: calc(75vh - 150px);
-  padding-left: 40px;
-  padding-right: 40px;
-  width: calc(100vw - 80px);
-}
-`
-const PageTitle = styled.div`
-font-family: "Roboto";
-width: 100%;
-text-align: center;
-display: flex;
-flex-direction: column;
-padding-top: 25px;
-height: 4vh;
-font-size: 1.5em;
-@media (min-width: 768px) {
-  padding-bottom: 30px;
-};
-@media (min-width: 386) {
-  font-size: .11em;
-}
+align-items: center;
+padding: 15px;
+min-height: 75.5vh;
+height: auto;
 `
 
 const List = styled.ul`
 font-family: "Roboto";
-padding-left: 30px;
+padding: 10px;
+
 `
 
 const CovidSafeCruising = () => {
   return (
 
-    <Container>
-        <PageTitle>Covid Safe Cruising</PageTitle>
+    <div className = "container">
+        <div className = "page-title">Covid Safe Cruising</div>
 
-        <h5 style = {{ padding: '30px'}}>Our concern (as always) is to run safe and enjoyable community boat trips on the beautiful Staffs & Worcs canal. 
+        <h4 style = {{ padding: '30px'}}>Our concern (as always) is to run safe and enjoyable community boat trips on the beautiful Staffs & Worcs canal. 
             We can only do this if all Covid restrictions are lifted. 
-            Even then we want to proceed cautiously, so we are taking the following precautions to protect passengers and boat staff.</h5>
+            Even then we want to proceed cautiously, so we are taking the following precautions to protect passengers and boat staff.</h4>
         
         <List>
           <li>Persons (boat staff & passengers) will not be permitted boat trips if they have had in the last 2 weeks: a positive Covid result, symptoms 
@@ -84,7 +62,7 @@ const CovidSafeCruising = () => {
         </List>
 
 
-    </Container>
+    </div>
 
   );
 };
