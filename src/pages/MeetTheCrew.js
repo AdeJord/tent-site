@@ -30,6 +30,7 @@ align-items: center;
 
 const TestDiv = styled.div`
 width: 100%;
+height: 68vh;
 margin: 10px
 `
 
@@ -90,7 +91,13 @@ const MeetTheCrew = () => {
         {/* <PageTitle>Meet The Crew</PageTitle> */}
         <WrapperWrap>
           <Wrapper>
-
+            <ShowCard
+              name="Adrian Jordan"
+              url="https://i.imgur.com/nCY4rah.jpg"
+              description="Skipper, Crew Member, Website developer. Started with the trust
+        around 2018 (I think) and I will add more to this later!!!..............Skipper, Crew Member, Website developer. Started with the trust
+        around 2018 (I think) and I will add more to this later!!!"
+            />
             <ShowCard
               name="Mariel Bishop"
               description="A bit about Mariel and what she does in the trust, and some like/dislikes  etc?"
@@ -102,15 +109,12 @@ const MeetTheCrew = () => {
             <ShowCard
               name="Jenny Christion"
               description="A bit about Jenny and what she does in the trust, and some like/dislikes  etc?"
-            />            <ShowCard
-            name="David Leaper"
-            description="A bit about David and what he does in the trust, and some like/dislikes  etc?"
-          />
-            <ShowCard
-              name="Adrian Jordan"
-              description="Skipper, Crew Member, Website developer. Started with the trust
-        around 6 years ago."
             />
+            <ShowCard
+              name="David Leaper"
+              description="A bit about David and what he does in the trust, and some like/dislikes  etc?"
+            />
+
             <ShowCard
               name="Agata Tomaszewska"
               description="Crew Member. Started with the trust

@@ -84,7 +84,7 @@ const ShowCard = (props) => {
             <Wrapper>
                 <Card>
                     <NameDiv> {props.name} </NameDiv>
-                    <ImageDiv> Photo of {props.name} </ImageDiv>
+                    <ImageDiv> <img style={{ height: '200px', borderRadius: '10px' }}src = {props.url} alt = {`image of ` + props.name} /> </ImageDiv>
 
                     <DescriptionDiv> {props.description}</DescriptionDiv>
                 </Card>

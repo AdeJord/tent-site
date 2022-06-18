@@ -39,8 +39,8 @@ const SidebarNav = styled.nav`
   width: 55vw;
   height: auto;
   opacity: 90%;
+  overflow: scroll;
   padding-bottom: 20px;
-  autofocus: true;
   border: 1mm ridge black;
   justify-content: center;
   position: fixed;
@@ -48,7 +48,8 @@ const SidebarNav = styled.nav`
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
   transition: 300ms;
   z-index: 10;
-  @media (min-width: 802) {
+
+  @media (min-width: 802px) {
     display: none;
   }
 `;
@@ -72,6 +73,8 @@ const SidebarWrap = styled.div`
 `;
 
 const Sidebar = () => {
+          {/* if target has no children (ie. About Us and Book Your Trip), then do not run test function */}
+
 
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
@@ -82,8 +85,12 @@ const Sidebar = () => {
   const test = () => {
     showSidebar();
     console.log('showsidebaaaar');
+    console.log(sidebar);
     setSidebar(!sidebar)
   }
+
+
+
 
   return (
     //code to make sidebar hide is https://stackoverflow.com/questions/66626487/hiding-sidebar-component-on-outside-click
@@ -102,6 +109,8 @@ const Sidebar = () => {
         </Nav>
   
         <SidebarNav sidebar={sidebar}>
+          {/* if target has no children (ie. About Us and Book Your Trip), then do not run test function */}
+          
           <SidebarWrap>
             <NavIcon to='#' onClick={test}>
               <AiIcons.AiOutlineClose />

@@ -4,10 +4,10 @@ import "@fontsource/roboto"; // Defaults to weight 400.
 
 
 const List = styled.ul`
-height: 50vh;
+height: 59vh;
 padding-top: 15px;
 font-family: "Roboto";
-font-size: 20px;
+font-size: 15px;
 `
 
 const AimsAndObjectives = () => {
