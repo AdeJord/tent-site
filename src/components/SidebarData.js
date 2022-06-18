@@ -3,6 +3,12 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
+import { useLocation } from 'react-router-dom';
+
+const usePathname = () => {
+  const location = useLocation();
+  return location.pathname;
+}
 
 export const SidebarData = [
   {
@@ -18,7 +24,7 @@ export const SidebarData = [
   {
     index: 1,
     title:'About Us   ',
-    path: '/AboutUs/AboutUs',
+    path: <usePathname />,
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -87,7 +93,7 @@ export const SidebarData = [
   {
     index: 2,
     title: 'Book Your Trip',
-    path: '/BookYourTrip/BookYourTrip',
+    path: <usePathname />,
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,

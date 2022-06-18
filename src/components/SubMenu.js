@@ -97,18 +97,15 @@ const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {
   }, [subNavIndex]);
 
   return (
+
     <SubNav>
       {/* if it has a subNav do NOT link to path */}
       <SidebarLink to={item.path} onClick={() => {
         openSubNav(item.index);
         setSubnav(!subnav);
-        // if (item?.closeMenu) {
-        // } 
-        if (item?.followLink) {
-          setSubnav(false);
-        }  
-        console.log('follow link ' + item.path);    
+        console.log('follow link to' + item.path);
       }}>
+
         <div>
           {item.icon}
           <SidebarLabel>{item.title}</SidebarLabel>
@@ -126,7 +123,10 @@ const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {
         item.subNav.map((item, index) => {
           return (
             <DropdownLink to={item.path} key={index} onClick={() => {
-              setSubnav(false);
+
+              console.log(subnav);
+              console.log(subNavIndex);
+              console.log(item.followLink)
             }}>
               {item.icon}
               <SidebarLabel>{item.title}</SidebarLabel>

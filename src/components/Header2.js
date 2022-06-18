@@ -101,9 +101,9 @@ const Header = () => {
     return (
         <Wrapper>
             <TopContainer>
-                {/* <LogoContainer>
-                <img style={{height: 'auto', width: '25vw' }} src={TENTlogo} alt="tent logo" />
-                </LogoContainer> */}
+                <LogoContainer>
+                {/* <img style={{ height: '10vw', width: 'auto' }} src={TENTlogo} alt="tent logo" /> */}
+                </LogoContainer>
                 <TitleContainer>
                     <>Truman Enterprise Narrowboat Trust </>
                     <Hr />
