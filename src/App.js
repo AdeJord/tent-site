@@ -26,6 +26,7 @@ import MeetTheCrew from "./pages/MeetTheCrew";
  if I put them all in BookYourTrip, only 1/2 of them work,
  and when I put them in book-your-trip, the other 1/2 works?*/
 
+
 function App() {
   return (
 
@@ -33,7 +34,6 @@ function App() {
       <Sidebar />
       {/* <Mainnav /> */}
       <Routes>
-        <work-on-UI
         <Route path="/" exact element={<Home />} />
         <Route path="/home" exact element={<Home />} />
         <Route path="/BookYourTrip/BookYourTrip" exact element={<BookYourTrip />} />
@@ -57,7 +57,6 @@ function App() {
         <Route path="/ContactUs" exact element={<ContactUs />} />
       </Routes>
       <Footer />
-
     </Router>
 
   );

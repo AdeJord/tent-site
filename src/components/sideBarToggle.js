@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-const sideBarToggle = () => {
+const SideBarToggle = () => {
 
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
@@ -11,4 +11,4 @@ const sideBarToggle = () => {
   )
 }
 
-export default sideBarToggle
+export default SideBarToggle
