@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import "@fontsource/roboto"; // Defaults to weight 400.
+import SideBarToggle from './SideBarToggle';
+
 
 const SidebarLink = styled(Link)`
   font-family: "Roboto";
@@ -123,8 +125,9 @@ const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {
       {subnav && subNavIndex === item.index &&
         item.subNav.map((item, index) => {
           return (
-            <DropdownLink to={item.path} key={index} onClick={() => {
 
+            <DropdownLink to={item.path} key={index} onClick={() => {
+              SideBarToggle();
               console.log(subnav);
               console.log(subNavIndex);
               console.log(item.followLink)

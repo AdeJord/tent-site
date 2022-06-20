@@ -9,6 +9,7 @@ import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
 import Header2 from './Header2'
 import "@fontsource/roboto"; // Defaults to weight 400.
+import sideBarToggle from './SideBarToggle';
 
 const Nav = styled.div`
 font-family: "Roboto";
@@ -83,6 +84,7 @@ const Sidebar = () => {
   const openSubNav = (index) => setSubNavIndex(index);
 
   const test = () => {
+
     showSidebar();
     console.log('showsidebaaaar');
     console.log(sidebar);
