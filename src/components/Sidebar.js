@@ -9,7 +9,8 @@ import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
 import Header2 from './Header2'
 import "@fontsource/roboto"; // Defaults to weight 400.
-import sideBarToggle from './SideBarToggle';
+import SideBarToggle from './SideBarToggle';
+
 
 const Nav = styled.div`
 font-family: "Roboto";
@@ -74,7 +75,6 @@ const SidebarWrap = styled.div`
 `;
 
 const Sidebar = () => {
-          {/* if target has no children (ie. About Us and Book Your Trip), then do not run test function */}
 
 
   const [sidebar, setSidebar] = useState(false);
@@ -84,13 +84,13 @@ const Sidebar = () => {
   const openSubNav = (index) => setSubNavIndex(index);
 
   const test = () => {
-
     showSidebar();
     console.log('showsidebaaaar');
     console.log(sidebar);
-    setSidebar(!sidebar)
   }
 
+
+  // WHEN SUBMENU ITEM IS CLICKED, NEED TO RUN SideBarToggle or showSideBar?
 
 
 

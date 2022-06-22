@@ -13,7 +13,7 @@ import LandingPage from "./pages/LandingPage";
 import TermsAndCond from "./pages/TermsAndCond";
 import Volunteers from './pages/Volunteers';
 import OurHistory from './pages/OurHistory';
-import { AboutUs, TheEnterprise, DetailsAndDiagrams, RiskAssesments, UsefulLinks } from "./pages/AboutUs";
+import { AboutUs, TheEnterprise, DetailsAndDiagrams, RiskAssesments } from "./pages/AboutUs";
 import Footer from "./components/Footer";
 import CovidSafeCruising from "./pages/CovidSafeCruising";
 import TrainingCourses from "./pages/TrainingCourses";
@@ -21,6 +21,7 @@ import AimsAndObjectives from "./pages/AimsAndObjectives"
 import HowMuch from "./pages/HowMuch";
 import BookNow from "./pages/BookNow";
 import MeetTheCrew from "./pages/MeetTheCrew";
+import UsefulLinks from "./pages/UsefulLinks";
 
 /* why do are the below routes different although they come from same object(BookYourTrip)
  if I put them all in BookYourTrip, only 1/2 of them work,
@@ -52,7 +53,7 @@ function App() {
         <Route path="/AboutUs/OurHistory" exact element={<OurHistory />} />
         <Route path="/MeetTheCrew" exact element={<MeetTheCrew />} />
         <Route path="/AboutUs/RiskAssesments" exact element={<RiskAssesments />} />
-        <Route path="/AboutUs/UsefulLinks" exact element={<UsefulLinks />} />
+        <Route path="/UsefulLinks" exact element={<UsefulLinks />} />
         <Route path="/Gallery" exact element={<Gallery />} />
         <Route path="/ContactUs" exact element={<ContactUs />} />
       </Routes>

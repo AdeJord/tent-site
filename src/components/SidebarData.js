@@ -82,7 +82,7 @@ export const SidebarData = [
       },
       {
         title: 'Useful Links',
-        path: '/AboutUs/UsefulLinks',
+        path: '/UsefulLinks',
         cName: 'sub-nav',
         closeMenu: true,
         followLink: true,

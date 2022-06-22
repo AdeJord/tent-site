@@ -6,6 +6,8 @@ const SideBarToggle = () => {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
 
+    console.log('sidebar' + showSidebar);
+
   return (
     <setSidebar />
   )
