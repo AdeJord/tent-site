@@ -88,6 +88,8 @@ const Hr = styled.hr`
     }
     `
 
+// WHEN SUBMENU ITEM IS CLICKED, NEED TO RUN SideBarToggle or showSideBar?
+
 const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {
   const [subnav, setSubnav] = useState(false);
   //console.log(JSON.stringify(item, null, 2));
@@ -127,10 +129,9 @@ const SubMenu = ({ item, showMainNavbar, subNavIndex, openSubNav }) => {
           return (
 
             <DropdownLink to={item.path} key={index} onClick={() => {
-              SideBarToggle();
-              console.log(subnav);
-              console.log(subNavIndex);
-              console.log(item.followLink)
+              setSubnav(!subnav); // this closes submenu ok. just need to close sidebar too?
+              console.log('SubNavIndex ' + subNavIndex);
+              console.log(item.path)
             }}>
               {item.icon}
               <SidebarLabel>{item.title}</SidebarLabel>
