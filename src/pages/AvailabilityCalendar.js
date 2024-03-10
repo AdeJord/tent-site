@@ -106,7 +106,7 @@ const AvailabilityCalendar = () => {
       </>
     )}
 
-    <Root style={{ paddingTop: '10vh', height: 'auto' }}>
+    <Root style={{ paddingTop: '10vh', height: '100vh' }}>
       <Calendar
         activeStartDate={activeStartDate}
         onActiveStartDateChange={({ activeStartDate }) => setActiveStartDate(activeStartDate || new Date())}

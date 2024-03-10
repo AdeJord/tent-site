@@ -8,21 +8,22 @@ import { Container, TextContainer, Header } from '../ComponentStyles'
 
 const HowToPay = () => {
     return (
-        <Container>
-
+        <Container
+        style={{
+          height: '100vh',
+          justifyContent: 'flex-start',
+        }}>
             <Header>How to pay for you trips</Header>
             <hr style={{ width: '90vw' }} />
             <TextContainer>
                 Please make cheques payable to "Truman Enterprise Narrowboat Trust" and send to Mariel Bishop at the following address
             </TextContainer>
-
                 <ul>
                     <li>88 Millfield Road</li>
                     <li>Handsworth Wood,</li>
                     <li>Birmingham,</li>
                     <li>B20 1EB</li>
                 </ul>
-
             <TextContainer>
             Alternatively payment can be made by BACS,  Please consult your invoice for details.
             </TextContainer>

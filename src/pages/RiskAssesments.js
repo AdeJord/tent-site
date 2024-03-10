@@ -6,7 +6,11 @@ import { Container, Header, TextContainer } from '../ComponentStyles'
 
 const RiskAssesments = () => {
   return (
-    <Container>
+    <Container
+    style={{
+      height: '100vh',
+      justifyContent: 'flex-start',
+    }}>
       <Header>Risk Assesments</Header>
       <TextContainer>We take your Health and Safety Very seriously.</TextContainer>
       <TextContainer>It’s important to ensure that our risk assessments remain valid and up-to-date as circumstances may change over time.  When 

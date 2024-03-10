@@ -13,8 +13,11 @@ font-size: 18px;
 
 const AimsAndObjectives = () => {
   return (
-
-    <Container>
+    <Container
+    style={{
+      height: '100vh',
+      justifyContent: 'flex-start',
+    }}>
         <Header>Aims and Objectives</Header>
         <TextContainer>
         <List>
