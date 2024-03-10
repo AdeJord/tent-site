@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "@fontsource/roboto"; // Defaults to weight 400.
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Container, TextContainer, Header } from '../ComponentStyles'
 
 const List = styled.ul`
@@ -10,6 +10,9 @@ const List = styled.ul`
 `;
 
 const TermsAndCond = () => {
+  const navigate = useNavigate()
+  const goBack = () => { navigate(-1);}
+
   return (
     <Container style={{ paddingBottom: '100px'}}>
       <Header>Terms and Conditions</Header>
@@ -150,6 +153,7 @@ const TermsAndCond = () => {
           HERE
         </Link>
       </TextContainer>
+      <button style={{ background: '#9FDDA8'}}onClick={goBack}>GO BACK</button>
       </div>
     </Container>
   );
