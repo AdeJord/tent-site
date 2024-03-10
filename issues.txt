@@ -1,0 +1,20 @@
+check the css media query on 'Our History'.  the footer does something weird between 768px and 802 px
+check volunteers page where Gerrys image runs over text (on work tablet in landscape)
+css on the dropdown menu on mainNav
+when screen size is small, the header is too small, and when screen size big header still needs work.
+need to make boat image on /Home resizable
+sidebar needs autofocus to scroll
+need to sort Header and Header2 out (Header2 is the good one)
+check icons on the nav bars
+
+*** Make all headers and footer always visible?  ****
+
+still side to side shift on our History
+
+BUG, when you open in mobile and open menu, then change to screen, Menu remains :-/
+
+when header is viewed on s7 in landscape mode, header is fuggered
+
+check console messages when you click on About Us and Book Your Trip
+            and why no render of current page???
+
