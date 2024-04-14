@@ -127,7 +127,7 @@ const CreateBooking = () => {
   const queryParams = new URLSearchParams(location.search);
   const selectedDate = queryParams.get("date");
 
-  console.log("selectedDate", selectedDate);
+  // console.log("selectedDate", selectedDate);
 
   const ModalClickHandler = () => {
     setShowModal(false);
@@ -436,9 +436,11 @@ const CreateBooking = () => {
           <br />
           <div>
             <label>Smoking </label>
+            <br />
             <label>
               <input type="radio" value="true" {...register("smoking")} /> Yes{" "}
             </label>
+            <br />
             <label>
               <input type="radio" value="false" {...register("smoking")} /> No
               {errors.smoking && (
