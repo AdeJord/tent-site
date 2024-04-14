@@ -179,6 +179,7 @@ const CreateBooking = () => {
   );
 
   const submitBooking = async (data) => {
+    console.log("started submitBooking");
     try {
       const response = await axios.post(
         "https://adejord.co.uk/createBooking",
@@ -257,6 +258,13 @@ const CreateBooking = () => {
         <>
           <Backdrop>
             <Modal
+              style={{
+                position: "fixed",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                zIndex: "100",
+              }}
               onClick={ModalClickHandler}
               header="Booking Submitted"
               content={modalContent}
@@ -265,7 +273,6 @@ const CreateBooking = () => {
           </Backdrop>
         </>
       )}
-
       <h1
         style={{
           paddingTop: "5vh",
@@ -547,7 +554,7 @@ const CreateBooking = () => {
           <label>
             <input type="checkbox" {...register("group_leader_policy")} />
             <Link to="/GroupLeaderPolicy">
-            I have read and agree to the group leader policy{" "}
+              I have read and agree to the group leader policy{" "}
             </Link>
             {errors.group_leader_policy && (
               <p style={{ color: "red" }}>
