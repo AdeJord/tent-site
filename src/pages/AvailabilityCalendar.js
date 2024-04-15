@@ -64,35 +64,33 @@ const AvailabilityCalendar = () => {
   }
 
   const handleDayClick = (date) => {
-    // Set the hours to zero to normalize the date for comparison avoiding timezone issues
-    date.setHours(0, 0, 0, 0);
+    // Convert to UTC midnight
+    const utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+
+    const currentDate = new Date(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()));
     
-    const currentDate = new Date();
-    currentDate.setHours(0, 0, 0, 0); // Normalize current date too
-  
-    console.log("Current Date: ", currentDate);
-    console.log("Selected Date: ", date);
-  
-    // Check if the selected date is before the current date
-    if (date < currentDate) {
-      setTripIsBeforeNow(true);
-      console.log('The selected date is before today.');
-      return; // Stop further processing since the date is in the past
+    console.log("Current Date: ", currentDate.toISOString());
+    console.log("Selected Date: ", utcDate.toISOString());
+
+    if (utcDate < currentDate) {
+        setTripIsBeforeNow(true);
+        console.log('The selected date is before today.');
+        return;
     }
-  
-    const dateString = date.toISOString().split("T")[0];
-  
+
+    const dateString = utcDate.toISOString().split("T")[0];
+
     console.log(`Date clicked: ${dateString}`);
     console.log(`Booked dates: ${bookedDates}`);
-  
+
     if (!bookedDates.includes(dateString)) {
-      navigate(`/CreateBooking?date=${dateString}`);
+        navigate(`/CreateBooking?date=${dateString}`);
     } else {
-      console.log("This date is booked and cannot be selected.");
-      setAlreadyBooked(true);
+        console.log("This date is booked and cannot be selected.");
+        setAlreadyBooked(true);
     }
-  };
-  
+};
+
 
   return (
     <>
