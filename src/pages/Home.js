@@ -3,6 +3,7 @@ import styled from "styled-components";
 import NiceBoatPic from "../images/NiceBoatPic.jpg";
 import "@fontsource/roboto"; // Defaults to weight 400.
 import "../App.css";
+import { Link } from "react-router-dom";
 import { Container, TextContainer, Header } from "../ComponentStyles";
 import axios from "axios";
 import { set } from "date-fns";
@@ -38,6 +39,8 @@ const TextDiv = styled.div`
 const NewsDiv = styled.div`
   padding: 10px;
   width: 30vw;
+  justify-content: center;
+  text-align: center;
 
   @media (max-width: 768px) {
     width: 90vw;
@@ -49,7 +52,7 @@ const NewsTitleDiv = styled.div`
   width: 90vw;
 `;
 
-const NewsContentDiv = styled.div` 
+const NewsContentDiv = styled.div`
   padding: 10px;
   width: 90vw;
 `;
@@ -59,16 +62,33 @@ const NewsImageDiv = styled.div`
   width: 90vw;
 `;
 
-
 const Home = () => {
-  const url = "adejord.co.uk/getAllNews";
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    axios.get(url).then((response) => {
-      console.log(response);
-      setNews(response.data);
-    });
+    console.log("Fetching the latest news items");
+    axios
+      .get("https://adejord.co.uk/getLatestNews") // Adjust URL as necessary
+      .then((response) => {
+        console.log("API Response:", response.data); // Log the API response data
+        setNews(response.data); // Set the newsItems state to the fetched data
+      })
+      .catch((error) => {
+        console.error("Error fetching news items:", error.message);
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.error("Error status", error.response.status);
+          console.error("Error data", error.response.data);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.error("Error request", error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.error("Error", error.message);
+        }
+        console.error(error.config);
+      });
   }, []);
 
   return (
@@ -111,19 +131,29 @@ const Home = () => {
               canal.
             </TextContainer>
           </TextDiv>
+
           <NewsDiv>
-          <NewsTitleDiv>
-            <h2>Latest News</h2>
-          </NewsTitleDiv>
-          <NewsContentDiv>
-            <h3>{news.title}</h3>
-            <p>{news.content}</p>
-          </NewsContentDiv>
-          <NewsImageDiv>
-            <img src={news.image} alt="News Image" />
-          </NewsImageDiv>
+            <h1>Latest News</h1>
+            {news.map((item) => (
+              <div key={item.id}>
+                <NewsTitleDiv>{item.title}</NewsTitleDiv>
+                <NewsContentDiv>{item.content}</NewsContentDiv>
+                <img
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  padding: "10px",
+                
+                }}
+                  src={`https://adejord.co.uk${item.image_path}`}
+                  alt={item.title}
+                />
+                <p>{new Date(item.date).toLocaleDateString()}</p>
+              </div>
+            ))}
           </NewsDiv>
         </TextAndNewsDiv>
+
         <Header>Many Thanks to</Header>
         <ImgContainer>
           <img
