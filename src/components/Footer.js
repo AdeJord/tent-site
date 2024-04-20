@@ -9,13 +9,14 @@ const Container = styled.div`
 font-family: "Roboto";
 background: white;
 justify-content: flex-end;
-width: 100%;
+width: 100vw;
 height: 65px;
 display: flex;
 align-content: center;
 flex-direction: row;
 bottom: 0;
 left: 0;
+z-index: 6;
 position: fixed;
 // @media (max-width: 802px) {
 //   height: 15vw;
@@ -29,7 +30,7 @@ justify-content: center;
 align-content: right;
 width 25%;
 height: auto;
-padding-top: 1vw;
+padding-top: .5vw;
 border: 1px solid black;
 
 `
@@ -51,8 +52,6 @@ padding: .5em;
   padding-left: 3em;
   padding-right: 3em;
 }
-
-
 `
 const Footer3 = styled.div`
 background: #9FDDA8;
@@ -62,9 +61,8 @@ justify-content: center;
 align-content: right;
 width 25%;
 height: auto;
-padding-top: 1vw;
+padding-top: .5vw;
 border: 1px solid black;
-
 `
 
 

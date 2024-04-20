@@ -31,6 +31,8 @@ padding-bottom: 20px
 export const TextContainer = styled.div`
 text-align: left;
 display: flex;
+font-family: "Roboto";
+font-size: 1.2em;
 flex-direction: column;
 // background: gray;
 padding: 15px;

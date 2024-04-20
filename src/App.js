@@ -28,6 +28,7 @@ import UsefulLinks from "./pages/UsefulLinks";
 import GroupLeaderPolicy from "./pages/GroupLeaderPolicy";
 import { Container } from './ComponentStyles'
 import AvailabilityCalendar from "./pages/AvailabilityCalendar";
+import News from "./pages/News";
  
 // const Container = styled.section`
 //   display: flex;
@@ -79,6 +80,7 @@ function App() {
         <Route path="/UsefulLinks"  element={<UsefulLinks />} />
         <Route path="/Gallery"  element={<Gallery />} />
         <Route path="/ContactUs"  element={<ContactUs />} />
+        <Route path="/News"  element={<News />} />
       </Routes>
       <Footer />
     </Router>

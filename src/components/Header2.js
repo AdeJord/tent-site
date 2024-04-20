@@ -93,9 +93,9 @@ const Header = () => {
     <Wrapper>
       <TopContainer
           onClick={() => navigate('/')}>
-        <LogoContainer>
+        {/* <LogoContainer> */}
           {/* <img style={{ height: '10vw', width: 'auto' }} src={TENTlogo} alt="tent logo" /> */}
-        </LogoContainer>
+        {/* </LogoContainer> */}
         <TitleContainer>
           <>Truman Enterprise Narrowboat Trust </>
           <Hr />
