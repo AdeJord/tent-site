@@ -2,6 +2,7 @@ import styled from "./styled";
 
 export const Root = styled.div`
   background-color: #eaf3e7;
+  backround-color: red;
   height: auto;
   width: 100vw;
   display: flex;
@@ -402,4 +403,58 @@ button {
 //     max-width: initial !important;
 //   }
 // }
+`;
+
+const ImgContainer = styled.div`
+  display: flex;
+  width: 90vw;
+  justify-content: center;
+  padding-top: 20px;
+`;
+
+const TextAndNewsDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 10px;
+  width: 90vw;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const TextDiv = styled.div`
+  padding: 10px;
+  width: 60vw;
+
+  @media (max-width: 768px) {
+    width: 90vw;
+  }
+`;
+
+const NewsDiv = styled.div`
+  padding: 10px;
+  width: 30vw;
+  
+
+
+  @media (max-width: 768px) {
+    width: 90vw;
+  }
+`;
+
+const NewsTitleDiv = styled.div`
+  padding: 10px;
+  width: 90vw;
+`;
+
+const NewsContentDiv = styled.div`
+  padding: 10px;
+  width: 90vw;
+`;
+
+const NewsImageDiv = styled.div`
+  padding: 10px;
+  width: 90vw;
 `;

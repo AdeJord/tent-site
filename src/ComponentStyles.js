@@ -12,6 +12,7 @@ export const Container = styled.section`
   background: #EDECE4;
   padding-top: 0px;
   padding-bottom: 50px;
+  overflow: auto;
   // @media (min-width: 768px) {
   //   height: 62vh;
   // }

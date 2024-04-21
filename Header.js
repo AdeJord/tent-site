@@ -48,7 +48,7 @@ const Header = () => {
     return (
         <Wrapper>
             <Container>
-                Truman Enterprise Narrowboat Trust
+                Truman Enterprise Narrowboat Trusts
 
                 <LowerContainer  style={{fontWeight: 200}}>
                     Providing fully inclusive boat trips on the Staffs and Worcs canal

@@ -62,9 +62,9 @@ const NewsTitleDiv = styled.div`
 
 const NewsContentDiv = styled.div`
   padding: 10px;
-  width: 40vw;
+  width: auto;
   text-align: left;
-  font-size: 1em;
+  font-size: .9em;
   overflow: wrap;
 
   @media (max-width: 768px) {
@@ -182,9 +182,6 @@ const Home = () => {
                   height: "auto",
                   textDecoration: "none", // Prevents underlining the text
                   color: "inherit", // Inherits text color from parent
-                  // backgroundColor: "red",
-                  // border: "1px solid black",
-                  // borderRadius: "10px",
                 }}
               >
                 <StickyHeader>Latest News</StickyHeader>
@@ -202,25 +199,19 @@ const Home = () => {
                   news.map((item) => (
                     <div key={item.id}>
                       <NewsTitleDiv>{item.title}</NewsTitleDiv>
+                      <p
+                      style={{
+                        paddingLeft: '10px',
+                      }}>{new Date(item.date).toLocaleDateString('en-GB', { timeZone: 'Europe/London' })}</p>
                       <NewsContentDiv>{item.content}</NewsContentDiv>
                       <NewsImageDiv>
                         <NewsImage
                           src={`https://adejord.co.uk${item.image_path}`}
                           alt={item.title}
                         />
-                        <p>{new Date(item.date).toLocaleDateString()}</p>
-                      </NewsImageDiv>
+                        <br />
 
-                      {/* <img
-                        style={{
-                          width: "100%",
-                          height: "auto",
-                          padding: "10px",
-                        }}
-                        src={`https://adejord.co.uk${item.image_path}`}
-                        alt={item.title}
-                      />
-                      <p>{new Date(item.date).toLocaleDateString()}</p> */}
+                      </NewsImageDiv>
                     </div>
                   ))
                 )}
