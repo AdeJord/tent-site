@@ -6,16 +6,17 @@ export const Container = styled.section`
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  height: auto;
-  width: auto;
   align-items: center;
   background: #EDECE4;
   padding-top: 0px;
   padding-bottom: 50px;
   overflow: auto;
-  // @media (min-width: 768px) {
-  //   height: 62vh;
-  // }
+  width: 100%; // Ensuring the container takes full width of its parent
+  min-height: 100vh; // Minimum height to ensure it takes at least the full viewport height
+
+  @media (min-width: 768px) {
+    min-height: 62vh; // Adjusted to minimum height for larger screens
+  }
 `;
 
 export const Header = styled.div`

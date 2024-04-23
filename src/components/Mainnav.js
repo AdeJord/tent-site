@@ -36,7 +36,7 @@ const MainNavBar = styled.nav`
   flex-direction: row;
   justify-content: space-around;
   position: relative;
-  @media (max-width: 802px) {
+  @media (max-width: 801px) {
     display: none;
   }
 `;

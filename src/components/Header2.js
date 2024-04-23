@@ -11,9 +11,9 @@ import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.section`
   background: #9fdda8;
-  height: 10vw;
+  height: 11vw;
   color: black;
-  // min-height: 8vh;
+  max-height: 140px;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@ const TitleContainer = styled.div`
   color: #1a1111;
   font-family: "Roboto Condensed", sans-serif;
   display: flex;
-  padding-left: 13vw;
+  padding-left: 11vw;
   flex-direction: column;
   font-size: 3.7vw;
   text-align: center; // Ensure text is centered within the title container
@@ -93,9 +93,6 @@ const Header = () => {
     <Wrapper>
       <TopContainer
           onClick={() => navigate('/')}>
-        {/* <LogoContainer> */}
-          {/* <img style={{ height: '10vw', width: 'auto' }} src={TENTlogo} alt="tent logo" /> */}
-        {/* </LogoContainer> */}
         <TitleContainer>
           <>Truman Enterprise Narrowboat Trust </>
           <Hr />

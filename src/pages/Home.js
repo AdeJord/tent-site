@@ -11,10 +11,14 @@ import { set } from "date-fns";
 
 const ImgContainer = styled.div`
   display: flex;
-  width: 100vw;
+  width: 100vw; 
   justify-content: center;
-  padding-top: 20px;
+  align-items: center;
+  padding-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
 `;
+
 
 const TextAndNewsDiv = styled.div`
   display: flex;
@@ -64,7 +68,7 @@ const NewsContentDiv = styled.div`
   padding: 10px;
   width: auto;
   text-align: left;
-  font-size: .9em;
+  font-size: 0.9em;
   overflow: wrap;
 
   @media (max-width: 768px) {
@@ -94,7 +98,7 @@ const StickyHeader = styled.div`
   position: sticky;
   top: 0;
   z-index: 5; // Higher than NewsDiv to stay on top
-  background-color: #EDECE4;
+  background-color: #edece4;
   width: 100%; // Ensure it spans the full width of its container
   text-align: center;
   font-size: 1.5em;
@@ -137,7 +141,12 @@ const Home = () => {
           <ImgContainer>
             <img
               src={NiceBoatPic}
-              style={{ width: "100%", height: "100%" }}
+              style={{
+                maxWidth: "80%", // Ensures the image scales down if it's too wide
+                height: "auto", // Maintains the aspect ratio of the image
+                display: "block",
+                borderRadius: "5px" // Ensures the image is treated as a block-level element to take effect of centering
+              }}
               alt="Nice Boat Pic"
             />
           </ImgContainer>
@@ -174,52 +183,51 @@ const Home = () => {
             </TextDiv>
             <hr />
             <NewsDiv>
-              <Link
-                to="/News"
-                style={{
-                  display: "block",
-                  width: "100%",
-                  height: "auto",
-                  textDecoration: "none", // Prevents underlining the text
-                  color: "inherit", // Inherits text color from parent
-                }}
-              >
-                <StickyHeader>Latest News</StickyHeader>
+            <Link
+  to="/News"
+  style={{
+    display: "block",
+    width: "100%",
+    height: "auto",
+    textDecoration: "none",
+    color: "inherit",
+  }}
+>
+  <div style={{ textAlign: "center", width: "100%" }}> {/* Ensuring content is centered */}
+    <StickyHeader>Latest News</StickyHeader>
+    {news.length === 0 ? (
+      <div>
+        <h2>Server Issue</h2>
+        <p>There is currently an issue with the server. This is outside of our control.</p>
+        <p>Please check again later</p>
+      </div>
+    ) : (
+      news.map((item) => (
+        <div key={item.id}>
+          <NewsTitleDiv>{item.title}</NewsTitleDiv>
+          <p style={{ paddingLeft: "10px" }}>
+            {new Date(item.date).toLocaleDateString("en-GB", {
+              timeZone: "Europe/London",
+            })}
+          </p>
+          <NewsContentDiv>{item.content}</NewsContentDiv>
+          <NewsImageDiv>
+            <NewsImage
+              src={`https://adejord.co.uk${item.image_path}`}
+              alt={item.title}
+            />
+            <br />
+          </NewsImageDiv>
+        </div>
+      ))
+    )}
+  </div>
+</Link>
 
-                {news.length === 0 ? (
-                  <div>
-                    <h2>Server Issue</h2>
-                    <p>
-                      There is currently an issue with the server. This is
-                      outside of our control.
-                    </p>
-                    <p>Please check again later</p>
-                  </div>
-                ) : (
-                  news.map((item) => (
-                    <div key={item.id}>
-                      <NewsTitleDiv>{item.title}</NewsTitleDiv>
-                      <p
-                      style={{
-                        paddingLeft: '10px',
-                      }}>{new Date(item.date).toLocaleDateString('en-GB', { timeZone: 'Europe/London' })}</p>
-                      <NewsContentDiv>{item.content}</NewsContentDiv>
-                      <NewsImageDiv>
-                        <NewsImage
-                          src={`https://adejord.co.uk${item.image_path}`}
-                          alt={item.title}
-                        />
-                        <br />
-
-                      </NewsImageDiv>
-                    </div>
-                  ))
-                )}
-              </Link>
             </NewsDiv>
           </TextAndNewsDiv>
 
-          <Header>Many Thanks to</Header>
+          <Header>With Many Thanks to</Header>
           <ImgContainer>
             <img
               src="https://www.truman-enterprise.org.uk/photos/2019lotlog.jpg"
