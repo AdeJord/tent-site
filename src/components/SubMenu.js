@@ -7,7 +7,7 @@ import SideBarToggle from './sideBarToggle';
 
 const SidebarLink = styled(Link)`
   font-family: "Roboto";
-  background: #1a1111;
+  background: #420C0C;
   font-weight: 100;
   padding: 1vw
   padding-bottom: 25px;
@@ -22,7 +22,7 @@ const SidebarLink = styled(Link)`
   font-size: 15px;
   @media (max-width: 802px) {
     font-size: 15px;
-    background: #1a1111;
+    background: #420C0C;
   }
   
 
@@ -45,7 +45,7 @@ const SidebarLabel = styled.span`
 const DropdownLink = styled(Link)`
   font-family: "Roboto";
   font-weight: 100;
-  background: #1a1111;
+  background: #420C0C;
   padding-bottom: 15px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -58,7 +58,7 @@ const DropdownLink = styled(Link)`
   font-size: 15px;
   text-decoration: none;
   @media (max-width: 802px) {
-    background: #1a1111;
+    background: #420C0C;
   }
 
   &:hover {

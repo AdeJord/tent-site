@@ -172,7 +172,7 @@ const ContactUs = () => {
                 </td>
               </tr>
               <tr>
-                <td>Website, Tripadvisor, Facebook, etc</td>
+                <td>Website & Booking system developer, Tripadvisor, Facebook, etc</td>
                 <td>Adrian Jordan</td>
                 <td>
                   Developer & Social Media <br />

@@ -16,7 +16,7 @@ import './Backdrop.css'
 
 const Nav = styled.div`
 font-family: "Roboto";
-  background: #1a1111;
+  background: #300909;
     // background: #9fdda8;
   width: 100%;
   display: flex;
@@ -38,10 +38,10 @@ position: relative;
 const SidebarNav = styled.nav`
   font-family: "Roboto";
   font-size: 2vw;
-  background: #1a1111;
+  background: #300909;
   width: 55vw;
   height: auto;
-  opacity: 90%;
+  opacity: 92%;
   // overflow: scroll;
   padding-bottom: 20px;
   border: 1mm ridge black;

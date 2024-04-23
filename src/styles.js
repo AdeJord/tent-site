@@ -16,7 +16,7 @@ export const Root = styled.div`
 `;
 
 export const FormRoot = styled.div`
-  background-color: red;
+  // background-color: red;
   height: 185vh;
   width: 10vw;
   display: flex;

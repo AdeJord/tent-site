@@ -29,7 +29,7 @@ const MainNavBar = styled.nav`
   font-size: 12px;
   font-family: "Roboto";
   font-weight: 100;
-  background: #1a1111;
+  background: #420C0C;
   width: 100%;
   height: 5vh;
   display: flex;
