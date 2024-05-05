@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import "@fontsource/roboto"; // Defaults to weight 400.
 import { Link, useNavigate } from "react-router-dom";
-import { Container, TextContainer, Header } from '../ComponentStyles'
+import { Container, TextContainer, Header } from "../ComponentStyles";
 
 const List = styled.ul`
   font-family: "Roboto";
@@ -10,11 +10,13 @@ const List = styled.ul`
 `;
 
 const TermsAndCond = () => {
-  const navigate = useNavigate()
-  const goBack = () => { navigate(-1);}
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  };
 
   return (
-    <Container style={{ paddingBottom: '100px'}}>
+    <Container style={{ paddingBottom: "100px" }}>
       <Header>Terms and Conditions</Header>
 
       <List>
@@ -141,19 +143,31 @@ const TermsAndCond = () => {
         <br />
       </List>
       <div>
-      <TextContainer>
-        Download a copy of the current risk assesments
-        <Link to="/downloads/RiskAss2023.pdf" target="_blank" download>
-          HERE
-        </Link>
-      </TextContainer>
-      <TextContainer>
-        Download a copy of our insurance
-        <Link to="/downloads/Insurance.pdf" target="_blank" download>
-          HERE
-        </Link>
-      </TextContainer>
-      <button style={{ background: '#9FDDA8'}}onClick={goBack}>GO BACK</button>
+        <TextContainer>
+          Download a copy of the current risk assessments
+          <a
+            href="https://adejord.co.uk/uploads/docs/riskAssessments.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+          >
+            HERE
+          </a>
+        </TextContainer>
+        <TextContainer>
+          Download a copy of our current insurance certificate
+          <a
+            href="https://adejord.co.uk/uploads/docs/insuranceCertificate.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+          >
+            HERE
+          </a>
+        </TextContainer>
+        <button style={{ background: "#9FDDA8" }} onClick={goBack}>
+          GO BACK
+        </button>
       </div>
     </Container>
   );

@@ -90,6 +90,13 @@ const NewsImage = styled.img`
 const News = () => {
   const [news, setNews] = useState([]);
 
+  // Function to convert file system path to web URL path
+function toWebPath(internalPath) {
+  if (!internalPath) return '';
+  // Assuming your internal path starts with /var/www
+  return internalPath.replace('/var/www', '');
+}
+
   useEffect(() => {
     console.log("Fetching the latest news items");
     axios
@@ -123,18 +130,21 @@ const News = () => {
               </NewsTitleDiv>
               <NewsContentDiv>{item.content}</NewsContentDiv>
               <NewsImageDiv>
-                <img
-                  style={{
-                    width: "80vw",
-                    height: "auto",
-                    padding: "10px",
-                  }}
-                  src={`https://adejord.co.uk${item.image_path}`}
-                  alt={item.title}
-                />
+                {item.image_path && (
+                  <img
+                    style={{
+                      width: "80vw",
+                      height: "auto",
+                      padding: "10px",
+                    }}
+                    src={`https://adejord.co.uk${toWebPath(item.image_path)}`}
+                    alt={item.title}
+                  />
+                )}
               </NewsImageDiv>
+
               <br />
-              <p>{new Date(item.date).toLocaleDateString()}</p>
+              <p>{new Date(item.date).toLocaleDateString('en-GB', { timeZone: 'Europe/London' })}</p>
               <hr />
             </div>
           ))

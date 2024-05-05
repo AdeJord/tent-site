@@ -108,6 +108,13 @@ const StickyHeader = styled.div`
 const Home = () => {
   const [news, setNews] = useState([]);
 
+    // Function to convert file system path to web URL path
+function toWebPath(internalPath) {
+  if (!internalPath) return '';
+  // Assuming your internal path starts with /var/www
+  return internalPath.replace('/var/www', '');
+}
+
   useEffect(() => {
     console.log("Fetching the latest news items");
     axios
@@ -213,8 +220,8 @@ const Home = () => {
           <NewsContentDiv>{item.content}</NewsContentDiv>
           <NewsImageDiv>
             <NewsImage
-              src={`https://adejord.co.uk${item.image_path}`}
-              alt={item.title}
+                    src={`https://adejord.co.uk${toWebPath(item.image_path)}`}
+                    alt={item.title}
             />
             <br />
           </NewsImageDiv>
