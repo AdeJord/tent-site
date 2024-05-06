@@ -87,8 +87,7 @@ const HowMuch = () => {
         </li>
       </ul>
       <br></br>
-      <a href="/TermsAndCond">Terms and Conditions</a>
-      {/* <Link to='/TermsAndCond.js'>Terms and Conditions</Link> */}
+
     </Container>
   );
 };

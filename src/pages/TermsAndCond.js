@@ -146,7 +146,7 @@ const TermsAndCond = () => {
         <TextContainer>
           Download a copy of the current risk assessments
           <a
-            href="https://adejord.co.uk/uploads/docs/riskAssessments.pdf"
+            href="https://adejord.co.uk/uploads/docs/Risk-Assessment.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download
@@ -157,7 +157,7 @@ const TermsAndCond = () => {
         <TextContainer>
           Download a copy of our current insurance certificate
           <a
-            href="https://adejord.co.uk/uploads/docs/insuranceCertificate.pdf"
+            href="https://adejord.co.uk/uploads/docs/Insurance-Certificate.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download

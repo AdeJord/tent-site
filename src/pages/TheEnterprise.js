@@ -36,10 +36,15 @@ const TheEnterprise = () => {
         Hatherton Marina, Queens Road, Calf Heath, Wolverhampton, WV107DT
         </TextContainer>
         <TextContainer>
-          To download a printable leaflet about day trips on board Enterprise{" "}
-          <Link to="/downloads/BoatLeaflet.pdf" target="_blank" download>
+          Download a copy of our current insurance certificate
+          <a
+            href="https://adejord.co.uk/uploads/docs/Boat-Brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+          >
             HERE
-          </Link>
+          </a>
         </TextContainer>
       </TextContainer>
     </Container>

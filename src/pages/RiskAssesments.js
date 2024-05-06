@@ -20,9 +20,14 @@ const RiskAssesments = () => {
       <br />
       <TextContainer>You can download the latest risk assesments on the link below</TextContainer>
 
-      <Link to="/downloads/RiskAss2023.pdf" target="_blank" download>
-        DOWNLOAD RISK ASSESMENTS
-      </Link>
+      <a
+            href="https://adejord.co.uk/uploads/docs/Risk-Assessment.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+          >
+            Download Current Risk Assessment here
+          </a>
     </Container>
   );
 };
