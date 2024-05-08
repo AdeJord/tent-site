@@ -11,10 +11,14 @@ const TheEnterprise = () => {
     style={{
       height: '100vh',
       justifyContent: 'flex-start',
+      // padding: '20px',
     }}>
-      <Header>The Enterprise</Header>
+      <Header>THE ENTERPRISE</Header>
       <p style={{ border: 'dotted black 1px', height: '100px', width: '90vw', textAlign: 'center', color: 'gray'}}>Image of the boat here</p>
-      <TextContainer>
+      <TextContainer
+      style={{
+        paddingLeft: '50px',
+      }}>
         The Enterprise is a 70ft canal boat with a ramp and wheelchair lift,
         seating for up to 12 people, and large front deck with seating, a small
         kitchen, central heating, toilet and picture windows allowing for a full
@@ -29,14 +33,25 @@ const TheEnterprise = () => {
           disadvantaged.
         </TextContainer>
         <br />
-
-        Our address is
-
         <TextContainer>
+        Our address is
         Hatherton Marina, Queens Road, Calf Heath, Wolverhampton, WV107DT
+
+
         </TextContainer>
         <TextContainer>
           Download a copy of our current insurance certificate
+          <a
+            href="https://adejord.co.uk/uploads/docs/Insurance-Certificate.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+          >
+            HERE
+          </a>
+        </TextContainer>
+        <TextContainer>
+          Download a copy of our current Boat Brochure
           <a
             href="https://adejord.co.uk/uploads/docs/Boat-Brochure.pdf"
             target="_blank"

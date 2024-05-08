@@ -32,10 +32,10 @@ const Gallery = () => {
       Gallery
       </Header>
       
-      <ImgContainer>
+      {/* <ImgContainer>
       <ImageGallery items={images}/>
 
-      </ImgContainer>
+      </ImgContainer> */}
     </Container>
   );
 };

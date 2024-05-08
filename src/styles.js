@@ -2,7 +2,6 @@ import styled from "./styled";
 
 export const Root = styled.div`
   background-color: #eaf3e7;
-  backround-color: red;
   height: auto;
   width: 100vw;
   display: flex;
@@ -39,15 +38,14 @@ export const FormContainer = styled.div`
   align-items: center;
   font-size: calc(10px + 1vmin);
   color: #051101;
+  padding-left: 1rem;
+  box-sizing: border-box;
   font-family: "Roboto, Arial, Helvetica, sans-serif";
 `;
 
-
-
 export const FormSection = styled.div`
   background-color: #eaf3e7;
-  height: 185vh;
-  width: 100vw;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,7 +54,19 @@ export const FormSection = styled.div`
   font-family: "Roboto, Arial, Helvetica, sans-serif";
 `;
 
-
+export const Form = styled.form`
+background-color: #eaf3e7;
+  height: auto;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  font-size: calc(10px + 1vmin);
+  color: #051101;
+  padding-left: 1rem;
+  box-sizing: border-box;
+  font-family: "Roboto, Arial, Helvetica, sans-serif";
+`;
 
 export const CalendarContainer = styled.div`
   background-color: #eaf3e7;
@@ -196,16 +206,18 @@ th, td {
 `;
 
 export const TableCell = styled.td`
-  white-space: nowrap;        /* Prevent text wrapping */
-  overflow: hidden;           /* Hide overflow content */
-  text-overflow: ellipsis;    /* Show ellipsis (...) for truncated text */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow content */
+  text-overflow: ellipsis; /* Show ellipsis (...) for truncated text */
 `;
 
 export const TableContainer = styled.div`
   background-color: #eaf3e7;
   // box-sizing: border-box;
   height: auto;
-  width: calc(100vw - 15px); /* Adjust 15px to the actual scrollbar width if needed */
+  width: calc(
+    100vw - 15px
+  ); /* Adjust 15px to the actual scrollbar width if needed */
   overflow-x: auto;
   width: 95vw;
   display: flex;
@@ -276,13 +288,12 @@ export const ModalFooter = styled.div`
   border-bottom-right-radius: 10px; /* Rounded corners */
 `;
 
-
 export const DangerModalRoot = styled.div`
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  z-index: 100; 
+  z-index: 100;
   max-width: 600px;
-  width: auto; 
-  height: auto; 
+  width: auto;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -298,7 +309,6 @@ export const DangerModalRoot = styled.div`
   transform: translate(-50%, -50%); /* Adjust for true centering */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 `;
-
 
 export const DangerModalHeader = styled.div`
   background-color: #ef9a9a; // Softer shade of red
@@ -328,81 +338,81 @@ export const DangerModalFooter = styled.div`
   border-bottom-right-radius: 15px; // Match DangerModalRoot border radius
 `;
 
- export const AvailabilityCalendarContainer = styled.div`
- max-width: 90vw;
- width: 90vw;
- height: 90vh;
- margin: auto;
- margin-top: 20px;
- border-radius: 3px;
- .react-calendar__navigation {
-  display: flex;
-
-  .react-calendar__navigation__label {
-    font-weight: bold;
-  }
-
-  .react-calendar__navigation__arrow {
-    flex-grow: 0.333;
-  }
-}
-
-/* ~~~ label styles ~~~ */
-.react-calendar__month-view__weekdays {
-  text-align: center;
-}
-
-/* ~~~ button styles ~~~ */
-button {
-  margin: 3px;
-  background-color: #6f876f;
-  border: 0;
+export const AvailabilityCalendarContainer = styled.div`
+  max-width: 90vw;
+  width: 90vw;
+  height: 90vh;
+  margin: auto;
+  margin-top: 20px;
   border-radius: 3px;
-  color: white;
-  padding: 5px 0;
+  .react-calendar__navigation {
+    display: flex;
 
-  &:hover {
-    background-color: #556b55;
+    .react-calendar__navigation__label {
+      font-weight: bold;
+    }
+
+    .react-calendar__navigation__arrow {
+      flex-grow: 0.333;
+    }
   }
 
-  &:active {
-    background-color: #a5c1a5;
+  /* ~~~ label styles ~~~ */
+  .react-calendar__month-view__weekdays {
+    text-align: center;
   }
-}
 
-/* ~~~ day grid styles ~~~ */
-.react-calendar__month-view__days {
-  display: grid !important;
-  grid-template-columns: 14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%; 
+  /* ~~~ button styles ~~~ */
+  button {
+    margin: 3px;
+    background-color: #6f876f;
+    border: 0;
+    border-radius: 3px;
+    color: white;
+    padding: 5px 0;
 
-  .react-calendar__tile {
-    max-width: initial !important;
+    &:hover {
+      background-color: #556b55;
+    }
+
+    &:active {
+      background-color: #a5c1a5;
+    }
   }
-}
 
-/* ~~~ neighboring month & weekend styles ~~~ */
-.react-calendar__month-view__days__day--neighboringMonth {
-  opacity: 0.7;
-}
-.react-calendar__month-view__days__day--weekend {
-  color: #dfdfdf;
-}
+  /* ~~~ day grid styles ~~~ */
+  .react-calendar__month-view__days {
+    display: grid !important;
+    grid-template-columns: 14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
 
-/* ~~~ other view styles ~~~ */
-// .react-calendar__year-view__months, 
-// .react-calendar__decade-view__years, 
-// .react-calendar__century-view__decades {
-//   display: grid !important;
-//   grid-template-columns: 20% 20% 20% 20% 20%;
+    .react-calendar__tile {
+      max-width: initial !important;
+    }
+  }
 
-//   &.react-calendar__year-view__months {
-//     grid-template-columns: 33.3% 33.3% 33.3%;
-//   }
+  /* ~~~ neighboring month & weekend styles ~~~ */
+  .react-calendar__month-view__days__day--neighboringMonth {
+    opacity: 0.7;
+  }
+  .react-calendar__month-view__days__day--weekend {
+    color: #dfdfdf;
+  }
 
-//   .react-calendar__tile {
-//     max-width: initial !important;
-//   }
-// }
+  /* ~~~ other view styles ~~~ */
+  // .react-calendar__year-view__months,
+  // .react-calendar__decade-view__years,
+  // .react-calendar__century-view__decades {
+  //   display: grid !important;
+  //   grid-template-columns: 20% 20% 20% 20% 20%;
+
+  //   &.react-calendar__year-view__months {
+  //     grid-template-columns: 33.3% 33.3% 33.3%;
+  //   }
+
+  //   .react-calendar__tile {
+  //     max-width: initial !important;
+  //   }
+  // }
 `;
 
 const ImgContainer = styled.div`
@@ -436,8 +446,6 @@ const TextDiv = styled.div`
 const NewsDiv = styled.div`
   padding: 10px;
   width: 30vw;
-  
-
 
   @media (max-width: 768px) {
     width: 90vw;

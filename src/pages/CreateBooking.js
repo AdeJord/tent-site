@@ -98,23 +98,6 @@ const schema = yup.object().shape({
     .oneOf([true], "Please accept the group leader policy"),
 });
 
-// const CreateBooking = () => {
-//   const [showModal, setShowModal] = useState(false);
-//   const [formData, setFormData] = useState(null);
-//   const [selectedDestination, setSelectedDestination] = useState(null);
-//   const navigate = useNavigate();
-//   const location = useNavigate();
-
-//     // Extracting the date from the URL query parameters
-//     const queryParams = new URLSearchParams(location.search);
-//     const selectedDate = queryParams.get('date')
-
-//   // const { register, handleSubmit, formState: { errors } } = useForm({
-//   //   resolver: yupResolver(schema),
-//   //   defaultValues: { wheelchair_users: 0 }, // Set default value for wheelchairUsers
-//   // });
-
-// console.log("selectedDate", selectedDate);  //Why is this NULL??
 
 const CreateBooking = () => {
   const [showModal, setShowModal] = useState(false);
@@ -288,6 +271,7 @@ const CreateBooking = () => {
             paddingTop: "2vh",
             height: "auto",
             width: "30vw",
+            paddingLeft: "60px"
           }}
           onSubmit={handleSubmit((data) => {
             submitBooking(data);
@@ -415,6 +399,9 @@ const CreateBooking = () => {
           <input
             style={{
               width: "5vw",
+              height: "4vh",
+              fontSize: "1rem",
+              textAlign: "center",
             }}
             type="number"
             min={1}
@@ -431,6 +418,9 @@ const CreateBooking = () => {
           <input
             style={{
               width: "5vw",
+              height: "4vh",
+              fontSize: "1rem",
+              textAlign: "center",
             }}
             type="number"
             min={0}
