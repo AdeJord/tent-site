@@ -46,6 +46,7 @@ const NewsDiv = styled.div`
 
 const NewsTitleDiv = styled.div`
   padding: 10px;
+  padding-top: 20px;
   width: 90vw;
   overflow: wrap;
   text-align: center;
