@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Root } from "../styles";
+import { Root, StyledCalendarNavButton } from "../styles";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "../calendarStyles.css";
@@ -12,8 +12,8 @@ const CustomNavigation = ({ activeStartDate, view, onPrev, onNext }) => {
   const currentMonth = format(activeStartDate, "MMMM yyyy");
 
   return (
-    <div className="custom-navigation">
-      <p className="nav-button current-month">{currentMonth}</p>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <h1>{currentMonth}</h1>
     </div>
   );
 };
@@ -134,7 +134,14 @@ const AvailabilityCalendar = () => {
         </>
       )}
 
-      <Root style={{ paddingTop: "10vh", height: "100vh" }}>
+      <Root 
+      style={{ 
+        height: "90vh", 
+        display: "flex", 
+        flexDirection: "column", 
+        justifyContent: "flex-start", 
+        paddingTop: "7vh"}}
+        >
         <Calendar
           activeStartDate={activeStartDate}
           onActiveStartDateChange={({ activeStartDate }) =>
@@ -147,6 +154,11 @@ const AvailabilityCalendar = () => {
               view={view}
               onPrev={handlePrevMonth}
               onNext={handleNextMonth}
+              // style={{ 
+              //   display: "flex", 
+              //   justifyContent: "center",
+              //   backgroundColor: "red"
+              // }}
             />
           )}
           tileDisabled={({ activeStartDate, date, view }) =>
@@ -166,7 +178,9 @@ const AvailabilityCalendar = () => {
           }}
           onClickDay={handleDayClick}
         />
+
         {/* This is the Key part */}
+
         <div className="calendar-key">
           <div className="key-item">
             <span className="key-color not-operational"></span> Out Of Season
@@ -178,6 +192,7 @@ const AvailabilityCalendar = () => {
             <span className="key-color booked"></span> Booked
           </div>
         </div>
+
       </Root>
     </>
   );

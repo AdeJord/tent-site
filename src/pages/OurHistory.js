@@ -105,7 +105,11 @@ const OurHistory = () => {
           again flourishing thanks to the support of its many volunteers and
           passengers over many happy years. Long may this continue.
         </p>
-        <Header>HISTORY OF THE BOAT</Header>
+        <Header
+        style={{
+          fontSize: "1.2em",
+        }}
+        >HISTORY OF THE BOAT</Header>
         <p>
           In the early 1970s a young man called Peter Le Marchant died. His
           sister Clare, was looking for something to commemorate her brother’s

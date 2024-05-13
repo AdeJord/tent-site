@@ -36,25 +36,31 @@ const NewsDiv = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: column;
-  width: 30vw;
   align-items: center;
+  justify-content: center;
+  // background-color: red;
+  width: 100%;
 
   @media (max-width: 768px) {
     width: 90vw;
   }
 `;
 
+// TODO NEED THIS IN CENTER
 const NewsTitleDiv = styled.div`
   padding: 10px;
   padding-top: 20px;
-  width: 90vw;
-  overflow: wrap;
+  width: 90vw;  // This ensures it matches the width it's supposed to center within
+  overflow-wrap: break-word; // Changed from 'wrap' which is not a valid value
   text-align: center;
+  margin: 0 auto;  // Ensures it centers within its parent if not filling the width
 `;
 
+
 const NewsTitle = styled.p`
-  padding: 20px 0px 0px 10px;
-  width: 90vw;
+  margin: 0;  // Remove any default margins that might affect centering
+  padding-top: 20px; // Keep vertical padding if needed
+  width: 100%;  // Ensure it spans the width of its container
   text-align: center;
   font-size: 2.1em;
 `;
@@ -72,21 +78,24 @@ const NewsContent = styled.div`
 `;
 
 const NewsImageDiv = styled.div`
-padding: 10px 0px 20px 0px
-width: 90vw;
-border: 1px solid black;
-border-radius: 10px;
-box-shadow: 5px 5px 5px #888888;
-display: flex;
-justify-content: center;
-align-items: center;
-
+  // background-color: blue;
+  // padding: 10px 0px 20px 0px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
+
 
 const NewsImage = styled.img`
   padding: 10px;
-  width: 90vw;
+  width: 100%; /* This makes the image scale with its container */
+  height: auto;
 `;
+
 
 const News = () => {
   const [news, setNews] = useState([]);
@@ -118,8 +127,7 @@ function toWebPath(internalPath) {
           <div>
             <h2>Server Issue</h2>
             <p>
-              There is currently an issue with the server. This is outside of
-              our control.
+              There is currently an issue with the server. Unfortunately this is outside of our control.
             </p>
             <p>Please check again later</p>
           </div>
@@ -132,12 +140,7 @@ function toWebPath(internalPath) {
               <NewsContentDiv>{item.content}</NewsContentDiv>
               <NewsImageDiv>
                 {item.image_path && (
-                  <img
-                    style={{
-                      width: "80vw",
-                      height: "auto",
-                      padding: "10px",
-                    }}
+                  <NewsImage
                     src={`https://adejord.co.uk${toWebPath(item.image_path)}`}
                     alt={item.title}
                   />
