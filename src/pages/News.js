@@ -46,21 +46,19 @@ const NewsDiv = styled.div`
   }
 `;
 
-// TODO NEED THIS IN CENTER
 const NewsTitleDiv = styled.div`
   padding: 10px;
   padding-top: 20px;
-  width: 90vw;  // This ensures it matches the width it's supposed to center within
-  overflow-wrap: break-word; // Changed from 'wrap' which is not a valid value
+  width: 90vw; 
+  overflow-wrap: break-word; 
   text-align: center;
-  margin: 0 auto;  // Ensures it centers within its parent if not filling the width
+  margin: 0 auto; 
 `;
 
-
 const NewsTitle = styled.p`
-  margin: 0;  // Remove any default margins that might affect centering
-  padding-top: 20px; // Keep vertical padding if needed
-  width: 100%;  // Ensure it spans the width of its container
+  margin: 0;
+  padding-top: 20px;
+  width: 100%;
   text-align: center;
   font-size: 2.1em;
 `;
@@ -89,31 +87,30 @@ const NewsImageDiv = styled.div`
   align-items: center;
 `;
 
-
 const NewsImage = styled.img`
   padding: 10px;
   width: 100%; /* This makes the image scale with its container */
   height: auto;
 `;
 
-
 const News = () => {
   const [news, setNews] = useState([]);
 
   // Function to convert file system path to web URL path
-function toWebPath(internalPath) {
-  if (!internalPath) return '';
-  // Assuming your internal path starts with /var/www
-  return internalPath.replace('/var/www', '');
-}
+  function toWebPath(internalPath) {
+    if (!internalPath) return "";
+    // Assuming your internal path starts with /var/www
+    return internalPath.replace("/var/www", "");
+  }
 
   useEffect(() => {
     console.log("Fetching the latest news items");
     axios
-      .get("https://adejord.co.uk/news") // Adjust URL as necessary
+      .get("https://adejord.co.uk/news")
       .then((response) => {
         console.log("Response: ", response);
         setNews(response.data);
+        window.scrollTo(0, 0);
       })
       .catch((error) => {
         console.error("Error fetching news: ", error);
@@ -121,40 +118,49 @@ function toWebPath(internalPath) {
   }, []);
 
   return (
-    <Root>
-      <NewsDiv>
-        {news.length === 0 ? (
-          <div>
-            <h2>Server Issue</h2>
-            <p>
-              There is currently an issue with the server. Unfortunately this is outside of our control.
-            </p>
-            <p>Please check again later</p>
-          </div>
-        ) : (
-          news.map((item) => (
-            <div key={item.id}>
-              <NewsTitleDiv>
-                <NewsTitle>{item.title}</NewsTitle>
-              </NewsTitleDiv>
-              <NewsContentDiv>{item.content}</NewsContentDiv>
-              <NewsImageDiv>
-                {item.image_path && (
-                  <NewsImage
-                    src={`https://adejord.co.uk${toWebPath(item.image_path)}`}
-                    alt={item.title}
-                  />
-                )}
-              </NewsImageDiv>
+<Root>
+  <NewsDiv>
+    {news.length === 0 ? (
+      <div>
+        <h2>Server Issue</h2>
+        <p>
+          There is currently an issue with the server. Unfortunately, this is
+          outside of our control.
+        </p>
+        <p>Please check again later</p>
+      </div>
+    ) : (
+      news
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .map((item) => (
+          <div key={item.id}>
+            <NewsTitleDiv>
+              <NewsTitle>{item.title}</NewsTitle>
+            </NewsTitleDiv>
+            <NewsContentDiv>{item.content}</NewsContentDiv>
+            <NewsImageDiv>
+              {item.image_path && (
+                <NewsImage
+                  src={`https://adejord.co.uk${toWebPath(item.image_path)}`}
+                  alt={item.title}
+                />
+              )}
+            </NewsImageDiv>
 
-              <br />
-              <p>{new Date(item.date).toLocaleDateString('en-GB', { timeZone: 'Europe/London' })}</p>
-              <hr />
-            </div>
-          ))
-        )}
-      </NewsDiv>
-    </Root>
+            <br />
+            <p>
+              {new Date(item.date).toLocaleDateString("en-GB", {
+                timeZone: "Europe/London",
+              })}
+            </p>
+            <hr />
+          </div>
+        ))
+    )}
+  </NewsDiv>
+</Root>
+
+
   );
 };
 

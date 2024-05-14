@@ -127,8 +127,9 @@
 
 .calendar-key {
   display: flex;
-  justify-content: center;
-  padding: 20px;
+  width: 100%;
+  justify-content: space-around;
+  margin: 40px;
 }
 
 .key-item {

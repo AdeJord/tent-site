@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import { FormRoot, FormContainer, Root } from "../styles";
-
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import axios from "axios";
+
+import {
+  FormContainer,
+  Input,
+  Label,
+  Button,
+  ErrorMessage,
+  FormButton,
+  RadioGroup,
+  GroupLabel,
+  RadioLabel,
+  NarrowInput,
+  // TextArea
+} from "../styles"; // Assuming these are properly defined
 import Modal from "../modal/Modal";
 import Backdrop from "../modal/ModalBackdrop";
-import "../App.css";
 
 // Define the function to check booking date availability
 // CHECKED
@@ -75,17 +86,20 @@ const schema = yup.object().shape({
         return false; // Skip validation if date is not provided
       },
     }),
-  wheelchair_users: yup
-    .number()
-    .required()
-    .oneOf([0, 1, 2], "Maximum of 2 wheelchair users per booking"),
   total_passengers: yup
     .number()
-    .required()
+    .typeError("You must enter a valid number of passengers") // This handles non-numeric inputs
+    .required("Total passengers is required")
     .oneOf(
       [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       "Maximum of 12 passengers per booking"
     ),
+
+  wheelchair_users: yup
+    .number()
+    .typeError("You must enter a valid number of wheelchair users") // This handles non-numeric inputs
+    .required("Wheelchair user count is required")
+    .oneOf([0, 1, 2], "Maximum of 2 wheelchair users per booking"),
   smoking: yup.boolean().required("Please select Yes or No for smoking"),
   destination: yup.string().required("Please select a destination"),
   lunch_arrangements: yup.string().required("Please select a lunch option"),
@@ -98,71 +112,35 @@ const schema = yup.object().shape({
     .oneOf([true], "Please accept the group leader policy"),
 });
 
-
 const CreateBooking = () => {
   const [showModal, setShowModal] = useState(false);
-  const [formData, setFormData] = useState(null);
-  const [selectedDestination, setSelectedDestination] = useState(null);
+  const [formData, setFormData] = useState({});
   const navigate = useNavigate();
-  const location = useLocation(); // Corrected to useLocation
+  const location = useLocation();
 
-  // Extracting the date from the URL query parameters
-  const queryParams = new URLSearchParams(location.search);
-  const selectedDate = queryParams.get("date");
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      total_passengers: 1, // Set default minimum valid number
+      wheelchair_users: 0, // Set default
+    },
+  });
 
-  // console.log("selectedDate", selectedDate);
+  const selectedDate = new URLSearchParams(location.search).get("date");
 
-  const ModalClickHandler = () => {
-    setShowModal(false);
-    navigate("/");
-  };
-
-  const getLunchArrangementDescription = (lunchArrangement) => {
-    switch (lunchArrangement) {
-      case "Packed Lunch":
-        return " you will be bringing your own packed lunch.";
-      case "Fish and Chips":
-        return " you will have fish and chips delivered to the boat.";
-      case "Pub Meal":
-        return " where you will be eating at the pub.";
-      default:
-        return "where lunch arrangements are not specified.";
+  useEffect(() => {
+    if (selectedDate) {
+      setValue("booking_date", selectedDate);
     }
-  };
-
-  const getWheelchairUsersDescription = (wheelchairUsers) => {
-    switch (wheelchairUsers) {
-      case 0:
-        return "There are no wheelchair users on this trip Please let us know if this changes so we can have the lift ready.";
-      case 1:
-        return "There is 1 wheelchair user on this trip. The lift will be ready for you.";
-      case 2:
-        return "There are 2 wheelchair users on this trip. The lift will be ready for you.";
-      default:
-        return "There are no wheelchair users on this trip. The lift will be ready for you.";
-    }
-  };
-
-  const modalContent = (
-    <>
-      <p>
-        Your boat trip for the{" "}
-        {formData?.booking_date &&
-          new Date(formData?.booking_date).toLocaleDateString("en-GB")}{" "}
-        has been successfully booked.
-      </p>
-      <p>
-        This is a {formData?.smoking ? "smoking" : "non-smoking"} trip to{" "}
-        {formData?.destination} and
-        {getLunchArrangementDescription(formData?.lunch_arrangements)}
-      </p>
-      <p>{getWheelchairUsersDescription(formData?.wheelchair_users ?? 0)}</p>
-      <p>You will receive an email with booking confirmation.</p>
-    </>
-  );
+  }, [selectedDate, setValue]);
 
   const submitBooking = async (data) => {
-    console.log("started submitBooking");
     try {
       const response = await axios.post(
         "https://adejord.co.uk/createBooking",
@@ -170,361 +148,192 @@ const CreateBooking = () => {
       );
       setFormData(data);
       setShowModal(true);
-      const {
-        email_address,
-        first_name,
-        surname,
-        group_name,
-        contact_number,
-        house_number,
-        street_name,
-        city,
-        postcode,
-        booking_date,
-        total_passengers,
-        wheelchair_users,
-        smoking,
-        destination,
-        lunch_arrangements,
-        notes,
-        terms_and_conditions,
-        group_leader_policy,
-      } = data;
-      axios.post("https://adejord.co.uk/sendBookingConfirmationEmail", {
-        email_address,
-        first_name,
-        surname,
-        group_name,
-        contact_number,
-        house_number,
-        street_name,
-        city,
-        postcode,
-        booking_date,
-        total_passengers,
-        wheelchair_users,
-        smoking,
-        destination,
-        lunch_arrangements,
-        notes,
-        terms_and_conditions,
-        group_leader_policy,
-      });
+      axios.post("https://adejord.co.uk/sendBookingConfirmationEmail", data);
     } catch (error) {
       console.error("Error creating booking:", error);
     }
   };
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setValue, // Import setValue from useForm
-  } = useForm({
-    resolver: yupResolver(schema),
-    defaultValues: {
-      wheelchair_users: 0,
-      booking_date: selectedDate || "", // Set the default value for booking_date
-    },
-  });
-
-  // Set the booking_date field value if selectedDate is available
-  React.useEffect(() => {
-    if (selectedDate) {
-      setValue("booking_date", selectedDate);
-    }
-  }, [selectedDate, setValue]);
+  const modalContent = (
+    <>
+      <p>
+        Your booking for{" "}
+        {new Date(formData.booking_date).toLocaleDateString("en-GB")} has been
+        confirmed.
+      </p>
+      <p>
+        This is a {formData.smoking ? "smoking" : "non-smoking"} trip to{" "}
+        {formData.destination}.
+      </p>
+      <p>You will receive an email confirmation shortly.</p>
+    </>
+  );
 
   return (
     <>
       {showModal && (
-        <>
-          <Backdrop>
-            <Modal
-              style={{
-                position: "fixed",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                zIndex: "100",
-              }}
-              onClick={ModalClickHandler}
-              header="Booking Submitted"
-              content={modalContent}
-              footer="Thank you for booking with us. We look forward to seeing you!"
-            />
-          </Backdrop>
-        </>
+        <Backdrop onClick={() => setShowModal(false)}>
+          <Modal
+            header="Booking Confirmation"
+            content={modalContent}
+            footer="Thank you for your booking!"
+          />
+        </Backdrop>
       )}
-      <h1
-        style={{
-          paddingTop: "5vh",
-        }}
-      >
-        Booking Form
-      </h1>
-      <FormContainer className="form-style">
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            paddingTop: "2vh",
-            height: "auto",
-            width: "30vw",
-            paddingLeft: "60px"
-          }}
-          onSubmit={handleSubmit((data) => {
-            submitBooking(data);
-            // console.log(data);
-          })}
-        >
-          <label
-            style={{
-              textAlign: "center",
-            }}
-          >
-            Booking Date
-          </label>
-          <div
-            style={{
-              margin: "10px 0",
-              backgroundColor: "#e2f0dd",
-              borderRadius: "4px",
-              fontSize: "1.2rem",
-              textAlign: "center",
-            }}
-          >
+      <FormContainer>
+        <form onSubmit={handleSubmit(submitBooking)}>
+          <Label>Booking Date</Label>
+          <br />
+          <div>
             {selectedDate
               ? new Date(selectedDate).toLocaleDateString("en-GB")
               : "No date selected"}
-            <input
-              type="hidden"
-              {...register("booking_date")}
-              value={selectedDate || ""}
-            />
           </div>
-          <label>First Name</label>
-          <input
-            style={{ width: "20vw" }}
-            {...register("first_name")}
-            autoComplete="given-name"
-          />
+          <Input type="hidden" {...register("booking_date")} />
+          <br />
+          <Label>First Name</Label>
+          <Input {...register("first_name")} autoComplete="given-name" />
           {errors.first_name && (
-            <p style={{ color: "red" }}>{errors.first_name.message}</p>
+            <ErrorMessage>{errors.first_name.message}</ErrorMessage>
           )}
 
-          <label>Surname</label>
-          <input
-            style={{ width: "20vw" }}
-            {...register("surname")}
-            autoComplete="family-name"
-          />
+          <Label>Surname</Label>
+          <Input {...register("surname")} autoComplete="family-name" />
           {errors.surname && (
-            <p style={{ color: "red" }}>{errors.surname.message}</p>
+            <ErrorMessage>{errors.surname.message}</ErrorMessage>
           )}
-          <label>
-            Group/Organisation name <small>(If applicable)</small>
-          </label>
-          <input style={{ width: "20vw" }} {...register("group_name")} />
-          <label>Contact Number</label>
-          <input
-            style={{ width: "20vw" }}
-            type="string"
+
+          <Label>Group/Organisation Name (If applicable)</Label>
+          <Input {...register("group_name")} />
+
+          <Label>Contact Number</Label>
+          <Input
+            type="tel"
             {...register("contact_number")}
             autoComplete="tel"
           />
           {errors.contact_number && (
-            <p style={{ color: "red" }}>{errors.contact_number.message}</p>
+            <ErrorMessage>{errors.contact_number.message}</ErrorMessage>
           )}
 
-          <label>Email</label>
-          <input
-            style={{ width: "20vw" }}
-            type="text"
+          <Label>Email</Label>
+          <Input
+            type="email"
             {...register("email_address")}
             autoComplete="email"
           />
           {errors.email_address && (
-            <p style={{ color: "red" }}>{errors.email_address.message}</p>
+            <ErrorMessage>{errors.email_address.message}</ErrorMessage>
           )}
-          <small>
-            Your booking confirmation will be sent to this email address.
-          </small>
 
-          <label>House Number</label>
-          <input
-            style={{ width: "20vw" }}
-            type="string"
-            {...register("house_number")}
-            autoComplete="address-line1"
-          />
+          <Label>House Number</Label>
+          <Input {...register("house_number")} autoComplete="address-line1" />
           {errors.house_number && (
-            <p style={{ color: "red" }}>{errors.house_number.message}</p>
+            <ErrorMessage>{errors.house_number.message}</ErrorMessage>
           )}
 
-          <label>Street Name</label>
-          <input
-            style={{ width: "20vw" }}
-            type="string"
-            {...register("street_name")}
-            autoComplete="address-line2"
-          />
+          <Label>Street Name</Label>
+          <Input {...register("street_name")} autoComplete="address-line2" />
           {errors.street_name && (
-            <p style={{ color: "red" }}>{errors.street_name.message}</p>
+            <ErrorMessage>{errors.street_name.message}</ErrorMessage>
           )}
 
-          <label>City</label>
-          <input
-            style={{ width: "20vw" }}
-            type="string"
-            {...register("city")}
-            autoComplete="address-level2"
-          />
-          {errors.city && <p style={{ color: "red" }}>{errors.city.message}</p>}
+          <Label>City</Label>
+          <Input {...register("city")} autoComplete="address-level2" />
+          {errors.city && <ErrorMessage>{errors.city.message}</ErrorMessage>}
 
-          <label>Postcode</label>
-          <input
-            style={{ width: "10vw" }}
-            type="string"
-            {...register("postcode")}
-            autoComplete="postal-code"
-          />
+          <Label>Postcode</Label>
+          <NarrowInput {...register("postcode")} autoComplete="postal-code" />
           {errors.postcode && (
-            <p style={{ color: "red" }}>{errors.postcode.message}</p>
+            <ErrorMessage>{errors.postcode.message}</ErrorMessage>
           )}
-          <br />
-          <label>
-            Total Passengers <small>(Max 12)</small>
-          </label>
-          <input
-            style={{
-              width: "5vw",
-              height: "4vh",
-              fontSize: "1rem",
-              textAlign: "center",
-            }}
-            type="number"
-            min={1}
-            max={12}
-            {...register("total_passengers")}
-          />
-          {errors.total_passengers && (
-            <p style={{ color: "red" }}>{errors.total_passengers.message}</p>
-          )}
-          <br />
-          <label>
-            Wheelchair Users <small>(Max 2)</small>
-          </label>
-          <input
-            style={{
-              width: "5vw",
-              height: "4vh",
-              fontSize: "1rem",
-              textAlign: "center",
-            }}
-            type="number"
-            min={0}
-            max={2}
-            {...register("wheelchair_users")}
-          />
-          {errors.wheelchair_users && (
-            <p style={{ color: "red" }}>{errors.wheelchair_users.message}</p>
-          )}
-          <br />
-          <div>
-            <label>Smoking </label>
-            <br />
-            <label>
-              <input type="radio" value="true" {...register("smoking")} /> Yes{" "}
-            </label>
-            <br />
-            <label>
-              <input type="radio" value="false" {...register("smoking")} /> No
-              {errors.smoking && (
-                <p style={{ color: "red" }}>{errors.smoking.message}</p>
-              )}
-            </label>
-          </div>
-          <br />
-          <div>
-            <label>Destination</label>
-            <br />
-            <label>
+
+          <Label>Total Passengers (Max 12)</Label>
+          <Input type="number" {...register("total_passengers")} />
+          {errors.total_passengers && <p>{errors.total_passengers.message}</p>}
+
+          <Label>Wheelchair Users (Max 2)</Label>
+          <Input type="number" {...register("wheelchair_users")} />
+          {errors.wheelchair_users && <p>{errors.wheelchair_users.message}</p>}
+
+          <RadioGroup>
+            <Label>Smoking</Label>
+            <div>
+              <Input type="radio" value="true" {...register("smoking")} /> Yes
+              <br />
+              <Input type="radio" value="false" {...register("smoking")} /> No
+            </div>
+            {errors.smoking && (
+              <ErrorMessage>{errors.smoking.message}</ErrorMessage>
+            )}
+          </RadioGroup>
+
+          <RadioGroup>
+            <GroupLabel>Destination</GroupLabel>
+            <RadioLabel>
               <input
                 type="radio"
                 value="Autherley"
                 {...register("destination")}
-                onChange={() => setSelectedDestination("Autherley")}
               />{" "}
               Autherley (£130)
-            </label>
-            <br />
-            <label>
-              <input
-                type="radio"
-                value="Coven"
-                {...register("destination")}
-                onChange={() => setSelectedDestination("Coven")}
-              />{" "}
+            </RadioLabel>
+            <RadioLabel>
+              <input type="radio" value="Coven" {...register("destination")} />{" "}
               Coven(£100)
-              {errors.destination && (
-                <p style={{ color: "red" }}>{errors.destination.message}</p>
-              )}
-              <br />
-            </label>
-            <label>
+            </RadioLabel>
+            <RadioLabel>
               <input
                 type="radio"
                 value="Penkridge"
                 {...register("destination")}
-                onChange={() => setSelectedDestination("Penkridge")}
               />{" "}
               Penkridge "Have A Go day"(£220)
-              {errors.destination && (
-                <p style={{ color: "red" }}>{errors.destination.message}</p>
-              )}
-            </label>
-          </div>
-          <br />
-          <label>Lunch Arrangements</label>
-          <label>
-            <input
-              type="radio"
-              value="Packed Lunch"
-              {...register("lunch_arrangements")}
-            />{" "}
-            Packed Lunch
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="Fish and Chips"
-              {...register("lunch_arrangements")}
-              disabled={selectedDestination === "Penkridge"}
-            />{" "}
-            Fish & Chips
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="Pub Meal"
-              {...register("lunch_arrangements")}
-              disabled={
-                selectedDestination === "Autherley" ||
-                selectedDestination === "Penkridge"
-              }
-            />{" "}
-            Pub Meal
-            {errors.lunch_arrangements && (
-              <p style={{ color: "red" }}>
-                {errors.lunch_arrangements.message}
-              </p>
-            )}
-          </label>
+            </RadioLabel>
+          </RadioGroup>
+
+          <RadioGroup>
+            <GroupLabel>Lunch Arrangements</GroupLabel>
+            <RadioLabel>
+              <input
+                type="radio"
+                value="Packed Lunch"
+                {...register("lunch_arrangements")}
+              />{" "}
+              Packed Lunch
+            </RadioLabel>
+            <RadioLabel>
+              <input
+                type="radio"
+                value="Fish and Chips"
+                {...register("lunch_arrangements")}
+              />{" "}
+              Fish & Chips
+            </RadioLabel>
+            <RadioLabel>
+              <input
+                type="radio"
+                value="Pub Meal"
+                {...register("lunch_arrangements")}
+              />{" "}
+              Pub Meal
+            </RadioLabel>
+          </RadioGroup>
           <br />
           <label>Other Requirements</label>
+          <br />
           <input
-            style={{ height: "7vh" }}
+            style={{
+              height: "5em",
+              width: "100%",
+              padding: "12px 20px",
+              margin: "8px 0",
+              display: "inline-block",
+              border: "1px solid #ccc",
+              boxSizing: "border-box",
+              borderRadius: "4px",
+              fontSize: ".8rem",
+            }}
             type="string"
             {...register("notes")}
           />
@@ -553,24 +362,9 @@ const CreateBooking = () => {
             )}
           </label>
           <br />
-          <input
-            style={{
-              marginTop: "2vh",
-              backgroundColor: "#4CAF50",
-              color: "white",
-              padding: "14px 20px",
-              margin: "8px 0",
-              border: "none",
-              cursor: "pointer",
-              width: "100%",
-              borderRadius: "4px",
-              fontSize: "1.2rem",
-              textAlign: "center",
-            }}
-            type="submit"
-          />
           <br />
         </form>
+        <FormButton type="submit">Submit</FormButton>
       </FormContainer>
     </>
   );
