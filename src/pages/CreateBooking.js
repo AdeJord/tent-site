@@ -203,6 +203,13 @@ const CreateBooking = () => {
     }
   };
 
+  const CloseModal = () => {
+    setShowModal(false);
+    reset();
+    navigate("/");
+    window.scrollTo(0, 0);
+  };
+
   const modalContent = (
     <>
       <p>
@@ -221,11 +228,12 @@ const CreateBooking = () => {
   return (
     <>
       {showModal && (
-        <Backdrop onClick={() => setShowModal(false)}>
+        <Backdrop onClick={CloseModal}>
           <Modal
             header="Booking Confirmation"
             content={modalContent}
             footer="Thank you for your booking!"
+            onClick={CloseModal}
           />
         </Backdrop>
       )}
@@ -239,7 +247,17 @@ const CreateBooking = () => {
               display: "flex",
             }}
           >
-            <Label>Booking Date</Label> {/* Render label as a paragraph */}
+            <div
+              style={{
+                width: "100%",
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                paddingBottom: "1em",
+              }}
+              >
+            Booking Date {/* Render label as a paragraph */}
+            </div>
           </div>
           <div style={{ textAlign: "center" }}>
             {selectedDate

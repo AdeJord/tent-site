@@ -30,12 +30,12 @@ export const FormRoot = styled.div`
 `;
 
 export const FormContainer = styled.div`
+background-color: #eaf3e7;
   border: 1px solid #dcdcdc;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   width: 90%;
-  margin: 4rem auto 2rem;  // Increase top margin
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +50,7 @@ export const Label = styled.label`
   display: block;
   margin-bottom: 5px;
   color: #333;
-  padding 20px 5px px 5px;
+  text-align: left
 `;
 
 export const RadioLabel = styled.label`
@@ -185,6 +185,7 @@ export const Header = styled.div`
 `;
 
 export const Container = styled.div`
+background-color: red
   height: 100vh;
   width: 60vw;
   display: flex;
@@ -322,21 +323,28 @@ export const TableContainer = styled.div`
 `;
 
 export const ModalRoot = styled.div`
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-  z-index: 100;
-  height: auto; /* Adjust the height to fit content */
-  width: auto; /* Adjust the width for a less narrow appearance */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+  z-index: 1050;  // High z-index to ensure it's above other content
+  width: 50%;  // Specify a width, adjust as necessary
+  max-width: 600px;  // Max width for larger screens
+  min-width: 300px;  // Minimum width to ensure content visibility
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(8px + 2vmin);
-  color: #333; /* Softer text color */
+  color: #333;
   font-family: "Roboto, Arial, Helvetica, sans-serif";
-  transition: all 0.3s ease;
-  border-radius: 10px; /* Rounded corners */
-  margin-top: -30vh; // Adjust as needed to move the modal up
-  background-color: #f8f8f8; /* Softer background color */
+  transition: all 0.6s ease;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  position: fixed;
+  top: 50%;  // Center vertically
+  left: 50%;  // Center horizontally
+  transform: translate(-50%, -50%);  // Adjust position to truly center the modal
+  // padding: 20px;  // Padding inside the modal
+  overflow: hidden;  // Prevents content from spilling out
 `;
+
 
 export const ModalHeader = styled.div`
   background-color: #a0d2a3; /* Softer shade of green */

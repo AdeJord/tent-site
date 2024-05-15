@@ -14,7 +14,7 @@ const ImgContainer = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
+  padding-top: 25px;
   padding-left: 10px;
   padding-right: 10px;
 `;

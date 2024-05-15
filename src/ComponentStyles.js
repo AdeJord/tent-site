@@ -11,11 +11,11 @@ export const Container = styled.section`
   padding-top: 0px;
   padding-bottom: 50px;
   overflow: auto;
-  width: 100%; // Ensuring the container takes full width of its parent
-  min-height: 100vh; // Minimum height to ensure it takes at least the full viewport height
+  width: 100%;
+  min-height: 100vh; 
 
   @media (min-width: 768px) {
-    min-height: 62vh; // Adjusted to minimum height for larger screens
+    min-height: 62vh;
   }
 `;
 
@@ -26,7 +26,7 @@ text-align: center;
 color: #114709;
 font-size: 1.5em;
 font-weight: 400;
-padding-top: 30px;
+padding-top: 50px;
 padding-bottom: 20px
 `
 
