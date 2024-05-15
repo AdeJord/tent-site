@@ -185,7 +185,6 @@ export const Header = styled.div`
 `;
 
 export const Container = styled.div`
-background-color: red
   height: 100vh;
   width: 60vw;
   display: flex;
@@ -325,7 +324,7 @@ export const TableContainer = styled.div`
 export const ModalRoot = styled.div`
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
   z-index: 1050;  // High z-index to ensure it's above other content
-  width: 50%;  // Specify a width, adjust as necessary
+  width: auto;  // Specify a width, adjust as necessary
   max-width: 600px;  // Max width for larger screens
   min-width: 300px;  // Minimum width to ensure content visibility
   display: flex;
