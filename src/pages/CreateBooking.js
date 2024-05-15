@@ -20,6 +20,7 @@ import {
 } from "../styles"; // Assuming these are properly defined
 import Modal from "../modal/Modal";
 import Backdrop from "../modal/ModalBackdrop";
+import { Header } from "../ComponentStyles";
 
 // Define the function to check booking date availability
 // CHECKED
@@ -140,17 +141,65 @@ const CreateBooking = () => {
     }
   }, [selectedDate, setValue]);
 
+  // Function to send data to the createBooking endpoint
   const submitBooking = async (data) => {
     try {
       const response = await axios.post(
         "https://adejord.co.uk/createBooking",
         data
       );
+
+      // console.log("Booking created successfully:", response.data);
       setFormData(data);
+      console.log(formData); // returns null?
       setShowModal(true);
-      axios.post("https://adejord.co.uk/sendBookingConfirmationEmail", data);
+
+      // Send email with specific properties
+      const {
+        email_address,
+        first_name,
+        surname,
+        group_name,
+        contact_number,
+        house_number,
+        street_name,
+        city,
+        postcode,
+        booking_date,
+        total_passengers,
+        wheelchair_users,
+        smoking,
+        destination,
+        lunch_arrangements,
+        notes,
+        terms_and_conditions,
+        group_leader_policy,
+      } = data;
+      await axios.post("https://adejord.co.uk/sendBookingConfirmationEmail", {
+        email_address,
+        first_name,
+        surname,
+        group_name,
+        contact_number,
+        house_number,
+        street_name,
+        city,
+        postcode,
+        booking_date,
+        total_passengers,
+        wheelchair_users,
+        smoking,
+        destination,
+        lunch_arrangements,
+        notes,
+        terms_and_conditions,
+        group_leader_policy,
+      });
+
+      // You can perform additional actions after a successful booking creation here
     } catch (error) {
       console.error("Error creating booking:", error);
+      // Handle error scenarios here
     }
   };
 
@@ -180,17 +229,24 @@ const CreateBooking = () => {
           />
         </Backdrop>
       )}
+      <Header>Booking Form</Header>
       <FormContainer>
         <form onSubmit={handleSubmit(submitBooking)}>
-          <Label>Booking Date</Label>
-          <br />
-          <div>
+          <div
+            style={{
+              width: "100%",
+              textAlign: "center",
+              display: "flex",
+            }}
+          >
+            <Label>Booking Date</Label> {/* Render label as a paragraph */}
+          </div>
+          <div style={{ textAlign: "center" }}>
             {selectedDate
               ? new Date(selectedDate).toLocaleDateString("en-GB")
               : "No date selected"}
           </div>
           <Input type="hidden" {...register("booking_date")} />
-          <br />
           <Label>First Name</Label>
           <Input {...register("first_name")} autoComplete="given-name" />
           {errors.first_name && (
@@ -363,9 +419,9 @@ const CreateBooking = () => {
           </label>
           <br />
           <br />
+          <FormButton type="submit">Submit</FormButton>
         </form>
-        <FormButton type="submit">Submit</FormButton>
-      </FormContainer>
+   </FormContainer>
     </>
   );
 };
