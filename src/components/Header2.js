@@ -42,10 +42,10 @@ const TitleContainer = styled.div`
   display: flex;
   padding-left: 11vw;
   flex-direction: column;
-  font-size: 4vw;
-  text-align: center; 
+  font-size: 3.7vw;
+  text-align: center; // Ensure text is centered within the title container
   flex-grow: 1;
-  justify-content: center; 
+  justify-content: center; // Center title vertically in the container
 `;
 
 const LogoContainer = styled.div`

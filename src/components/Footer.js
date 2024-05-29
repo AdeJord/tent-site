@@ -9,7 +9,7 @@ const Container = styled.div`
 font-family: "Roboto";
 background: white;
 justify-content: flex-end;
-width: 100vw;
+width: 100%;
 height: 65px;
 display: flex;
 align-content: center;

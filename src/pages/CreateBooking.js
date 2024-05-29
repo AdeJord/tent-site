@@ -95,7 +95,6 @@ const schema = yup.object().shape({
       [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       "Maximum of 12 passengers per booking"
     ),
-
   wheelchair_users: yup
     .number()
     .typeError("You must enter a valid number of wheelchair users") // This handles non-numeric inputs

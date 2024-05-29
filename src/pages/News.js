@@ -4,94 +4,143 @@ import axios from "axios";
 import { Root } from "../styles";
 import styled from "styled-components";
 
-const ImgContainer = styled.div`
-  display: flex;
-  width: 90vw;
-  justify-content: center;
-  padding-top: 20px;
-`;
+// const ImgContainer = styled.div`
+//   display: flex;
+//   width: 90vw;
+//   justify-content: center;
+//   padding-top: 20px;
+// `;
 
-const TextAndNewsDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  padding: 10px;
-  width: 90vw;
+// const TextAndNewsDiv = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   flex-direction: row;
+//   padding: 10px;
+//   width: 90vw;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
+//   @media (max-width: 768px) {
+//     flex-direction: column;
+//   }
+// `;
 
-const TextDiv = styled.div`
-  padding: 10px;
-  width: 60vw;
+// const TextDiv = styled.div`
+//   padding: 10px;
+//   width: 60vw;
 
-  @media (max-width: 768px) {
-    width: 90vw;
-  }
-`;
+//   @media (max-width: 768px) {
+//     width: 90vw;
+//   }
+// `;
 
 const NewsDiv = styled.div`
-  padding: 10px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // background-color: red;
-  width: 100%;
+  width: 80%;
+
+  @media (max-width: 1024px) {
+    width: 85%;
+  }
 
   @media (max-width: 768px) {
     width: 90vw;
+  }
+
+  @media (max-width: 480px) {
+    width: 95vw;
   }
 `;
 
 const NewsTitleDiv = styled.div`
   padding: 10px;
-  padding-top: 20px;
-  width: 90vw; 
-  overflow-wrap: break-word; 
+  box-sizing: border-box;
+  width: 70vw;
+  overflow-wrap: break-word;
   text-align: center;
-  margin: 0 auto; 
+  margin: 0 auto;
+  font-size: 1.3em;
+
+  @media (max-width: 1024px) {
+    width: 75vw;
+  }
+
+  @media (max-width: 768px) {
+    width: 90vw;
+    font-size: 1.2em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1em;
+  }
 `;
 
 const NewsTitle = styled.p`
   margin: 0;
-  padding-top: 20px;
   width: 100%;
   text-align: center;
-  font-size: 2.1em;
+  font-size: 1.2em;
+
+  @media (max-width: 768px) {
+    font-size: 1.1em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1em;
+  }
 `;
 
 const NewsContentDiv = styled.div`
   padding: 10px;
-  width: 90vw;
+  width: 90%;
+  font-family: "roboto, sans-serif";
   text-align: left;
-  font-size: 1.2em;
+  font-size: 1.3em;
+
+  @media (max-width: 1024px) {
+    font-size: 1.2em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.1em;
+  }
+
+  @media (max-width: 480px) { 
+    font-size: 1em;
+  }
 `;
 
 const NewsContent = styled.div`
   padding: 10px;
   width: 90vw;
+
+  @media (max-width: 480px) {
+    width: 95vw;
+  }
 `;
 
 const NewsImageDiv = styled.div`
-  // background-color: blue;
-  // padding: 10px 0px 20px 0px;
-  width: 100%;
+  width: 95%;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 5px 5px 5px #888888;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 const NewsImage = styled.img`
-  padding: 10px;
-  width: 100%; /* This makes the image scale with its container */
+  border-radius: 10px;
+  width: 100%;
   height: auto;
 `;
+
 
 const News = () => {
   const [news, setNews] = useState([]);
@@ -118,49 +167,56 @@ const News = () => {
   }, []);
 
   return (
-<Root>
-  <NewsDiv>
-    {news.length === 0 ? (
-      <div>
-        <h2>Server Issue</h2>
-        <p>
-          There is currently an issue with the server. Unfortunately, this is
-          outside of our control.
-        </p>
-        <p>Please check again later</p>
-      </div>
-    ) : (
-      news
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .map((item) => (
-          <div key={item.id}>
-            <NewsTitleDiv>
-              <NewsTitle>{item.title}</NewsTitle>
-            </NewsTitleDiv>
-            <NewsContentDiv>{item.content}</NewsContentDiv>
-            <NewsImageDiv>
-              {item.image_path && (
-                <NewsImage
-                  src={`https://adejord.co.uk${toWebPath(item.image_path)}`}
-                  alt={item.title}
-                />
-              )}
-            </NewsImageDiv>
-
-            <br />
+    <Root
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        paddingLeft: "30px",
+        boxSizing: "border-box",
+      }}
+    >
+      <NewsDiv>
+        {news.length === 0 ? (
+          <div>
+            <h2>Server Issue</h2>
             <p>
-              {new Date(item.date).toLocaleDateString("en-GB", {
-                timeZone: "Europe/London",
-              })}
+              There is currently an issue with the server. Unfortunately, this
+              is outside of our control.
             </p>
-            <hr />
+            <p>Please check again later</p>
           </div>
-        ))
-    )}
-  </NewsDiv>
-</Root>
+        ) : (
+          news
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .map((item) => (
+              <div key={item.id}>
+                <NewsTitleDiv>
+                  <NewsTitle>{item.title}</NewsTitle>
+                </NewsTitleDiv>
+                <NewsContentDiv>{item.content}</NewsContentDiv>
+                <NewsImageDiv>
+                  {item.image_path && (
+                    <NewsImage
+                      src={`https://adejord.co.uk${toWebPath(item.image_path)}`}
+                      alt={item.title}
+                    />
+                  )}
+                </NewsImageDiv>
 
-
+                <br />
+                <p>
+                  {new Date(item.date).toLocaleDateString("en-GB", {
+                    timeZone: "Europe/London",
+                  })}
+                </p>
+                <hr />
+              </div>
+            ))
+        )}
+      </NewsDiv>
+    </Root>
   );
 };
 

@@ -3,62 +3,91 @@ import styled from "styled-components";
 import '../App.css'
 import Gerry from '../images/Gerry.jpg'
 import "@fontsource/roboto"; // Defaults to weight 400.
-import { Container, Header, TextContainer } from "../ComponentStyles";
+import { Container, Header, TextContainer, Root } from "../ComponentStyles";
 
 
 const TopDiv = styled.div`
-display: flex;
-background: #EDECE4;
-width: 80vw;
-display: flex;
-flex-direction: row
-align-content: center;
-@media (max-width: 768px) {
+  display: flex;
+  background: #EDECE4;
+  width: 80vw;
+  flex-direction: row;
+  align-content: center;
+
+  @media (max-width: 1024px) {
+    width: 90vw;
+  }
+
+  @media (max-width: 768px) {
     flex-direction: column;
-}
-`
+    width: 100%;
+  }
+`;
+
 const TopDivLeft = styled.div`
-display: flex;
-flex-direction: column;
-background: #EDECE4;
-width: 80vw;
-align-content: centre;
-padding: 3vw
-@media (max-width: 768px) {
-    width: 100vw;
-}
-`
+  display: flex;
+  flex-direction: column;
+  background-color: #eaf3e7;
+  width: 100%;
+  align-content: center;
+  padding: 3vw;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 5vw;
+  }
+`;
 
 const LowerLeftTopDiv = styled.div`
-padding-top: 35px;
-display: flex;
-background: #EDECE4;
-flex-direction: column;
-align-text: centre;
-width: 40vw;
-@media (max-width: 768px) {
+  padding-top: 35px;
+  display: flex;
+  background-color: #eaf3e7;
+  flex-direction: column;
+  text-align: center;
+  width: 40vw;
+
+  @media (max-width: 1024px) {
+    width: 50vw;
+  }
+
+  @media (max-width: 768px) {
     width: 80%;
-}
-`
+  }
+`;
 
 const TopDivRight = styled.div`
-display: flex;
-justify-content: space-around;
-width: 100%
-background: #EDECE4;
-align-content: center;
-padding-left: 9vw;
-@media (max-width: 768px) {
-    width: 80%;
-}
-`
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  background-color: #eaf3e7;
+  align-content: center;
+  padding-left: 9vw;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    padding-left: 5vw;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-left: 0;
+  }
+`;
 
 const Section = styled.div`
-width: 100%;
-overflow: wrap;
-background: #EDECE4;
-align-content: center;
-`
+  width: 100%;
+  overflow-wrap: break-word;
+  background-color: #eaf3e7;
+  align-content: center;
+
+  @media (max-width: 768px) {
+    padding: 0 2vw;
+  }
+`;
+
 
 // const Image = styled.div`
 // width: 100%;
@@ -67,13 +96,18 @@ align-content: center;
 
 const Volunteers = () => {
     return (
-        <>
+        <Root>
             <Container>
                 <Header>Volunteers</Header>
                 <TextContainer>The Trust is run completely by volunteers</TextContainer>
                 <hr />
                 <TopDiv >
-                    <TopDivLeft>
+                    <TopDivLeft
+                    
+                    style={{
+                        width: '90%'
+                    
+                    }}>
                         <div>
                             <p style={{ paddingBottom: '3vh' }}>
                                 "We do this because we have a passion for giving absolutely everyone the opportunity to
@@ -131,7 +165,7 @@ const Volunteers = () => {
                     If you are interested in getting on board, (Pun intended) please contact us for a chat.
                 </p>
             </Container>
-        </>
+        </Root>
     );
 };
 

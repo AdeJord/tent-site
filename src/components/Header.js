@@ -8,7 +8,7 @@ const Wrapper = styled.section`
   background: #9FDDA8;
   color: black;
   min-height: 90px;
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;

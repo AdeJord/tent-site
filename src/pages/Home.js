@@ -7,16 +7,16 @@ import { Link } from "react-router-dom";
 import { Container, TextContainer, Header } from "../ComponentStyles";
 import { Root } from "../styles";
 import axios from "axios";
-import { set } from "date-fns";
 
 const ImgContainer = styled.div`
   display: flex;
-  width: 100%;
+  width: 90%;
   justify-content: center;
   align-items: center;
-  padding-top: 25px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-top: 3em;
+
+  @media (max-width: 768px) { 
+    padding-top: 1em;
 `;
 
 const TextAndNewsDiv = styled.div`
@@ -24,6 +24,7 @@ const TextAndNewsDiv = styled.div`
   justify-content: space-between;
   flex-direction: row;
   padding: 10px;
+  box-sizing: border-box; 
   width: 100%;
 
   @media (max-width: 768px) {
@@ -34,6 +35,7 @@ const TextAndNewsDiv = styled.div`
 const TextDiv = styled.div`
   padding: 10px;
   width: 60vw;
+  
 
   @media (max-width: 768px) {
     width: 90vw;
@@ -43,7 +45,7 @@ const TextDiv = styled.div`
 const NewsDiv = styled.div`
   width: 40vw;
   height: 60vh;
-  overflow: auto; 
+  overflow: hidden; 
   display: flex; 
   flex-direction: column; 
   align-items: center; 
@@ -79,6 +81,7 @@ const NewsContentDiv = styled.div`
 const NewsImageDiv = styled.div`
   width: 100%; 
   padding: 10px;
+  
   box-sizing: border-box; // Include padding in the width calculation
   display: flex;
   justify-content: center;
@@ -92,13 +95,14 @@ const NewsImage = styled.img`
   object-fit: contain; 
   box-sizing: border-box; 
   padding: 0;
+  
 `;
 
 const StickyHeader = styled.div`
   position: sticky;
   top: 0;
   z-index: 5; 
-  background-color: #edece4;
+  background-color: #eaf3e7;
   width: 100%;
   text-align: center;
   font-size: 1.5em;
@@ -116,7 +120,6 @@ const Home = () => {
   }
 
   useEffect(() => {
-    console.log("Fetching the latest news items");
     axios
       .get("https://adejord.co.uk/getLatestNews") // Adjust URL as necessary
       .then((response) => {
@@ -144,7 +147,6 @@ const Home = () => {
   return (
     <Root>
       <Container>
-        <>
           <ImgContainer>
             <img
               src={NiceBoatPic}
@@ -271,7 +273,6 @@ const Home = () => {
               style={{ width: "30vw", padding: "20px", height: "auto" }}
             />
           </ImgContainer>
-        </>
         <Header>For your support.</Header>
       </Container>
     </Root>
