@@ -3,18 +3,16 @@ import styled from "./styled";
 export const Root = styled.div`
   background-color: #eaf3e7;
   height: auto;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
-
-  justify-content: center; // not sure about this one
-
-  align-items: center; 
+  align-items: center;
   font-size: 15px;
   color: #051101;
   font-family: "Roboto, Arial, Helvetica, sans-serif";
   padding: 0;
   margin: 0;
+  overflow-x: hidden; // Prevent horizontal overflow
 `;
 
 export const FormRoot = styled.div`
@@ -184,13 +182,22 @@ export const Header = styled.div`
   font-family: "Roboto, Arial, Helvetica, sans-serif";
 `;
 
-export const Container = styled.div`
-  height: 100vh;
-  width: 60vw;
+export const Container = styled.section`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
   align-items: center;
-  font-family: "Roboto, Arial, Helvetica, sans-serif";
+  background-color: #eaf3e7;
+  padding-top: 0px;
+  padding-bottom: 50px;
+  width: 100%;
+  min-height: 100vh;
+
+  @media (min-width: 768px) {
+    min-height: 62vh;
+    padding-bottom: 0;
+  }
 `;
 
 export const ContainerRow = styled.div`
@@ -559,6 +566,7 @@ const NewsTitleDiv = styled.div`
 const NewsContentDiv = styled.div`
   padding: 10px;
   width: 90vw;
+  overflow: hidden;
 `;
 
 const NewsImageDiv = styled.div`

@@ -6,7 +6,6 @@ import "@fontsource/roboto"; // Defaults to weight 400.
 const Wrapper = styled.section`
   background: #114709;
   height: 26vh;
-  width: 84vw;
   display: flex;
   flex-direction: column;
   justify-items: center;
