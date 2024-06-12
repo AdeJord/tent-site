@@ -14,7 +14,6 @@ import CreateBooking from './pages/CreateBooking';
 import TermsAndCond from "./pages/TermsAndCond";
 import Volunteers from './pages/Volunteers';
 import OurHistory from './pages/OurHistory';
-import { AboutUs, DetailsAndDiagrams } from "./pages/AboutUs";
 import TheEnterprise  from "./pages/TheEnterprise";
 import RiskAssesments  from "./pages/RiskAssesments";
 import Footer from "./components/Footer";
@@ -22,31 +21,12 @@ import CovidSafeCruising from "./pages/CovidSafeCruising";
 import TrainingCourses from "./pages/TrainingCourses";
 import AimsAndObjectives from "./pages/AimsAndObjectives"
 import HowMuch from "./pages/HowMuch";
-// import BookNow from "./pages/CreateBooking";
-// import MeetTheCrew from "./pages/MeetTheCrew";
 import UsefulLinks from "./pages/UsefulLinks";
 import GroupLeaderPolicy from "./pages/GroupLeaderPolicy";
 import { Container } from './ComponentStyles'
 import AvailabilityCalendar from "./pages/AvailabilityCalendar";
 import News from "./pages/News";
  
-// const Container = styled.section`
-//   display: flex;
-//   flex-direction: column;
-//   height: auto;
-//   max-width: 100vw;
-//   align-items: center;
-//   background: #EDECE4;
-//   // padding: 20px;
-//   // @media (min-width: 768px) {
-//   //   height: 62vh;
-//   // }
-// `;
-
-/* why are the below routes different although they come from same object(BookYourTrip)
- if I put them all in BookYourTrip, only 1/2 of them work,
- and when I put them in book-your-trip, the other 1/2 works?*/
-
 
 function App() {
   return (
@@ -69,13 +49,9 @@ function App() {
         <Route path="/HaveAGoDays"  element={<HaveAGoDays />} />
         <Route path="/TermsAndCond"  element={<TermsAndCond />} />
         <Route path="/RiskAssesments"  element={<RiskAssesments />} />
-        <Route path="/AboutUs/AboutUs"  element={<AboutUs />} />
         <Route path="/Volunteers"  element={<Volunteers />} />
-        <Route path="/AboutUs/TheEnterprise"  element={<TheEnterprise />} />
-        <Route path="/AboutUs/DetailsAndDiagrams"  element={<DetailsAndDiagrams />} />
         <Route path="/AimsAndObjectives"  element={<AimsAndObjectives />} />
         <Route path="/AboutUs/OurHistory"  element={<OurHistory />} />
-        {/* <Route path="/MeetTheCrew"  element={<MeetTheCrew />} /> */}
         <Route path="/AboutUs/RiskAssesments"  element={<RiskAssesments />} />
         <Route path="/UsefulLinks"  element={<UsefulLinks />} />
         <Route path="/Gallery"  element={<Gallery />} />

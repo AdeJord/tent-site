@@ -32,13 +32,13 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: #eaf3e7;
   padding-top: 0px;
   padding-bottom: 50px;
   width: 100%;
-  min-height: 100vh;
+  // min-height: 100vh;
 
   @media (min-width: 768px) {
     min-height: 62vh;
