@@ -64,7 +64,7 @@ const Home = () => {
       <TextContainer>
           Download a copy of the 'Have a Go' leaflet
           <a
-            href="https://adejord.co.uk/uploads/docs/HagPoster.pdf"
+            href="https://adejord.co.uk/uploads/docs/Hag-Poster.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download

@@ -177,3 +177,7 @@ overflow-y: scroll;
     width: 300px; /* Fixed width at or below 600px screen width */
   }
 }
+
+li {
+  list-style-type: square;
+}
