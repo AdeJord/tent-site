@@ -72,6 +72,11 @@ html,body{
   width: 35vw;
 }
 
+.body {
+  color: 'green';
+  width: 35vw;
+}
+
 h1 {
   padding-bottom: 50px;
 }

@@ -1,18 +1,27 @@
 import styled from "./styled";
 
 export const Root = styled.div`
-  background-color: #eaf3e7;
-  height: auto;
+  min-height: calc(100vh - 60px); // Adjust based on your header height
   width: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-size: 15px;
-  color: #051101;
-  font-family: "Roboto, Arial, Helvetica, sans-serif";
-  padding: 0;
+  background-color: #eaf3e7;
+`;
+
+export const TitleArea = styled.div`
+  width: 100%;
+  background-color: #9FDDA8;
+  color: #333;
+  padding: 1rem;
   margin: 0;
-  overflow-x: hidden; // Prevent horizontal overflow
+  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
 `;
 
 export const FormRoot = styled.div`
@@ -28,20 +37,30 @@ export const FormRoot = styled.div`
 `;
 
 export const FormContainer = styled.div`
-background-color: #eaf3e7;
+  background-color: #eaf3e7;
   border: 1px solid #dcdcdc;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
   width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  padding: clamp(1rem, 3vw, 2rem);
   box-sizing: border-box;
   font-family: 'Roboto, Arial, Helvetica, sans-serif';
   color: #333;
   font-size: 1rem;
+
+  @media (max-width: 768px) {
+    max-width: 400px;
+  }
+
+  form {
+    width: 100%;
+    max-width: 600px;
+  }
 `;
 
 export const Label = styled.label`
@@ -147,14 +166,24 @@ background-color: #eaf3e7;
 
 export const CalendarContainer = styled.div`
   background-color: #eaf3e7;
-  height: 90vh;
+  flex: 1;
   width: 80vw;
+  margin: 0 auto;
+  padding: 2rem 1rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: #051101;
   font-family: "Roboto, Arial, Helvetica, sans-serif";
+
+  .calendar-key {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -192,6 +221,7 @@ export const Container = styled.section`
   padding-top: 0px;
   padding-bottom: 50px;
   width: 100%;
+  height: auto;
   min-height: 100vh;
 
   @media (min-width: 768px) {

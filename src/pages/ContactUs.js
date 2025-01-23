@@ -16,6 +16,8 @@ width: 100%;
 padding-top: 10px;
 align-items: center;
 justify-content: center;
+
+
 @media (max-width: 802px) {
   flex-direction: column;
 }

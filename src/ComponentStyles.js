@@ -38,13 +38,16 @@ export const Container = styled.section`
   padding-top: 0px;
   padding-bottom: 50px;
   width: 100%;
-  // min-height: 100vh;
+  min-height: 100vh;
+  box-sizing: border-box;
 
-  @media (min-width: 768px) {
-    min-height: 62vh;
-    padding-bottom: 0;
-  }
+  // @media (min-width: 768px) {
+  //   min-height: 62vh;
+  //   padding-bottom: 0;
+  // }
 `;
+
+
 
 export const Header = styled.div`
   font-family: "Roboto";

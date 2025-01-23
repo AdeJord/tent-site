@@ -3,6 +3,7 @@ import styled from "styled-components";
 import boats from "../images/boats.jpg";
 import "@fontsource/roboto"; // Defaults to weight 400.
 import { Container, TextContainer, Header } from "../ComponentStyles";
+// import { Container } from "../styles"
 
 const ImgContainer = styled.div`
   padding-top: 10px;
