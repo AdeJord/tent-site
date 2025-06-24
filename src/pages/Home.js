@@ -13,7 +13,7 @@ const ImgContainer = styled.div`
   width: 90%;
   justify-content: center;
   align-items: center;
-  padding-top: 3em;
+  padding-top: 4em;
 
   @media (max-width: 768px) { 
     padding-top: 1em;
@@ -24,7 +24,7 @@ const TextAndNewsDiv = styled.div`
   justify-content: space-between;
   flex-direction: row;
   padding: 10px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   width: 100%;
 
   @media (max-width: 768px) {
@@ -35,7 +35,6 @@ const TextAndNewsDiv = styled.div`
 const TextDiv = styled.div`
   padding: 10px;
   width: 60vw;
-  
 
   @media (max-width: 768px) {
     width: 90vw;
@@ -45,10 +44,10 @@ const TextDiv = styled.div`
 const NewsDiv = styled.div`
   width: 40vw;
   height: 60vh;
-  overflow: hidden; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: flex-start;
   position: relative;
 
@@ -79,9 +78,9 @@ const NewsContentDiv = styled.div`
 `;
 
 const NewsImageDiv = styled.div`
-  width: 100%; 
+  width: 100%;
   padding: 10px;
-  
+
   box-sizing: border-box; // Include padding in the width calculation
   display: flex;
   justify-content: center;
@@ -90,18 +89,17 @@ const NewsImageDiv = styled.div`
 `;
 
 const NewsImage = styled.img`
-  max-width: 100%; 
-  height: auto; 
-  object-fit: contain; 
-  box-sizing: border-box; 
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  box-sizing: border-box;
   padding: 0;
-  
 `;
 
 const StickyHeader = styled.div`
   position: sticky;
   top: 0;
-  z-index: 5; 
+  z-index: 5;
   background-color: #eaf3e7;
   width: 100%;
   text-align: center;
@@ -147,132 +145,156 @@ const Home = () => {
   return (
     <Root>
       <Container>
-          <ImgContainer>
-            <img
-              src={NiceBoatPic}
+        <ImgContainer>
+          <img
+            src={NiceBoatPic}
+            style={{
+              maxWidth: "80%", // Ensures the image scales down if it's too wide
+              height: "auto", // Maintains the aspect ratio of the image
+              display: "block",
+              borderRadius: "5px", // Ensures the image is treated as a block-level element to take effect of centering
+            }}
+            alt="Nice Boat Pic"
+          />
+        </ImgContainer>
+
+        <h4
+          style={{
+            padding: "15px",
+            textAlign: "center",
+            fontSize: "25px",
+            fontWeight: "400",
+          }}
+        >
+          Providing day trips for community and family groups
+        </h4>
+        <hr style={{ width: "90vw" }} />
+        <TextAndNewsDiv>
+          <TextDiv>
+            <TextContainer>
+              We are a small, friendly charity that has provided canal trips for
+              the people of the West Midlands and beyond for over 50 years. We
+              are run entirely by volunteers whose only aim is to give you a
+              very enjoyable and memorable day out.
+            </TextContainer>
+            <TextContainer>
+              Our purpose is to provide day trips for community and family
+              groups whose members may be elderly, disabled, have special needs
+              or health issues..
+            </TextContainer>
+            <TextContainer>
+              We believe a day out in the peace &amp; quiet of the countryside
+              at a very relaxing pace &amp; in good company is beneficial to
+              everybody. We want our passengers &amp; volunteers to enjoy the
+              historic and beautiful canals of the West Midlands and go home
+              feeling better for the experience.
+            </TextContainer>
+            <TextContainer>
+              Starting from Hatherton Marina, Queens Road, Calf Heath near
+              Cannock (WV10 7DT), we offer fully accessible day trips on
+              narrowboat ‘Enterprise’ travelling along the Staffs &amp; Worcs
+              canal to either Autherley Junction or Coven. For those who are
+              able-bodied, energetic and perhaps a bit more adventurous, a
+              longer trip to Penkridge can be provided. We call this the
+              Have-a-go trip in which you can learn how to steer and operate 12
+              locks..
+            </TextContainer>
+            <TextContainer>
+              Equipped with a lift and accessible toilet, we can take up to 12
+              passengers (including 2 leaders). These can include 2 wheelchair
+              users as well as passengers with walkers &amp; frames. With full
+              use of our kitchen facilities, feel free to make your own tea,
+              coffee, hot chocolate (coffee, tea, hot chocolate, sugar, milk,
+              squash are provided). You can bring your own packed lunches, order
+              fish &amp; chips or have a drink and/or meal at the Anchor Inn,
+              Coven.
+            </TextContainer>
+          </TextDiv>
+          <hr />
+
+          <NewsDiv>
+            <Link
+              to="/News"
               style={{
-                maxWidth: "80%", // Ensures the image scales down if it's too wide
-                height: "auto", // Maintains the aspect ratio of the image
-                display: "block",
-                borderRadius: "5px", // Ensures the image is treated as a block-level element to take effect of centering
+                // display: "block",
+                width: "100%",
+                height: "auto",
+                textDecoration: "none",
+                color: "inherit",
               }}
-              alt="Nice Boat Pic"
-            />
-          </ImgContainer>
-
-          <h4 style={{ padding: "15px", textAlign: "center" }}>
-            Providing day trips for elderly, disabled, youth & community groups,
-            and families on the Staffs and Worcester Canal.
-          </h4>
-          <hr style={{ width: "90vw" }} />
-          <TextAndNewsDiv>
-            <TextDiv>
-              <TextContainer>
-                Starting from Hatherton Marina (Near Cannock), we offer fully
-                accessible day trips on the 'Enterprise' to either Autherley
-                Junction (Near Oxley) or The Anchor Inn, (Coven) where you can
-                enjoy some of the beautiful scenery of the Staffordshire and
-                Worcester canal.
-              </TextContainer>
-              <TextContainer>
-                Equipped with a lift and accessible toilet facilities we can
-                take up to 2 wheelchair users and up to 10 other passengers (12
-                in total). With full use of our kitchen facilities. Feel free to
-                make your own tea and coffee, (coffee, tea, hot chocolate, milk, sugar and some
-                soft drinks are provided). You can either bring your own
-                sandwiches, order fish and chips, or have a drink and a meal at
-                the pub.
-              </TextContainer>
-              <TextContainer>
-                Our trips usually last between 4 and 8 hours. What time we leave
-                and what time we return is up to you. Run entirley by
-                volunteers, our only aim to give you an enjoyable and memorable
-                day out on the canal.
-              </TextContainer>
-            </TextDiv>
-            <hr />
-
-            <NewsDiv>
-              <Link
-                to="/News"
-                style={{
-                  // display: "block",
-                  width: "100%",
-                  height: "auto",
-                  textDecoration: "none",
-                  color: "inherit",
-                }}
-              >
-                <div style={{ textAlign: "center", width: "100%" }}>
-                  {" "}
-                  {/* Ensuring content is centered */}
-                  <StickyHeader>Latest News</StickyHeader>
-                  {news.length === 0 ? (
-                    <NewsContentDiv>
-                      <h2>Server Issue</h2>
-                      <p>
-                        There is currently an issue with the server. This is
-                        outside of our control.
+            >
+              <div style={{ textAlign: "center", width: "100%" }}>
+                {" "}
+                {/* Ensuring content is centered */}
+                <StickyHeader>Latest News</StickyHeader>
+                {news.length === 0 ? (
+                  <NewsContentDiv>
+                    <h2>Server Issue</h2>
+                    <p>
+                      There is currently an issue with the server. This is
+                      outside of our control.
+                    </p>
+                    <p>Please check again later</p>
+                  </NewsContentDiv>
+                ) : (
+                  news.map((item) => (
+                    <div key={item.id}>
+                      <NewsTitleDiv>{item.title}</NewsTitleDiv>
+                      <NewsContentDiv>{item.content}</NewsContentDiv>
+                      <NewsImageDiv>
+                        <NewsImage
+                          src={`https://adejord.co.uk${toWebPath(
+                            item.image_path
+                          )}`}
+                          alt={item.title}
+                        />
+                        <br />
+                      </NewsImageDiv>
+                      <p
+                        style={{ paddingLeft: "10px", boxSizing: "border-box" }}
+                      >
+                        {new Date(item.date).toLocaleDateString("en-GB", {
+                          timeZone: "Europe/London",
+                        })}
                       </p>
-                      <p>Please check again later</p>
-                    </NewsContentDiv>
-                  ) : (
-                    news.map((item) => (
-                      <div key={item.id}>
-                        <NewsTitleDiv>{item.title}</NewsTitleDiv>
-                        <NewsContentDiv>{item.content}</NewsContentDiv>
-                        <NewsImageDiv>
-                          <NewsImage
-                            src={`https://adejord.co.uk${toWebPath(
-                              item.image_path
-                            )}`}
-                            alt={item.title}
-                          />
-                          <br />
-                        </NewsImageDiv>
-                        <p style={{ paddingLeft: "10px", boxSizing: 'border-box' }}>
-                          {new Date(item.date).toLocaleDateString("en-GB", {
-                            timeZone: "Europe/London",
-                          })}
-                        </p>
-                      </div>
-                    ))
-                  )}
-                </div>
-              </Link>
-            </NewsDiv>
-          </TextAndNewsDiv>
+                    </div>
+                  ))
+                )}
+              </div>
+            </Link>
+          </NewsDiv>
+        </TextAndNewsDiv>
 
-          <Header>With Many Thanks to</Header>
-          <ImgContainer>
-            <img
-              src="https://www.truman-enterprise.org.uk/photos/2019lotlog.jpg"
-              alt="National Lottery Community Fund"
-              style={{ width: "30vw", padding: "20px", height: "auto" }}
-            />
-            <img
-              src="https://www.truman-enterprise.org.uk/graphics/co-op_logo.gif"
-              alt="The Midlands Co-operative"
-              style={{
-                width: "30vw",
-                marginTop: "30px",
-                padding: "20px",
-                height: "7vw",
-              }}
-            />
-          </ImgContainer>
-          <ImgContainer>
-            <img
-              src="https://www.truman-enterprise.org.uk/graphics/crtlogo.jpg"
-              alt="Canal & River Trust"
-              style={{ width: "30vw", padding: "20px", height: "auto" }}
-            />
-            <img
-              src="https://www.truman-enterprise.org.uk/graphics/HOE%20Logo.jpg"
-              alt="Heart of England"
-              style={{ width: "30vw", padding: "20px", height: "auto" }}
-            />
-          </ImgContainer>
+        <Header>With Many Thanks to</Header>
+        <ImgContainer>
+          <img
+            src="https://www.truman-enterprise.org.uk/photos/2019lotlog.jpg"
+            alt="National Lottery Community Fund"
+            style={{ width: "30vw", padding: "20px", height: "auto" }}
+          />
+          <img
+            src="https://www.truman-enterprise.org.uk/graphics/co-op_logo.gif"
+            alt="The Midlands Co-operative"
+            style={{
+              width: "30vw",
+              marginTop: "30px",
+              padding: "20px",
+              height: "7vw",
+            }}
+          />
+        </ImgContainer>
+        <ImgContainer>
+          <img
+            src="https://www.truman-enterprise.org.uk/graphics/crtlogo.jpg"
+            alt="Canal & River Trust"
+            style={{ width: "30vw", padding: "20px", height: "auto" }}
+          />
+          <img
+            src="https://www.truman-enterprise.org.uk/graphics/HOE%20Logo.jpg"
+            alt="Heart of England"
+            style={{ width: "30vw", padding: "20px", height: "auto" }}
+          />
+        </ImgContainer>
         <Header>For your support.</Header>
       </Container>
     </Root>

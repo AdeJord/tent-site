@@ -10,10 +10,10 @@ const TrainingCourses = () => {
         <Container>
             <Header>Training Courses</Header>
 
-            <h5 style={{ paddingTop: '3vh', paddingBottom: '5vh', padding: '10px' }}>Truman Enterprise Narrowboat Trust is an approved training centre for courses accredited by the National Community
-                Boats Association (NCBA). The Trust has a qualified trainer to deliver these courses.</h5>
+            <h3 style={{ paddingTop: '3vh', paddingBottom: '5vh', padding: '10px', width: '75%' }}>Truman Enterprise Narrowboat Trust is an approved training centre for courses accredited by the National Community
+                Boats Association (NCBA). The Trust has a qualified trainer to deliver these courses.</h3>
 
-            <h5 style={{ paddingBottom: '2vh' }}>The Courses Offered are :-</h5>
+            <h3 style={{ paddingTop: '3vh', paddingBottom: '5vh', padding: '10px', width: '75%' }}>The Courses Offered are :-</h3>
 
             <TextContainer>
                 <h4 style={{ paddingBottom: '10px'}}>Boat Handling</h4>

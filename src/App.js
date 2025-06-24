@@ -38,7 +38,7 @@ function App() {
         <Route path="/" exact element={<Home />} />
         <Route path="/Home"  element={<Home />} />
         <Route path="/GroupLeaderPolicy"  element={<GroupLeaderPolicy />} />
-        <Route path="/BookYourTrip/BookYourTrip"  element={<BookYourTrip />} />
+        <Route path="/BookYourTrip"  element={<BookYourTrip />} />
         <Route path="/BookNow"  element={<AvailabilityCalendar />} />
         <Route path="/CreateBooking"  element={<CreateBooking />} />
         <Route path="/HowMuch"  element={<HowMuch />} />

@@ -30,7 +30,9 @@ async function isBookingDateAvailable(date) {
       return false;
     }
 
-    const response = await axios.get(`https://adejord.co.uk/dates?date=${date}`);
+    const response = await axios.get(
+      `https://adejord.co.uk/dates?date=${date}`
+    );
     const bookedDates = response.data;
     const isDateBooked = bookedDates.some(
       (bookedDate) => new Date(bookedDate).getTime() === selectedDate.getTime()
@@ -106,6 +108,30 @@ const CreateBooking = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [selectedDestination, setSelectedDestination] = useState("");
+  const [prices, setPrices] = useState([]);
+  const [priceError, setPriceError] = useState(null);
+
+  const fetchAllPrices = async () => {
+    const response = await fetch("https://adejord.co.uk/prices");
+    if (!response.ok) {
+      throw new Error("Failed to fetch prices");
+    }
+    return response.json();
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchAllPrices();
+        setPrices(data);
+      } catch (err) {
+        setPriceError("Failed to fetch prices");
+      }
+    };
+    fetchData();
+  }, []);
+
+  const priceData = prices[0];
 
   const {
     register,
@@ -127,7 +153,10 @@ const CreateBooking = () => {
   useEffect(() => {
     if (selectedDestination === "Penkridge") {
       setValue("lunch_arrangements", "Packed Lunch");
-    } else if (selectedDestination === "Autherley" && lunchArrangements === "Pub Meal") {
+    } else if (
+      selectedDestination === "Autherley" &&
+      lunchArrangements === "Pub Meal"
+    ) {
       setValue("lunch_arrangements", "");
     }
   }, [selectedDestination, setValue, lunchArrangements]);
@@ -150,7 +179,10 @@ const CreateBooking = () => {
       setFormData(data);
       setShowModal(true);
 
-      await axios.post("https://adejord.co.uk/sendBookingConfirmationEmail", data);
+      await axios.post(
+        "https://adejord.co.uk/sendBookingConfirmationEmail",
+        data
+      );
     } catch (error) {
       console.error("Error creating booking:", error);
     }
@@ -181,20 +213,20 @@ const CreateBooking = () => {
   const handlePolicyClick = (path) => {
     // Save current form state before navigating
     const currentValues = watch();
-    sessionStorage.setItem('tempBookingData', JSON.stringify(currentValues));
+    sessionStorage.setItem("tempBookingData", JSON.stringify(currentValues));
     navigate(path);
   };
 
   // Restore form data if returning from policy pages
   useEffect(() => {
-    const savedData = sessionStorage.getItem('tempBookingData');
+    const savedData = sessionStorage.getItem("tempBookingData");
     if (savedData) {
       const parsedData = JSON.parse(savedData);
       Object.entries(parsedData).forEach(([name, value]) => {
         setValue(name, value);
       });
       // Clear the temporary storage
-      sessionStorage.removeItem('tempBookingData');
+      sessionStorage.removeItem("tempBookingData");
     }
   }, [setValue]);
 
@@ -214,13 +246,15 @@ const CreateBooking = () => {
       <FormContainer>
         <form onSubmit={handleSubmit(submitBooking)}>
           <div style={{ width: "100%", textAlign: "center", display: "flex" }}>
-            <div style={{
-              width: "100%",
-              textAlign: "center",
-              display: "flex",
-              flexDirection: "column",
-              paddingBottom: "1em",
-            }}>
+            <div
+              style={{
+                width: "100%",
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                paddingBottom: "1em",
+              }}
+            >
               Booking Date
             </div>
           </div>
@@ -307,8 +341,11 @@ const CreateBooking = () => {
             )}
           </RadioGroup>
 
+          {priceError && <p style={{ color: "red" }}>{priceError}</p>}
+
           <RadioGroup>
             <GroupLabel>Destination</GroupLabel>
+
             <RadioLabel>
               <input
                 type="radio"
@@ -316,8 +353,9 @@ const CreateBooking = () => {
                 {...register("destination")}
                 onChange={(e) => setSelectedDestination(e.target.value)}
               />{" "}
-              Autherley (£130)
+              Autherley (£{priceData?.trip4 || "..."})
             </RadioLabel>
+
             <RadioLabel>
               <input
                 type="radio"
@@ -325,8 +363,9 @@ const CreateBooking = () => {
                 {...register("destination")}
                 onChange={(e) => setSelectedDestination(e.target.value)}
               />{" "}
-              Coven(£100)
+              Coven (£{priceData?.trip1 || "..."})
             </RadioLabel>
+
             <RadioLabel>
               <input
                 type="radio"
@@ -334,7 +373,7 @@ const CreateBooking = () => {
                 {...register("destination")}
                 onChange={(e) => setSelectedDestination(e.target.value)}
               />{" "}
-              Penkridge "Have A Go day"(£220)
+              Penkridge "Have A Go day" (£{priceData?.trip6 || "..."})
             </RadioLabel>
           </RadioGroup>
 
@@ -392,9 +431,13 @@ const CreateBooking = () => {
           <br />
           <label>
             <input type="checkbox" {...register("terms_and_conditions")} />
-            <span 
-              onClick={() => handlePolicyClick('/TermsAndCond')}
-              style={{ cursor: 'pointer', textDecoration: 'underline', color: '#0000EE' }}
+            <span
+              onClick={() => handlePolicyClick("/TermsAndCond")}
+              style={{
+                cursor: "pointer",
+                textDecoration: "underline",
+                color: "#0000EE",
+              }}
             >
               I have read and agree to the terms and conditions
             </span>
@@ -407,9 +450,13 @@ const CreateBooking = () => {
           <br />
           <label>
             <input type="checkbox" {...register("group_leader_policy")} />
-            <span 
-              onClick={() => handlePolicyClick('/GroupLeaderPolicy')}
-              style={{ cursor: 'pointer', textDecoration: 'underline', color: '#0000EE' }}
+            <span
+              onClick={() => handlePolicyClick("/GroupLeaderPolicy")}
+              style={{
+                cursor: "pointer",
+                textDecoration: "underline",
+                color: "#0000EE",
+              }}
             >
               I have read and agree to the group leader policy
             </span>

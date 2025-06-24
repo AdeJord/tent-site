@@ -3,15 +3,15 @@ import React from "react";
 import styled from "styled-components";
 import "@fontsource/roboto"; // Defaults to weight 400.
 import { Link } from "react-router-dom";
-import { TextContainer, Header } from '../ComponentStyles';
+import { TextContainer, Header } from "../ComponentStyles";
 
 // Creating styled-components with responsive styles
 const Container = styled.div`
-padding-bottom: 50px;
+  padding-bottom: 50px;
   max-width: 85%;
   margin: 0 auto;
   height: auto;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
 
   @media (max-width: 768px) {
     padding: 15px;
@@ -72,7 +72,7 @@ const Highlight = styled.span`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: #007BFF;
+  color: #007bff;
 
   &:hover {
     text-decoration: underline;
@@ -86,21 +86,30 @@ const AimsAndObjectives = () => {
       <Section>
         <Title>Our Mission</Title>
         <Text>
-          At our core, we strive to make the beauty of the canals accessible to everyone. Our mission is to provide affordable day trips for community groups and families, especially those with elderly, disabled, unwell, or disadvantaged members.
+          To provide affordable day trips on the canals for community groups and
+          families with members who are elderly, disabled, have special needs or
+          health issues.
         </Text>
       </Section>
       <Section>
         <Title>Connecting Urban Communities with Nature</Title>
         <Text>
-          We aim to offer individuals from predominantly urban areas a chance to experience the serene countryside and explore the inland waterways, fostering a deeper connection with nature.
+          We aim to offer individuals from predominantly urban areas a chance to
+          experience the serene countryside and explore the inland waterways,
+          fostering a deeper connection with nature.
         </Text>
       </Section>
       <Section>
         <Title>
-          <StyledLink to="/training-courses">Accredited Crew Training</StyledLink>
+          <StyledLink to="/TrainingCourses">
+            Accredited Crew Training
+          </StyledLink>
         </Title>
         <Text>
-          We are committed to education and skill-building by offering accredited crew training courses. These courses are available to our trust volunteers, groups of young people, group leaders, and members of the public, ensuring safety and professionalism on every trip.
+          We are committed to education and skill-building by offering
+          accredited crew training courses. These courses are available to our
+          trust volunteers, groups of young people, group leaders, and members
+          of the public, ensuring safety and professionalism on every trip.
         </Text>
       </Section>
       <Section>
@@ -108,11 +117,11 @@ const AimsAndObjectives = () => {
           <StyledLink to="/volunteers">Inclusive Volunteering</StyledLink>
         </Title>
         <Text>
-          We believe in the power of community and inclusivity. Our organization provides volunteering opportunities for people from all walks of life, promoting a sense of purpose and community involvement.
+          We believe in the power of community and inclusivity. Our organization
+          provides volunteering opportunities for people from all walks of life,
+          promoting a sense of purpose and community involvement.
         </Text>
-        <Text>
-          
-          </Text>
+        <Text></Text>
       </Section>
     </Container>
   );

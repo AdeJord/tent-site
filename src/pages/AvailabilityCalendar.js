@@ -10,10 +10,18 @@ import Backdrop from "../modal/ModalBackdrop";
 
 const CustomNavigation = ({ activeStartDate }) => {
   const currentMonth = format(activeStartDate, "MMMM yyyy");
-
+  
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <h1>{currentMonth}</h1>
+    <div style={{ 
+      width: '100%',
+      padding: '10px 0',
+      textAlign: 'center',
+      fontSize: '1.2rem',
+      fontWeight: 'bold',
+      color: '#333',
+      
+    }}>
+      <h1 style={{ margin: 0 }}>{currentMonth}</h1>
     </div>
   );
 };
