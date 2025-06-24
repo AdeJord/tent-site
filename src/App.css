@@ -147,15 +147,15 @@ font-size: 1.6em;
 }
 
 .container {
-display: flex;
-background: #edece4;
-flex-direction: column;
-width: auto;
-height: 100%;
-align-items: center;
-padding: 15px;
-padding-top: 5px;
-overflow-y: scroll;
+  display: flex;
+  background: #edece4;
+  flex-direction: column;
+  width: auto;
+  height: 100%;
+  align-items: center;
+  padding: 15px !important;
+  padding-top: 5px !important;
+  overflow-y: scroll;
 }
 
 @media (max-width: 802px){
@@ -186,3 +186,79 @@ overflow-y: scroll;
 li {
   list-style-type: square;
 }
+
+.customCalendar {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.react-calendar__navigation {
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.react-calendar__navigation button {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+.react-calendar__month-view__weekdays {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  padding: 10px 0;
+}
+
+.react-calendar__month-view__days__day {
+  aspect-ratio: 1;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+.free {
+  background-color: #90EE90 !important;
+  color: #333 !important;
+}
+
+.booked {
+  background-color: #FFB6C1 !important;
+  color: #333 !important;
+}
+
+.not-operational {
+  background-color: #D3D3D3 !important;
+  color: #888 !important;
+}
+
+.calendar-key {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+}
+
+.key-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.key-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.key-item .not-operational { background-color: #D3D3D3; }
+.key-item .free { background-color: #90EE90; }
+.key-item .booked { background-color: #FFB6C1; }
