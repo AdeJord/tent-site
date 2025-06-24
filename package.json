@@ -3,15 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
     "@fontsource/roboto": "^4.5.5",
     "@hookform/resolvers": "^3.3.4",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
-    "@mui/icons-material": "^5.8.2",
-    "@mui/material": "^5.8.2",
-    "@mui/styles": "^5.8.0",
     "@react-google-maps/api": "^2.20.7",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
@@ -23,9 +18,7 @@
     "react": "^17.0.2",
     "react-calendar": "^4.8.0",
     "react-dom": "^17.0.2",
-    "react-google-maps": "^9.4.5",
     "react-hook-form": "^7.50.1",
-    "react-hook-google-maps": "0.0.3",
     "react-icons": "^4.3.1",
     "react-image-gallery": "^1.2.8",
     "react-material-ui-carousel": "^2.3.11",
@@ -42,22 +35,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm install --legacy-peer-deps && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": ["react-app", "react-app/jest"]
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
