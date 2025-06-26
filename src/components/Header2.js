@@ -11,15 +11,14 @@ import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.section`
   background: #9fdda8;
-  height: 11vw;
+  height: auto;
   color: black;
-  max-height: 140px;
+  min-height: 140px;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 3vh;
-  padding-bottom: 1vh;
+  padding-top: 2vh;
   top: 0;
   left: 0;
   position: relative;
@@ -32,7 +31,7 @@ const TopContainer = styled.div`
   display: flex;
   justify-content: space-between; // Keep space-between so that the title centers when the left logo is hidden
   align-items: center;
-  padding: 0 1vw;
+  padding: 0;
   cursor: pointer;
 `;
 
@@ -67,9 +66,9 @@ const DescriptionContainer = styled.div`
   font-size: 2vw; // Start with a base size for consistency
   margin: 0 25px;
   padding: 5px;
-  // @media (max-width: 802px) {
-  //   font-size: 0.9rem; // Slightly smaller font on smaller devices
-  // }
+  @media (max-width: 802px) {
+    font-size: 0.9rem; // Slightly smaller font on smaller devices
+  }
 `;
 
 const Hr = styled.hr`
@@ -103,8 +102,8 @@ const Header = () => {
         </LogoContainer>
       </TopContainer>
       <DescriptionContainer>
-        Providing fully inclusive boat trips on the Staffordshire and
-        Worcestershire canal.
+      Providing fully accessible narrowboat day trips on the South Staffs
+      waterways
       </DescriptionContainer>
       <MainNavWrap>
         <Mainnav />

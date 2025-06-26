@@ -39,25 +39,12 @@ export const SidebarData = [
     followLink: false,
     subNav: [
       {
-        title: "Volunteers",
-        path: "/Volunteers",
-        cName: "sub-nav",
-        closeMenu: true,
-        followLink: true,
-      },
-      {
         title: 'The "Enterprise"',
         path: "/TheEnterprise",
         cName: "sub-nav",
         closeMenu: true,
         followLink: true,
       },
-      // {
-      //   title: 'Details And Diagrams',
-      //   path: '/AboutUs/DetailsAndDiagrams',
-      //   cName: 'sub-nav',
-      //   closeMenu: true
-      // },
       {
         title: "Aims And Objectives",
         path: "AimsAndObjectives",
@@ -72,6 +59,29 @@ export const SidebarData = [
         closeMenu: true,
         followLink: true,
       },
+      {
+        title: "Volunteers",
+        path: "/Volunteers",
+        cName: "sub-nav",
+        closeMenu: true,
+        followLink: true,
+      },
+      {
+        title: "Useful Links",
+        path: "/UsefulLinks",
+        cName: "sub-nav",
+        closeMenu: true,
+        followLink: true,
+      },
+
+      // {
+      //   title: 'Details And Diagrams',
+      //   path: '/AboutUs/DetailsAndDiagrams',
+      //   cName: 'sub-nav',
+      //   closeMenu: true
+      // },
+
+
       // {
       //   title: "Meet The Crew",
       //   path: "/MeetTheCrew",
@@ -86,13 +96,7 @@ export const SidebarData = [
         closeMenu: true,
         followLink: true,
       },
-      {
-        title: "Useful Links",
-        path: "/UsefulLinks",
-        cName: "sub-nav",
-        closeMenu: true,
-        followLink: true,
-      },
+
     ],
   },
 
@@ -107,16 +111,16 @@ export const SidebarData = [
     followLink: false,
     subNav: [
       {
-        title: "Book Your Trip Now",
+        title: "2025 Bookings",
         path: "/BookNow",
         cName: "sub-nav",
         closeMenu: true,
         followLink: true,
       },
       {
-        title: "Covid Safe Cruising",
-        path: "/CovidSafeCruising",
-        cName: "sub-nav)",
+        title: "Book Your Trip",
+        path: "/BookYourTrip",
+        cName: "sub-nav",
         closeMenu: true,
         followLink: true,
       },

@@ -1,71 +1,82 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import "@fontsource/roboto"; // Defaults to weight 400.
-import TENTlogo from '../images/TENTlogo.PNG';
-import Mainnav from './Mainnav';
+import TENTlogo from "../images/TENTlogo.PNG";
+import Mainnav from "./Mainnav";
+import { useNavigate } from "react-router-dom";
+
+//hex colour for TENT Logo background #9FDDA8
+// hex colour for content background #EDECE4
+//THIS IS THE ONE WITH THE BURGER BUTTON
 
 const Wrapper = styled.section`
-  background: #9FDDA8;
+  background: #9fdda8;
+  height: auto;
   color: black;
-  min-height: 90px;
-  width: 50%;
+  max-height: 140px;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 0;
-  position: fixed; // Changed from relative to fixed to keep it on top
+  padding-top: 3vh;
+  padding-bottom: 2vh;
   top: 0;
   left: 0;
-  z-index: 1000; // Ensure it's above other elements
+  position: relative;
+  justify-content: space-around;
 `;
 
 const TopContainer = styled.div`
   width: 100%;
+  height: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; // Keep space-between so that the title centers when the left logo is hidden
   align-items: center;
-  padding: 0 20px; // Added padding
+  padding: 0 1vw;
+  cursor: pointer;
 `;
 
 const TitleContainer = styled.div`
   color: #1a1111;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   display: flex;
+  padding-left: 11vw;
   flex-direction: column;
-  font-size: 1.7em;
-  width: auto; // Changed from 95% to auto
+  font-size: 3.7vw;
+  text-align: center; // Ensure text is centered within the title container
+  flex-grow: 1;
+  justify-content: center; // Center title vertically in the container
 `;
 
 const LogoContainer = styled.div`
   display: flex;
-  align-items: center; // Vertically center the logo
-  width: auto; // Ensures container only takes up as much space as needed
+  align-items: center;
   img {
-    height: auto; // Ensures the height adjusts with width to maintain aspect ratio
-    width: 8em; // Sets a fixed width for consistency
-    @media (max-width: 500px) {
-      width: 6em; // Smaller logo on small devices
-    }
+    height: auto;
+    width: 15vw;
+    max-width: 150px;
   }
 `;
 
 const DescriptionContainer = styled.div`
   display: flex;
-  font-family: 'Roboto Condensed', sans-serif;
+  // background: red;
+  font-family: "Roboto Condensed", sans-serif;
   color: #1a1111;
-  text-align: center;
-  font-size: 1rem; // Start with a base size for consistency
+  text-align: left;
+  font-size: 2vw; // Start with a base size for consistency
   margin: 0 25px;
   padding: 5px;
-  @media (max-width: 802px) {
-    font-size: 0.9rem; // Slightly smaller font on smaller devices
-  }
+  // @media (max-width: 802px) {
+  //   font-size: 0.9rem; // Slightly smaller font on smaller devices
+  // }
 `;
 
 const Hr = styled.hr`
-  width: 95%;
+  margin-left: 10vw;
+  width: 73%;
   background-color: grey;
-  margin-top: 1rem; // Use rem for consistent scaling
+  // margin-top: 1rem; // Use rem for consistent scaling
 `;
 
 const MainNavWrap = styled.div`
@@ -75,29 +86,31 @@ const MainNavWrap = styled.div`
 `;
 
 const Header = () => {
+
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
-      <TopContainer>
-        <LogoContainer>
-          {/* <img src={TENTlogo} alt="TENT logo" /> */}
-        </LogoContainer>
+      <TopContainer
+          onClick={() => navigate('/')}>
         <TitleContainer>
-          Truman Enterprise Narrowboat Trust
+          <>Truman Enterprise Narrowboat Trust </>
           <Hr />
         </TitleContainer>
+
         <LogoContainer>
-          <img src={TENTlogo} alt="TENT logo" />
+          <img src={TENTlogo} alt="tent logo" />
         </LogoContainer>
       </TopContainer>
-
       <DescriptionContainer>
-        Providing fully inclusive boat trips on the Staffordshire and Worcestershire canal.
+        Providing fully inclusive boat trips on the Staffordshire and
+        Worcestershire canal.
       </DescriptionContainer>
       <MainNavWrap>
         <Mainnav />
       </MainNavWrap>
     </Wrapper>
   );
-}
+};
 
 export default Header;

@@ -70,14 +70,14 @@ const Footer = () => {
   return (
     <Container>
       <Footer1>
-        <img src = {ncbaLogo} alt='NCBA Logo' style={{  paddingLeft: '5vw', width:'10vw', height:'7vh'}}/>
+        <img src = {ncbaLogo} alt='NCBA Logo' style={{  paddingLeft: '5vw', width:'10vw', height:'5vh'}}/>
       </Footer1>
       <Footer2>
       Truman Enterprise Narrowboat Trust. Registered Charity number - 1037914
 Member of the National Community Boats Association
       </Footer2>
       <Footer3>
-      <img src = {iwaLogo} alt='IWA Logo' style={{ paddingLeft: '3vw', width:'12vw', height:'6vh'}} />
+      <img src = {iwaLogo} alt='IWA Logo' style={{ paddingLeft: '3vw', width:'12vw', height:'5vh'}} />
       </Footer3>
     </Container>
   );

@@ -24,7 +24,7 @@ const NavIcon = styled(Link)`
 // i think the issue with the spacing of the links on main mav is in the below block.
 const MainNavBar = styled.nav`
   color: white;
-  margin-top: .5vw;
+  // margin-top: .5vw;
   padding-top: 5px;
   font-size: 12px;
   font-family: "Roboto";
